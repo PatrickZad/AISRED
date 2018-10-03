@@ -120,6 +120,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKW28tsI0frk="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1992,
 									"top": 2177,
@@ -135,6 +136,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKW28tsI0frk="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1992,
 									"top": 2187,
@@ -179,10 +181,12 @@
 							"left": 1992,
 							"top": 2152,
 							"width": 90.57080078125,
-							"height": 45,
+							"height": 41,
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKW28usI3GUg="
 							},
+							"suppressAttributes": true,
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKW28vsI8jqw="
 							},
@@ -1023,6 +1027,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKW9MB8N1Nlw="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2312,
 									"top": 1417,
@@ -1050,7 +1055,7 @@
 											},
 											"font": "Arial;13;2",
 											"left": 2317,
-											"top": 1432,
+											"top": 1422,
 											"width": 94.25,
 											"height": 13,
 											"text": "+训练模型()",
@@ -1067,7 +1072,7 @@
 											},
 											"font": "Arial;13;2",
 											"left": 2317,
-											"top": 1447,
+											"top": 1437,
 											"width": 94.25,
 											"height": 13,
 											"text": "+测试模型()",
@@ -1084,7 +1089,7 @@
 											},
 											"font": "Arial;13;2",
 											"left": 2317,
-											"top": 1462,
+											"top": 1452,
 											"width": 94.25,
 											"height": 13,
 											"text": "+信息抽取()",
@@ -1093,7 +1098,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 2312,
-									"top": 1427,
+									"top": 1417,
 									"width": 104.25,
 									"height": 53
 								},
@@ -1139,6 +1144,7 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKW9MB8N480M="
 							},
+							"suppressAttributes": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKW9MC8N9pE4="
 							},
@@ -2180,9 +2186,9 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 3920,
-											"top": 1600,
-											"width": 73.67724609375,
+											"left": 2269,
+											"top": 1006,
+											"width": 137.63623046875,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2329,6 +2335,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKXxIrsX3z2M="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2264,
 									"top": 1092,
@@ -2373,10 +2380,11 @@
 							"left": 2264,
 							"top": 984,
 							"width": 147.63623046875,
-							"height": 118,
+							"height": 108,
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKXxIrsX6gxc="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKXxIssX/OG4="
 							},
@@ -2490,6 +2498,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKZTSW8paZQk="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1656,
 									"top": 993,
@@ -2517,7 +2526,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1661,
-											"top": 1008,
+											"top": 998,
 											"width": 98.57275390625,
 											"height": 13,
 											"text": "+无效文本剔除()",
@@ -2534,7 +2543,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1661,
-											"top": 1023,
+											"top": 1013,
 											"width": 98.57275390625,
 											"height": 13,
 											"text": "+切分GWT描述()",
@@ -2551,7 +2560,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 1661,
-											"top": 1038,
+											"top": 1028,
 											"width": 98.57275390625,
 											"height": 13,
 											"text": "+GWT描述生成()",
@@ -2560,7 +2569,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 1656,
-									"top": 1003,
+									"top": 993,
 									"width": 108.57275390625,
 									"height": 53
 								},
@@ -2606,6 +2615,7 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKZTSW8pdato="
 							},
+							"suppressAttributes": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKZTSW8piMSE="
 							},
@@ -3097,6 +3107,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKa074vye2FQ="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1656,
 									"top": 1292,
@@ -3141,10 +3152,11 @@
 							"left": 1656,
 							"top": 1184,
 							"width": 161,
-							"height": 118,
+							"height": 108,
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKa074vyhjsE="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKa074vymLWE="
 							},
@@ -3453,6 +3465,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKa9gQAV9uWM="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1656,
 									"top": 1492,
@@ -3501,6 +3514,7 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKa9gQAWAH3o="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKa9gQAWF5SA="
 							},
@@ -6912,6 +6926,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKlVAH67CNSI="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2272,
 									"top": 2136,
@@ -6960,6 +6975,7 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKlVAH67FaSE="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKlVAIK7Kqpg="
 							},
@@ -7107,6 +7123,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKlVDhq+QViY="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2392,
 									"top": 2136,
@@ -7155,6 +7172,7 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKlVDhq+TSdA="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKlVDhq+YdLY="
 							},
@@ -7302,6 +7320,7 @@
 									"model": {
 										"$ref": "AAAAAAFmKlVHDLBe5J0="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2536,
 									"top": 2144,
@@ -7350,6 +7369,7 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmKlVHFrBhikg="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmKlVHFrBmHKk="
 							},
@@ -7695,9 +7715,9 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": -80,
-											"top": -400,
-											"width": 73.67724609375,
+											"left": 1661,
+											"top": 2054,
+											"width": 100.08349609375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -7895,6 +7915,7 @@
 									"model": {
 										"$ref": "AAAAAAFmLsDxIxjPS6U="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 1656,
 									"top": 2185,
@@ -7939,10 +7960,11 @@
 							"left": 1656,
 							"top": 2032,
 							"width": 110.08349609375,
-							"height": 163,
+							"height": 153,
 							"nameCompartment": {
 								"$ref": "AAAAAAFmLsDxJxjS5x4="
 							},
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmLsDxJxjX+9M="
 							},
@@ -8056,6 +8078,7 @@
 									"model": {
 										"$ref": "AAAAAAFmL0QLDpyFrho="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2144,
 									"top": 2113,
@@ -8071,6 +8094,7 @@
 									"model": {
 										"$ref": "AAAAAAFmL0QLDpyFrho="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"left": 2144,
 									"top": 2123,
@@ -8119,6 +8143,8 @@
 							"nameCompartment": {
 								"$ref": "AAAAAAFmL0QLDpyIZqw="
 							},
+							"suppressAttributes": true,
+							"suppressOperations": true,
 							"attributeCompartment": {
 								"$ref": "AAAAAAFmL0QLDpyNa0g="
 							},
@@ -9302,7 +9328,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW3iiMJeRXw="
 							},
-							"name": "GWT描述集合"
+							"name": "GWT描述集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -9450,7 +9477,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW8KBMMhINk="
 							},
-							"name": "分词结果集合"
+							"name": "分词结果集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -9564,7 +9592,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW8h0MNLhUA="
 							},
-							"name": "标注结果集合"
+							"name": "标注结果集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -9741,7 +9770,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW+F48Ofafs="
 							},
-							"name": "基本抽取结果集合"
+							"name": "基本抽取结果集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -9936,7 +9966,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW+n28PJjjo="
 							},
-							"name": "关系抽取结果集合"
+							"name": "关系抽取结果集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -10076,7 +10107,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW/DW8Pzb0w="
 							},
-							"name": "事件流抽取结果集合"
+							"name": "事件流抽取结果集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -10287,7 +10319,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKW/4G8QdXWs="
 							},
-							"name": "RUCM描述集合"
+							"name": "RUCM描述集合",
+							"type": ""
 						}
 					],
 					"operations": [
@@ -10504,7 +10537,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKXxIrsX3z2M="
 							},
-							"name": "Feature值"
+							"name": "Feature值",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10512,7 +10546,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKXxIrsX3z2M="
 							},
-							"name": "Scenario值"
+							"name": "Scenario值",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10520,7 +10555,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKXxIrsX3z2M="
 							},
-							"name": "Given值"
+							"name": "Given值",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10528,7 +10564,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKXxIrsX3z2M="
 							},
-							"name": "When值"
+							"name": "When值",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10536,7 +10573,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKXxIrsX3z2M="
 							},
-							"name": "Then值"
+							"name": "Then值",
+							"type": ""
 						}
 					]
 				},
@@ -10792,7 +10830,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa074vye2FQ="
 							},
-							"name": "Feature词链"
+							"name": "Feature词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10800,7 +10839,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa074vye2FQ="
 							},
-							"name": "Scenario词链"
+							"name": "Scenario词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10808,7 +10848,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa074vye2FQ="
 							},
-							"name": "Given词链"
+							"name": "Given词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10816,7 +10857,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa074vye2FQ="
 							},
-							"name": "When词链"
+							"name": "When词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10824,7 +10866,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa074vye2FQ="
 							},
-							"name": "Then词链"
+							"name": "Then词链",
+							"type": ""
 						}
 					]
 				},
@@ -10842,7 +10885,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa9gQAV9uWM="
 							},
-							"name": "Feature标注词链"
+							"name": "Feature标注词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10850,7 +10894,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa9gQAV9uWM="
 							},
-							"name": "ScenarioTag标注词链"
+							"name": "ScenarioTag标注词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10858,7 +10903,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa9gQAV9uWM="
 							},
-							"name": "Given标注词链"
+							"name": "Given标注词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10866,7 +10912,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa9gQAV9uWM="
 							},
-							"name": "When标注词链"
+							"name": "When标注词链",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -10874,7 +10921,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKa9gQAV9uWM="
 							},
-							"name": "Then标注词链"
+							"name": "Then标注词链",
+							"type": ""
 						}
 					]
 				},
@@ -11071,7 +11119,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKbBdtw0Nv0c="
 							},
-							"name": "Steps"
+							"name": "Steps",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11079,7 +11128,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKbBdtw0Nv0c="
 							},
-							"name": "Postcondition"
+							"name": "Postcondition",
+							"type": ""
 						}
 					]
 				},
@@ -11112,7 +11162,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKlVAH67CNSI="
 							},
-							"name": "RFS"
+							"name": "RFS",
+							"type": ""
 						}
 					]
 				},
@@ -11179,7 +11230,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmKlVHDLBe5J0="
 							},
-							"name": "RFS"
+							"name": "RFS",
+							"type": ""
 						}
 					]
 				},
@@ -11197,7 +11249,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "UseCaseName"
+							"name": "UseCaseName",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11205,7 +11258,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "BriefDescription"
+							"name": "BriefDescription",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11213,7 +11267,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "Precondition"
+							"name": "Precondition",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11221,7 +11276,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "PrimaryActor"
+							"name": "PrimaryActor",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11229,7 +11285,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "SecondaryActor"
+							"name": "SecondaryActor",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11237,7 +11294,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "Dependency"
+							"name": "Dependency",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11245,7 +11303,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "Generalization"
+							"name": "Generalization",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -11253,7 +11312,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFmLsDxIxjPS6U="
 							},
-							"name": "Flows"
+							"name": "Flows",
+							"type": ""
 						}
 					]
 				},
