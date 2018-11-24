@@ -32,8 +32,14 @@ Given-When-Then or GWT is a semi-structured way to write down test cases. They c
 - 具体转化例子
 - 分工
 ## 孙
-## 刘
-## 张
-## 赵
-- 职责：
+- 职责：Leader、一致性检测、文档撰写
 - 任务：
+## 刘
+- 职责：coding、test、模型修改、一致性检测（主要）
+- 任务：修改模型，加一下protocol（最好做出），一致性检测
+## 张
+- 职责：coding、test、ocl撰写
+- 任务：GWT导入器、RUCM Generator、中间标签生成器
+## 赵
+- 职责：coding、test、ocl撰写
+- 任务：搭数据库，数据调度器，表示层
