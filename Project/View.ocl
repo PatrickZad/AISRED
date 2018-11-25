@@ -1,0 +1,20 @@
+context View::selectFile():File
+    pre:
+    post: return = inputFile
+
+context View::importBackgroundTrigger(inputFile:File):Boolean
+    pre:
+    post: return = result
+
+context View::importGWTTrigger(inputFile:File):Boolean
+    pre:
+    post: return = result
+
+context View::getGWTlist():String[]
+    pre:
+    post: return = GWTlist
+
+context View::generateRUCM():String[]
+    pre:
+    post: 生成RUCM.doc
+          return = failedGWTlist

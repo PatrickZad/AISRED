@@ -1,0 +1,17 @@
+context backgroundDao::getContentList
+context backgroundDao::insert
+context backgroundDao::update
+
+context GWTDao::getGWTListById(ids:String[]):GWT[]
+    pre:
+    post: return = GWTlist
+context GWTDao::getScenario_Id_List():[GWT.id:String,GWT.Scenario:String]List
+    pre:
+    post: return = result
+context backgroundDao::insert(data:GWT):Boolean
+    pre:
+    post: return = result
+context backgroundDao::update(data:GWT):Boolean
+    pre:
+    post: return = result
+
