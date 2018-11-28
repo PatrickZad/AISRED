@@ -1,0 +1,27 @@
+context backgroundDao::getContentList
+context backgroundDao::insert
+context backgroundDao::update
+
+context GWTDao::getGWTListById(id int):GWT or False
+    pre:if Taged then flowType != None
+        异常检测
+    post: return = if 成功得到 then GWT or TagedGWT else False
+context GWTDao::getId_Scenario_List():(GWT.id:int,GWT.Scenario:String)List
+    pre:异常检测
+    post: return = result
+context GWTDao::insert_gwt(data:GWT):
+    pre: 异常检测
+         该GWT的Scenario是独一无二的
+         if Taged then flowType != None
+         Scenario必须是String类型
+         Givens,Whens,Thens,Features都必须是列表类型
+         插入的GWT均为未打标签的GWT，即只有Content:String和Sequence:Int
+         Feature一经导入不再改变
+    post: 将该GWT导入，并自动生成id号
+context GWTDao::insert_taged_gwt(data:GWT):Boolean
+    pre: 异常检测
+         该GWT的Scenario已经存入数据库中，且传入的GWT的gwt_id需要在数据库中，不然不进行更新
+         该GWT为TagedGWT
+         TagedSentence两边都需加上对方的关联标签，虽然这样会比较浪费空间，但是便于查询，以后可以进行修改
+         Feature一经导入不再改变
+    post: return = result
