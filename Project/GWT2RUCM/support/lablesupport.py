@@ -1,12 +1,15 @@
-
 class LableGenerator():
-    def __init__(self,nlpExecutor):
-        self.nlp=nlpExecutor
-    def generateLable():
-        //TODO
-    def __simpleLable():
-        //TODO
-    def __normalize():
-        //TODO
-    def __addGWTLable():
-        //TODO
+    def __init__(self, nlpExecutor):
+        self.nlp = nlpExecutor
+
+    def generateLable(self):
+        pass
+
+    def __simpleLable(self):
+        pass
+
+    def __normalize(self):
+        pass
+
+    def __addGWTLable(self):
+        pass

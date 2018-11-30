@@ -2,7 +2,7 @@ class GWT(object):
     __slots__ = ('gwt_id', 'Scenario', 'Features', 'Givens', 'Whens', 'Thens')
 
 
-class TagedGWT(GWT):
+class TaggedGWT(GWT):
     __slots__ = ('useCaseName', 'BranchScenarios', 'preScenarios', 'postScenarios', 'flowType')
 class RUCM():
     __slots__=('useCaseName','briefDescription','precondition','primaryActor','secondaryActors','dependency','generalization','basic','specific','bounded','global')
@@ -14,7 +14,7 @@ class Sentence(object):
     __slots__ = ('sentence_id', 'type', 'content', 'sequence')
 
 
-class TagedSentence(Sentence):
+class TaggedSentence(Sentence):
     __slots__ = ('secondType', 'associations')
 
 

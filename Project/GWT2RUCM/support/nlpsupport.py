@@ -1,16 +1,24 @@
 from stanfordcorenlp import StanfordCoreNLP
+
+
 class NLPExecutor():
-    def __init__(self):
-        self.nlp=StanfordCoreNLP(r'./stanford-corenlp-full-2018-10-05',lang='zh')
-    def wordTokenize(self,sentance):
-        //TODO
-    def posTag(self,sentance):
-        //TODO
-    def dictUpdate(self,wordDict):
-        //TODO
-    def anaphoraResolution(self,text):
-        //TODO
-    def sentComposite(self,text):
-        //TODO
-    def featureExtract(self,text):
-        //TODO
+    def __init__(self, path):
+        self.nlp = StanfordCoreNLP(path, lang='zh')
+
+    def wordTokenize(self, sentence):
+        pass
+
+    def posTag(self, sentence):
+        pass
+
+    def dictUpdate(self, wordDict):
+        pass
+
+    def anaphoraResolution(self, text):
+        pass
+
+    def sentComposite(self, text):
+        pass
+
+    def featureExtract(self, text):
+        pass
