@@ -52,10 +52,7 @@ class GWTdao(object):
 
     def __del__(self):
         self.__connection.close()
-'''
-未修改
-id应该是一个list来保证获得的是gwt list，内部要加循环
-'''
+
     def get_gwt_list_by_id(self, gwtIdList):
         '''
         #patrick
