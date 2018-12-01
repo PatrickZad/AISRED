@@ -3,7 +3,6 @@ from data.datatype import GWT, TaggedGWT, Sentence, TaggedSentence, Association,
 
 
 def connect_db():
-    
     """
     Connects to the specific database.
     在此之前你需要使用init.sql文件构建数据库
@@ -11,7 +10,7 @@ def connect_db():
     """
     rv = sqlite3.connect('db')
     rv.row_factory = sqlite3.Row
-    rv.cursor().executescript(r'../init.sql')#执行sql脚本init
+    rv.cursor().executescript(r'../init.sql')  # 执行sql脚本init
     return rv
 
 
@@ -59,7 +58,7 @@ class GWTdao(object):
         if not isinstance(gwt_id, int):
             return False
         '''
-        gwtList=[]
+        gwtList = []
         for gwt_id in gwtIdList:
             gwt = TaggedGWT()
             tmps = self.__connection.execute('select * from GWT_tb where id=' + str(gwt_id)).fetchall()

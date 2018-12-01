@@ -4,10 +4,14 @@ class GWT(object):
 
 class TaggedGWT(GWT):
     __slots__ = ('useCaseName', 'BranchScenarios', 'preScenarios', 'postScenarios', 'flowType')
+
+
 class RUCM():
-    __slots__=('useCaseName','briefDescription','precondition','primaryActor','secondaryActors','dependency','generalization','basic','specific','bounded','global')
-    def __init__(self,name):
-        self.useCaseName=name
+    __slots__ = ('useCaseName', 'briefDescription', 'precondition', 'primaryActor', 'secondaryActors', 'dependency',
+                 'generalization', 'basic', 'specific', 'bounded', 'global')
+
+    def __init__(self, name):
+        self.useCaseName = name
 
 
 class Sentence(object):
@@ -25,32 +29,44 @@ class Association(object):
 class Scenario(object):
     __slots__ = ('gwtId', 'conditionIds')
 
+
 class BasicFlow():
     def __init__(self):
-        self.actions=[]
-        self.postCondition=''
-    def addAction(action):
+        self.actions = []
+        self.postCondition = ''
+
+    def addAction(self, action):
         self.actions.append(action)
+
+
 class SpecificFlow():
     def __init__(self):
-        self.rfs=0
-        self.actions=[] 
-        self.postCondition=''
-    def addAction(action):
+        self.rfs = 0
+        self.actions = []
+        self.postCondition = ''
+
+    def addAction(self, action):
         self.actions.append(action)
+
+
 class BoundedFlow():
     def __init__(self):
-        self.rfs=[]
-        self.actions=[]
-        self.postCondition='' 
-    def addRFS(num):
+        self.rfs = []
+        self.actions = []
+        self.postCondition = ''
+
+    def addRFS(self, num):
         self.rfs.append(num)
-    def addAction(action):
+
+    def addAction(self, action):
         self.actions.append(action)
+
+
 class GlobalFlow():
     def __init__(self):
-        self.condition=[]
-        self.actions=[] 
-        self.postCondition=''
-    def addAction(action):
+        self.condition = []
+        self.actions = []
+        self.postCondition = ''
+
+    def addAction(self, action):
         self.actions.append(action)
