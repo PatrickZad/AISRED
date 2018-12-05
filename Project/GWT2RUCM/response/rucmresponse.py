@@ -1,8 +1,9 @@
 from support.lablesupport import LableGenerator
 from support.nlpsupport import NLPExecutor
-from support.datasupport import GWTdao
-from data.datatype import RUCM
-from textrank4zh import TextRank4Sentence
+from data.datatype import RUCM, BasicFlow, SpecificFlow, BoundedFlow, GlobalFlow
+from datetime import datetime
+import re
+
 
 class RUCMGnerator():
     '''
@@ -54,17 +55,47 @@ class RUCMGnerator():
 
     def __generateRUCM(self, taggedList):
         rucm = RUCM(taggedList[0].useCaseName)
-        self.__briefDescription(taggedList, rucm)
-        rucm.precondition = ''
+        self.__briefDescription(self.startGWT, rucm)
+        rucm.precondition = self.startGWT.commonPrec
+        # TODO 根据关键字从given和when的句子中取得Dependency，Generalization暂定为None,
+        rucm.dependency = ''
         for taggedGWT in taggedList:
-            if taggedGWT.preScenarios == None:
+            if taggedGWT.flowType == 'basic':
+                self.startGWT = taggedGWT  # 标记初始GWT
                 for sentence in taggedGWT.Givens:
+                    '''
                     if sentence.type == 'precondition':
                         rucm.precondition = rucm.precondition + sentence.content
-        #TODO 命名实体识别获取Actor
-        #TODO 根据关键字取得Dependency，Generalization
-        self.__basicFlow(taggedList,rucm)
-        self.__alternativeFlow(taggedList,rucm)
+                        '''
+                    # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
+                    self.__addDependency(rucm, sentence)
+                # NTODO 命名实体识别获取Actor 暂定为获取各句第一个命名实体，取最多的为PrimaryActor，sencond暂定为None
+                # entityList = []
+                for sentence in taggedGWT.Whens:
+                    if sentence.type == 'action':
+                        # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
+                        self.__addDependency(rucm, sentence)
+                        '''
+                        entityList.append(self.nlp.firstNamedEntities(sentence))
+                        entityDict = {}
+                        for entity in entityList:
+                            if entity in entityDict:
+                                entityDict[entity] = entityDict[entity] + 1
+                            else:
+                                entityDict[entity] = 1
+                        actor = 'None'
+                        num = 0
+                        for entity, amount in entityDict.items():
+                            if amount > num and entity != '系统 ':
+                                actor = entity
+                        rucm.primaryActor = actor
+                        rucm.secondaryActors = 'None'
+                        '''
+        # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
+        rucm.generalization = 'None'
+        self.__basicFlow(self.startGWT, rucm)
+        self.__alternativeFlow(taggedList, rucm)
+        return rucm
 
     '''
     param:
@@ -75,25 +106,33 @@ class RUCMGnerator():
     '''
 
     def __briefDescription(self, taggedList, rucm):
-        scenario=''
+        scenario = ''
         for taggedGWT in taggedList:
-            scenario=scenario+taggedGWT.Scenario
-        tr=TextRank4Sentence()
-        tr.analyze(text=scenario)
-        rucm.briefDescription=''
-        for sentence in tr.get_key_sentences(num=3):#TODO 摘要生成实现方法待选
-            rucm.briefDescription=rucm.briefDescription+sentence
+            scenario = scenario + taggedGWT.Scenario
+        brSentences = self.nlp.generateSummary(scenario)
+        for sentence in brSentences:
+            rucm.briefDescription = rucm.briefDescription + sentence
 
     '''
     param:
-        taggedList:从数据库取得的待处理的TaggedGWT的list
+        start:BasicFlow的首个gwt
         rucm:不完整的rucm对象等待填充
     return:
         修改对象，不返回新值
     '''
 
-    def __basicFlow(self, taggedList, rucm):
-        pass
+    def __basicFlow(self, start, rucm):
+        rucm.basic = BasicFlow()
+        rucm.basic.actions = [sentence.content for sentence in start.Whens if sentence.type == 'action']
+        # TODO 假定postScenario指向唯一的后继gwt
+        while start.postScenarios is not None:
+            for sentence in start.postScenarios.Whens:
+                if sentence.type == 'action':
+                    rucm.basic.addAction(sentence.content)
+            start = start.postScenarios
+        for sentence in start.Thens:
+            if sentence.type == 'postcondition':
+                rucm.basic.postCondition += sentence.content
 
     '''
     param:
@@ -104,7 +143,41 @@ class RUCMGnerator():
     '''
 
     def __alternativeFlow(self, taggedList, rucm):
-        pass
+        # TODO 如何生成
+        rucm.specificAlt = []
+        rucm.boundedAlt = []
+        rucm.globalAlt = []
+        for taggedGWT in taggedList:
+            if taggedGWT.flowType == 'specific':
+                rucm.specificAlt = SpecificFlow()
+                rucm.basic.actions[taggedGWT.BranchScenarios[0]] = \
+                    self.nlp.addValidate(rucm.basic.actions[taggedGWT.BranchScenarios[0]])
+                rucm.specificAlt.rfs = taggedGWT.BranchScenarios[1]
+                rucm.specificAlt.actions = [sentence.content for sentence in taggedGWT.Whens
+                                            if sentence.type == 'action']
+                for sentence in taggedGWT.Thens:
+                    if sentence.type == 'postcondition':
+                        rucm.specificAlt.postCondition += sentence.content
+            elif taggedGWT.flowType == 'bounded':
+                rucm.boundedAlt = BoundedFlow()
+                rucm.boundedAlt.rfs = taggedGWT.BranchScenarios
+                rucm.boundedAlt.actions = [sentence.content for sentence in taggedGWT.Whens if
+                                           sentence.type == 'action']
+                for sentence in taggedGWT.Thens:
+                    if sentence.type == 'postcondition':
+                        rucm.boundedAlt.postCondition += sentence.content
+            elif taggedGWT.flowType == 'global':
+                rucm.globalAlt = GlobalFlow()
+                for sentence in taggedGWT.Givens:
+                    if sentence.type == 'precondition':
+                        contentGroup = re.match(r'.*GLOBAL\s*([\u4e00-\u9fa5]+)', sentence.content)
+                        if contentGroup:
+                            rucm.globalAlt.condition += contentGroup.group(1)
+                rucm.globalAlt.actions = [sentence.content for sentence in taggedGWT.Whens if
+                                          sentence.type == 'action']
+                for sentence in taggedGWT.Thens:
+                    if sentence.type == 'postcondition':
+                        rucm.globalAlt.postCondition += sentence.content
 
     '''
     param:
@@ -114,4 +187,19 @@ class RUCMGnerator():
     '''
 
     def __generateOutput(self):
-        pass
+        outpath = r'../outputfile/' + str(datetime.now().timestamp()) + r'.rucmout'
+        self.output = ''
+        for rucm in self.RUCMs:
+            self.output += rucm.__str__()
+        with open(outpath, 'w') as f:
+            f.write(self.output)
+        self.output = outpath
+
+    def __addDependency(self, rucm, sentence):
+        # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
+        inclu = re.match(r'INCLUDE\s*([\u4e00-\u9fa5]+).+', sentence.content)
+        if inclu:
+            rucm.dependency += 'INCLUDE USE CASE' + inclu.group(1) + ' '
+        extd = re.match(r'EXTENDED\s*([\u4e00-\u9fa5]+).+', sentence.content)
+        if extd:
+            rucm.dependency += 'EXTENDED BY USE CASE ' + extd.group(1) + ' '

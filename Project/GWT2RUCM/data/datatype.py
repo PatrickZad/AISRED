@@ -3,19 +3,68 @@ class GWT(object):
 
 
 class TaggedGWT(GWT):
-    __slots__ = ('useCaseName', 'BranchScenarios', 'preScenarios', 'postScenarios', 'flowType')
+    __slots__ = (
+    'useCaseName', 'PrimaryActor', 'SecondaryActors', 'BranchScenarios', 'preScenarios', 'postScenarios', 'flowType','cpmmonPrec')
+
+    def __init__(self):
+        self.PrimaryActor = 'None'
+        self.SecondaryActors = 'None'
+        self.preScenarios = None
+        self.postScenarios = None
+        self.flowType = None
 
 
 class RUCM():
     __slots__ = ('useCaseName', 'briefDescription', 'precondition', 'primaryActor', 'secondaryActors', 'dependency',
-                 'generalization', 'basic', 'specific', 'bounded', 'global')
+                 'generalization', 'basic', 'specificAlt', 'boundedAlt', 'globalAlt')
 
     def __init__(self, name):
         self.useCaseName = name
 
+    def __str__(self):
+        basicStr = 'Basic Flow:\n'
+        for i in range(0, len(self.basic.actions)):
+            basicStr += str(i + 1) + '.' + self.basic.actions[i] + '\n'
+        basicStr += 'postcondition:' + self.basic.postCondition + '\n'
+        specStr = ''
+        if len(self.specificAlt) > 0:
+            for spec in self.specificAlt:
+                specStr += 'Specific Alternative Flow: RFS ' + str(spec.rfs) + '\n'
+                for i in range(0, spec.actions):
+                    specStr += str(i + 1) + '.' + spec.actions[i] + '\n'
+                specStr += 'postcondition:' + spec.postcondition + '\n'
+        bounStr = ''
+        if len(self.boundedAlt) > 0:
+            for boun in self.boundedAlt:
+                bounStr += 'Bounded Alternative Flow: RFS ' + str(boun.rfs[0]) + '-' + str(boun.rfs[-1]) + '\n'
+                for i in range(0, len(boun.actions)):
+                    bounStr += str(i + 1) + '.' + boun.actions[i] + '\n'
+                bounStr += 'postcondition:' + boun.postcondition + '\n'
+        globStr = ''
+        if len(self.globalAlt) > 0:
+            for glob in self.globalAlt:
+                globStr += 'Global Alternative Flow: IF ' + glob.condition
+                for i in range(0, len(glob.actions)):
+                    globStr += str(i + 1) + '.' + glob.actions[i] + '\n'
+                globStr += 'postcondition:' + glob.postcondition + '\n'
+        return 'Use Case Name: ' + self.useCaseName + '\n ' + 'Brief Description:' \
+               + self.briefDescription + '\n', +'Precondition: ' + self.precondition + '\n' \
+               + 'Primary Actor:' + self.primaryActor + '\n' + 'Secondary Actors:' + \
+               +self.secondaryActors + '\n' + 'Dependency:' + self.dependency + '\n' \
+               + 'Generalization' + self.generalization + '\n' + self.basic + self.specificAlt \
+               + self.boundedAlt + self.globalAlt
+
 
 class Sentence(object):
     __slots__ = ('sentence_id', 'type', 'content', 'sequence')
+
+    def __init__(self, stype=None, content=None, sequence=None):
+        if stype is not None:
+            self.type = stype
+        if content is not None:
+            self.content = content
+        if sequence is not None:
+            self.sequence = sequence
 
 
 class TaggedSentence(Sentence):
@@ -64,7 +113,7 @@ class BoundedFlow():
 
 class GlobalFlow():
     def __init__(self):
-        self.condition = []
+        self.condition = ''
         self.actions = []
         self.postCondition = ''
 

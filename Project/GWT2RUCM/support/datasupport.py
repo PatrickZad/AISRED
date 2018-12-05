@@ -119,26 +119,27 @@ class GWTdao(object):
         tmp0 = self.__connection.execute("select last_insert_rowid()").fetchall()
         tmp0 = tmp0[0][0]
         for t in gwt.Features:
-            self.__connection.execute("insert into Sentence(content) values ('%s')" % t.content)
+            self.__connection.execute("insert into Sentence(Stype,content) values ('%s','%s')" % t.type, t.content)
             self.__connection.commit()
             tmp1 = self.__connection.execute("select last_insert_rowid()").fetchall()
             self.__connection.execute(
                 "insert into gwtSentence values ('%s','%s','%s')" % (str(tmp0), str(tmp1[0][0]), 'feature'))
         for t in gwt.Givens:
-            self.__connection.execute("insert into Sentence(content) values ('%s')" % t.content)
+            self.__connection.execute("insert into Sentence(Stype,content) values ('%s','%s')" % t.type, t.content)
             self.__connection.commit()
             tmp1 = self.__connection.execute("select last_insert_rowid()").fetchall()
             self.__connection.execute(
                 "insert into gwtSentence values ('%s','%s','%s')" % (str(tmp0), str(tmp1[0][0]), 'given'))
         for t in gwt.Thens:
-            self.__connection.execute("insert into Sentence(content) values ('%s')" % t.content)
+            self.__connection.execute("insert into Sentence(Stype,content) values ('%s','%s')" % t.type, t.content)
             self.__connection.commit()
             tmp1 = self.__connection.execute("select last_insert_rowid()").fetchall()
             self.__connection.execute(
                 "insert into gwtSentence values ('%s','%s','%s')" % (str(tmp0), str(tmp1[0][0]), 'then'))
         for t in gwt.Whens:
             self.__connection.execute(
-                "insert into Sentence(content,sequence) values ('%s','%s')" % (t.content, str(t.sequence)))
+                "insert into Sentence(Stype,content,sequence) values ('%s','%s','%s')" % (
+                t.type, t.content, str(t.sequence)))
             self.__connection.commit()
             tmp1 = self.__connection.execute("select last_insert_rowid()").fetchall()
             self.__connection.execute(
