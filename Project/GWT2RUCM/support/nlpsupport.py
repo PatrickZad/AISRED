@@ -3,6 +3,7 @@ from textrank4zh import TextRank4Sentence
 import ast
 from gensim import corpora
 from gensim.similarities import Similarity
+import jieba
 import re
 
 
@@ -53,7 +54,7 @@ class NLPExecutor():
         pass
 
     def dictUpdate(self, wordDict):
-        pass
+        jieba.load_userdict(wordDict)
 
     def anaphoraResolution(self, text):
         pass

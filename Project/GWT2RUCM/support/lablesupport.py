@@ -53,9 +53,11 @@ class LableGenerator():
     specific与basic的precondition只有一个不一样，从action不同判断rfs
     除以上剩下的即为bounded，从action两端判断rfs 
     同时取得commonPrec作为rucm的precondition
+    使用BranchScenarios属性储存rfs
     '''
 
     def __addGWTLable(self, gwtList):
+        #TODO bounded的rfs判断需要修改
         basic = gwtList[0]
         basic.flowType = 'basic'
         for gwt in gwtList[1:]:

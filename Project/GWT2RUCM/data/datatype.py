@@ -46,8 +46,8 @@ class RUCM():
                 globStr += 'Global Alternative Flow: IF ' + glob.condition
                 for i in range(0, len(glob.actions)):
                     globStr += str(i + 1) + '.' + glob.actions[i] + '\n'
-                globStr += 'postcondition:' + glob.postcondition + '\n'
-        return 'Use Case Name: ' + self.useCaseName + '\n ' + 'Brief Description:' \
+                globStr += 'END IF\npostcondition:' + glob.postcondition + '\n'
+        return 'Use Case Name: ' + self.useCaseName + '\n ' + 'Brief Description: ' \
                + self.briefDescription + '\n', +'Precondition: ' + self.precondition + '\n' \
                + 'Primary Actor:' + self.primaryActor + '\n' + 'Secondary Actors:' + \
                +self.secondaryActors + '\n' + 'Dependency:' + self.dependency + '\n' \
