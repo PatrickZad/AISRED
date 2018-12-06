@@ -9,8 +9,8 @@ def connect_db():
     当前使用内部sqlite数据库
     """
     rv = sqlite3.connect('db')
-    rv.row_factory = sqlite3.Row
-    rv.cursor().executescript(r'../init.sql')  # 执行sql脚本init
+    # rv.row_factory = sqlite3.Row
+    #rv.cursor().executescript(r'../init.sql')  # 执行sql脚本init
     return rv
 
 
@@ -47,7 +47,8 @@ context GWTDao::insert_Tagged_gwt(data:GWT):Boolean
 
 class GWTdao(object):
     def __init__(self):
-        self.__connection = connect_db()
+        self.__connection = sqlite3.connect('db')
+        # self.__connection.execute('use GWT2RUCM')
 
     def __del__(self):
         self.__connection.close()
@@ -114,6 +115,7 @@ class GWTdao(object):
         return self.__connection.execute('select id,scenario from GWT_tb').fetchall()
 
     def insert_gwt(self, gwt):
+        # self.__connection = sqlite3.connect('db')
         self.__connection.execute("insert into GWT_tb(scenario) values ('%s')" % (str(gwt.Scenario)))
         self.__connection.commit()
         tmp0 = self.__connection.execute("select last_insert_rowid()").fetchall()
@@ -166,3 +168,9 @@ class GWTdao(object):
             for x in t.associations:
                 self.__connection.execute(sql_insert_association,
                                           [str(t.sentence_id), str(x.sentenceId), x.connect_type])
+
+if __name__=='__main__':
+    gwt=GWT()
+    gwt.Scenario='sc'
+    dao=GWTdao()
+    dao.insert_gwt(gwt)

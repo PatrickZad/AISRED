@@ -28,7 +28,7 @@ class NLPExecutor():
         return self.tr.get_key_sentences(num=1)
 
     def splitSentences(self, text):
-        sentenceList = ast.lteral_eval(self.nlp.annotate(text, properties={'ssplit'}))['sentences']
+        sentenceList = ast.literal_eval(self.nlp.annotate(text, properties={'ssplit'}))['sentences']
         resultList = []
         for item in sentenceList:
             for token in item['tokens']:

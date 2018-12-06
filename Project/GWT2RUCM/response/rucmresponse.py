@@ -14,7 +14,7 @@ class RUCMGnerator():
     '''
 
     def __init__(self, dataDispatcher):
-        self.nlp = NLPExecutor(r'../stanford-corenlp-full-2018-10-05', lang='zh')
+        self.nlp = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
         self.lable = LableGenerator(self.nlp)
         self.dataTool = dataDispatcher
 

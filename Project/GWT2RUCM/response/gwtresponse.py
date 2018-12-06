@@ -3,7 +3,7 @@ import re
 
 
 class GWTImporter():
-    def __init__(self, dataDispatcher, nlpExecutor):
+    def __init__(self, dataDispatcher=None, nlpExecutor=None):
         self.dataTool = dataDispatcher
         self.nlpTool = nlpExecutor
 
@@ -17,10 +17,11 @@ class GWTImporter():
         if text is not None:
             gwtTextList = text.split('Story:')[1:]
             for gwtText in gwtTextList:
-                contentGroup = re.match(r'(.*)Scenario:\s*\n*(.*)Business\sRule:\s*\n*(.*) \
-                                Given:\nPreconditions:\s*\n*(.*)Fixed\sdata:\s*\n*(.*) \
-                                When:\nAction:\s*\n*(.*)Input\sdata:\s*\n*(.*)\nThen:\n \
-                                Output\sdata:\s*\n*(.*)\nPostcondition:\s*\n*(.*)\n+', gwtText)
+                gwtText = gwtText.replace('\n', '')
+                contentGroup = re.match('\s*(.*)\s*Scenario:\s*(.*)\s*Business\sRule:\s*(.*)'
+                                        'Given:\s*Preconditions:\s*(.*)\s*Fixed\sdata:\s*(.*)'
+                                        'When:\s*Action:\s*(.*)\s*Input\sdata:\s*(.*)'
+                                        'Then:\s*Output\sdata:\s*(.*)\s*Postcondition:\s*(.*)\s*', gwtText)
                 originGWT = GWT()
                 originGWT.Features = []
                 originGWT.Scenario = contentGroup.group(2)
@@ -49,7 +50,7 @@ class GWTImporter():
                 for item in sentList:
                     sentence = Sentence(stype='postcondition', content=item)
                     originGWT.Thens.append(sentence)
-                self.dataTool.insertGWT(originGWT)
+                self.dataTool.insert_gwt(originGWT)
 
 
 if __name__ == '__main__':
@@ -57,5 +58,8 @@ if __name__ == '__main__':
     from support.nlpsupport import NLPExecutor
 
     file = r'../testfile/inputdemo.gwtfile'
-    importer = GWTImporter(GWTdao(), NLPExecutor())
+    tool = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
+    importer = GWTImporter(GWTdao(), tool)
+    # importer = GWTImporter()
     importer.importGWT(filepath=file)
+    tool.nlp.close()
