@@ -10,7 +10,7 @@ def connect_db():
     """
     rv = sqlite3.connect('db')
     # rv.row_factory = sqlite3.Row
-    #rv.cursor().executescript(r'../init.sql')  # 执行sql脚本init
+    # rv.cursor().executescript(r'../init.sql')  # 执行sql脚本init
     return rv
 
 
@@ -47,8 +47,20 @@ context GWTDao::insert_Tagged_gwt(data:GWT):Boolean
 
 class GWTdao(object):
     def __init__(self):
+        # self.__connection = sqlite3.connect('db')
         self.__connection = sqlite3.connect('db')
-        # self.__connection.execute('use GWT2RUCM')
+        self.__connection.execute(
+            "CREATE TABLE IF NOT EXISTS GWT_tb(id INT UNSIGNED AUTO_INCREMENT,scenario text NOT NULL,useCaseName tinytext null,flowType tinytext null,PRIMARY KEY (id));")
+        self.__connection.execute(
+            "create table if not exists Sentence(id int unsigned auto_increment,Stype tinytext null,secondType tinytext null,content text not null,sequence tinyint unsigned,primary key (id));")
+        self.__connection.execute(
+            "create table if not exists SentenceSentence(s1 int unsigned not null,s2 int unsigned not null,connectType tinytext not null);")
+        self.__connection.execute(
+            "create table if not exists gwtSentence(gwt_id int unsigned not null,sentence_id int unsigned not null,position_in_gwt tinytext not null);")
+        # cu = connection.cursor()
+        # cu.execute("SELECT name FROM sqlite_master WHERE type='table';")
+        # print(cu.fetchall())
+        # print('fk')
 
     def __del__(self):
         self.__connection.close()
@@ -117,9 +129,9 @@ class GWTdao(object):
     def insert_gwt(self, gwt):
         # self.__connection = sqlite3.connect('db')
         # self.__connection.execute("select * from main.")
-        cu = self.__connection.cursor()
+        # cu = self.__connection.cursor()
         # cu.execute("tables")
-        cu.execute("insert into GWT_tb(scenario) values ('%s')" % (str(gwt.Scenario)))
+        self.__connection.execute("insert into GWT_tb(scenario) values ('%s')" % (str(gwt.Scenario)))
         self.__connection.commit()
         tmp0 = self.__connection.execute("select last_insert_rowid()").fetchall()
         tmp0 = tmp0[0][0]
@@ -144,7 +156,7 @@ class GWTdao(object):
         for t in gwt.Whens:
             self.__connection.execute(
                 "insert into Sentence(Stype,content,sequence) values ('%s','%s','%s')" % (
-                t.type, t.content, str(t.sequence)))
+                    t.type, t.content, str(t.sequence)))
             self.__connection.commit()
             tmp1 = self.__connection.execute("select last_insert_rowid()").fetchall()
             self.__connection.execute(
@@ -172,8 +184,9 @@ class GWTdao(object):
                 self.__connection.execute(sql_insert_association,
                                           [str(t.sentence_id), str(x.sentenceId), x.connect_type])
 
-if __name__=='__main__':
-    gwt=GWT()
-    gwt.Scenario='sc'
-    dao=GWTdao()
+
+if __name__ == '__main__':
+    gwt = GWT()
+    gwt.Scenario = 'sc'
+    dao = GWTdao()
     dao.insert_gwt(gwt)
