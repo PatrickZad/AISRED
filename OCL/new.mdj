@@ -48,8 +48,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 848,
-											"top": -448,
+											"left": 832,
+											"top": -416,
 											"height": 13
 										},
 										{
@@ -59,9 +59,9 @@
 												"$ref": "AAAAAAFnFiRY3C1KxMQ="
 											},
 											"font": "Arial;13;1",
-											"left": 605,
-											"top": 55,
-											"width": 120.25,
+											"left": 597,
+											"top": 71,
+											"width": 127.537109375,
 											"height": 13,
 											"text": "Controller"
 										},
@@ -73,8 +73,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 848,
-											"top": -448,
+											"left": 832,
+											"top": -416,
 											"width": 73.67724609375,
 											"height": 13,
 											"text": "(from Model)"
@@ -87,16 +87,16 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"left": 848,
-											"top": -448,
+											"left": 832,
+											"top": -416,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 600,
-									"top": 48,
-									"width": 130.25,
+									"left": 592,
+									"top": 64,
+									"width": 137.537109375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnFiRY3C1Lwpo="
@@ -132,7 +132,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"top": 48,
+											"left": -16,
+											"top": 80,
 											"width": 73.65185546875,
 											"height": 13,
 											"text": "-GWT导入器",
@@ -149,7 +150,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"top": 48,
+											"left": -16,
+											"top": 80,
 											"width": 95.3291015625,
 											"height": 13,
 											"text": "-领域背景导入器",
@@ -166,7 +168,8 @@
 											},
 											"visible": false,
 											"font": "Arial;13;0",
-											"top": 48,
+											"left": -16,
+											"top": 80,
 											"width": 105.46630859375,
 											"height": 13,
 											"text": "-RUCM Generator",
@@ -175,8 +178,8 @@
 									],
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 600,
-									"top": 73,
+									"left": 592,
+									"top": 89,
 									"width": 126.9873046875,
 									"height": 10
 								},
@@ -200,11 +203,11 @@
 												"$ref": "AAAAAAFnFiR8/C1xgW4="
 											},
 											"font": "Arial;13;0",
-											"left": 605,
-											"top": 78,
-											"width": 120.25,
+											"left": 597,
+											"top": 94,
+											"width": 127.537109375,
 											"height": 13,
-											"text": "+导入GWT文件()",
+											"text": "-home()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -217,11 +220,11 @@
 												"$ref": "AAAAAAFnRVNwxNIgmF0="
 											},
 											"font": "Arial;13;0",
-											"left": 605,
-											"top": 93,
-											"width": 120.25,
+											"left": 597,
+											"top": 109,
+											"width": 127.537109375,
 											"height": 13,
-											"text": "+导入领域背景文件()",
+											"text": "-import_background()",
 											"horizontalAlignment": 0
 										},
 										{
@@ -234,19 +237,36 @@
 												"$ref": "AAAAAAFnRVPLc9JjUvQ="
 											},
 											"font": "Arial;13;0",
-											"left": 605,
-											"top": 108,
-											"width": 120.25,
+											"left": 597,
+											"top": 124,
+											"width": 127.537109375,
 											"height": 13,
-											"text": "+输出结果文档()",
+											"text": "-import_gwt()",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFniXpBFKcw96c=",
+											"_parent": {
+												"$ref": "AAAAAAFnFiRY3C1QC/M="
+											},
+											"model": {
+												"$ref": "AAAAAAFniXpACactlTM="
+											},
+											"font": "Arial;13;0",
+											"left": 597,
+											"top": 139,
+											"width": 127.537109375,
+											"height": 13,
+											"text": "-translation()",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 600,
-									"top": 73,
-									"width": 130.25,
-									"height": 53
+									"left": 592,
+									"top": 89,
+									"width": 137.537109375,
+									"height": 68
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -259,8 +279,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 424,
-									"top": -224,
+									"left": 416,
+									"top": -208,
 									"width": 10,
 									"height": 10
 								},
@@ -275,17 +295,17 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 424,
-									"top": -224,
+									"left": 416,
+									"top": -208,
 									"width": 10,
 									"height": 10
 								}
 							],
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 600,
-							"top": 48,
-							"width": 130.25,
+							"left": 592,
+							"top": 64,
+							"width": 137.537109375,
 							"height": 93,
 							"nameCompartment": {
 								"$ref": "AAAAAAFnFiRY3C1KxMQ="
@@ -1690,9 +1710,9 @@
 										"$ref": "AAAAAAFnFip8Py9YCoo="
 									},
 									"font": "Arial;13;0",
-									"left": 664,
-									"top": 183,
-									"width": 33.591796875,
+									"left": 630,
+									"top": 191,
+									"width": 97.9189453125,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1700,7 +1720,7 @@
 										"$ref": "AAAAAAFnFip8Py9a1eU="
 									},
 									"edgePosition": 1,
-									"text": "+控制"
+									"text": "+use_b_importer"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1713,8 +1733,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 695,
-									"top": 183,
+									"left": 693,
+									"top": 190,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1734,8 +1754,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 651,
-									"top": 184,
+									"left": 649,
+									"top": 192,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1753,7 +1773,7 @@
 								"$ref": "AAAAAAFnFiRY2y1JNn4="
 							},
 							"lineStyle": 1,
-							"points": "665:141;667:239",
+							"points": "662:157;666:239",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFnFip8Py9bHj0="
@@ -1785,9 +1805,9 @@
 										"$ref": "AAAAAAFnFiqBAy9pPFw="
 									},
 									"font": "Arial;13;0",
-									"left": 513,
-									"top": 200,
-									"width": 33.591796875,
+									"left": 480,
+									"top": 209,
+									"width": 91.431640625,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1795,7 +1815,7 @@
 										"$ref": "AAAAAAFnFiqBAy9rb7E="
 									},
 									"edgePosition": 1,
-									"text": "+控制"
+									"text": "+use_generator"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1808,8 +1828,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 538,
-									"top": 212,
+									"left": 533,
+									"top": 221,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1829,8 +1849,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 512,
-									"top": 175,
+									"left": 508,
+									"top": 184,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1848,7 +1868,7 @@
 								"$ref": "AAAAAAFnFiRY2y1JNn4="
 							},
 							"lineStyle": 1,
-							"points": "599:140;444:249",
+							"points": "591:155;444:252",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFnFiqBAy9seW4="
@@ -1880,9 +1900,9 @@
 										"$ref": "AAAAAAFnFiqFbS96y60="
 									},
 									"font": "Arial;13;0",
-									"left": 799,
-									"top": 169,
-									"width": 33.591796875,
+									"left": 752,
+									"top": 176,
+									"width": 121.01171875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1890,7 +1910,7 @@
 										"$ref": "AAAAAAFnFiqFbS98CUk="
 									},
 									"edgePosition": 1,
-									"text": "+控制"
+									"text": "+use_GWT_importer"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1903,8 +1923,8 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 823,
-									"top": 156,
+									"left": 820,
+									"top": 163,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 30,
@@ -1924,8 +1944,8 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 798,
-									"top": 194,
+									"left": 797,
+									"top": 201,
 									"height": 13,
 									"alpha": -1.5707963267948966,
 									"distance": 15,
@@ -1943,7 +1963,7 @@
 								"$ref": "AAAAAAFnFiRY2y1JNn4="
 							},
 							"lineStyle": 1,
-							"points": "730:138;885:239",
+							"points": "730:151;880:239",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAFnFiqFbS99Gp8="
@@ -1975,9 +1995,9 @@
 										"$ref": "AAAAAAFnFissDC+9+xg="
 									},
 									"font": "Arial;13;0",
-									"left": 641,
+									"left": 634,
 									"top": 363,
-									"width": 59.591796875,
+									"width": 73.37255859375,
 									"height": 13,
 									"alpha": 1.0076541208789214,
 									"distance": 5.830951894845301,
@@ -1985,7 +2005,7 @@
 										"$ref": "AAAAAAFnFissDC/BxzU="
 									},
 									"edgePosition": 1,
-									"text": "+创建修改"
+									"text": "+generate_b"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -2251,9 +2271,9 @@
 										"$ref": "AAAAAAFnFis/KTA32VI="
 									},
 									"font": "Arial;13;0",
-									"left": 231,
+									"left": 195,
 									"top": 398,
-									"width": 33.591796875,
+									"width": 105.13623046875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -2261,7 +2281,7 @@
 										"$ref": "AAAAAAFnFis/KjA7oeM="
 									},
 									"edgePosition": 1,
-									"text": "+生成"
+									"text": "+generate_RUCM"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3266,9 +3286,9 @@
 										"$ref": "AAAAAAFnFi7G3yeBzUc="
 									},
 									"font": "Arial;13;0",
-									"left": 888,
+									"left": 856,
 									"top": 355,
-									"width": 33.591796875,
+									"width": 96.46533203125,
 									"height": 13,
 									"alpha": -1.6394521298387874,
 									"distance": 18.027756377319946,
@@ -3276,7 +3296,7 @@
 										"$ref": "AAAAAAFnFi7G4CeFY0A="
 									},
 									"edgePosition": 1,
-									"text": "+生成"
+									"text": "+generate_GWT"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -3995,9 +4015,9 @@
 										"$ref": "AAAAAAFnFi9h9ytjxU4="
 									},
 									"font": "Arial;13;0",
-									"left": 1006,
+									"left": 996,
 									"top": 391,
-									"width": 33.591796875,
+									"width": 52.39990234375,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -4005,7 +4025,7 @@
 										"$ref": "AAAAAAFnFi9h+CtnQgk="
 									},
 									"edgePosition": 1,
-									"text": "+使用"
+									"text": "+use_file"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -6910,9 +6930,9 @@
 										"$ref": "AAAAAAFnG3HSddlYwE0="
 									},
 									"font": "Arial;13;0",
-									"left": 761,
+									"left": 744,
 									"top": 602,
-									"width": 33.591796875,
+									"width": 66.1044921875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -6920,7 +6940,7 @@
 										"$ref": "AAAAAAFnG3HSdtlcF48="
 									},
 									"edgePosition": 1,
-									"text": "+使用"
+									"text": "+use_GWT"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -8210,9 +8230,9 @@
 										"$ref": "AAAAAAFnG4+Vuj/FXjc="
 									},
 									"font": "Arial;13;0",
-									"left": 1025,
+									"left": 1010,
 									"top": 645,
-									"width": 44,
+									"width": 74.08984375,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -8220,7 +8240,7 @@
 										"$ref": "AAAAAAFnG4+Vuz/Jn8M="
 									},
 									"edgePosition": 1,
-									"text": "+id信息"
+									"text": "+use_id_info"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -8858,9 +8878,9 @@
 										"$ref": "AAAAAAFnG5jkmLI37VQ="
 									},
 									"font": "Arial;13;0",
-									"left": 636,
+									"left": 631,
 									"top": 465,
-									"width": 33.591796875,
+									"width": 43.01171875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -8868,7 +8888,7 @@
 										"$ref": "AAAAAAFnG5jkmbI7VI4="
 									},
 									"edgePosition": 1,
-									"text": "+使用"
+									"text": "+use_b"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -9132,9 +9152,9 @@
 										"$ref": "AAAAAAFnG6EA4SHaO78="
 									},
 									"font": "Arial;13;0",
-									"left": 204,
+									"left": 179,
 									"top": 309,
-									"width": 33.591796875,
+									"width": 82.7607421875,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -9142,7 +9162,7 @@
 										"$ref": "AAAAAAFnG6EA4SHepXA="
 									},
 									"edgePosition": 1,
-									"text": "+生成"
+									"text": "+generate_file"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -9586,9 +9606,9 @@
 										"$ref": "AAAAAAFnG7GhiTGyGJw="
 									},
 									"font": "Arial;13;0",
-									"left": 552,
+									"left": 542,
 									"top": 333,
-									"width": 33.591796875,
+									"width": 52.39990234375,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -9596,7 +9616,7 @@
 										"$ref": "AAAAAAFnG7GhiTG2PnY="
 									},
 									"edgePosition": 1,
-									"text": "+使用"
+									"text": "+use_file"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -11308,17 +11328,17 @@
 										"$ref": "AAAAAAFnIL/miThhtJE="
 									},
 									"font": "Arial;13;0",
-									"left": 416,
+									"left": 448,
 									"top": 531,
-									"width": 33.591796875,
+									"width": 61.07080078125,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 0.31521463567554203,
+									"distance": 48.38388161361178,
 									"hostEdge": {
 										"$ref": "AAAAAAFnIL/miThjaB4="
 									},
 									"edgePosition": 1,
-									"text": "+调用"
+									"text": "+use_NLP"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -11403,17 +11423,17 @@
 										"$ref": "AAAAAAFnIMBCIz9izaM="
 									},
 									"font": "Arial;13;0",
-									"left": 392,
+									"left": 415,
 									"top": 699,
-									"width": 33.591796875,
+									"width": 126.1279296875,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 0.21109330395445786,
+									"distance": 71.58910531638176,
 									"hostEdge": {
 										"$ref": "AAAAAAFnIMBCIz9kp2Y="
 									},
 									"edgePosition": 1,
-									"text": "+调用"
+									"text": "+use_label_generator"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -11497,9 +11517,9 @@
 										"$ref": "AAAAAAFnKmLGj9JOQpE="
 									},
 									"font": "Arial;13;0",
-									"left": 432,
+									"left": 396,
 									"top": 856,
-									"width": 33.591796875,
+									"width": 105.8662109375,
 									"height": 13,
 									"alpha": 0.15499671809172344,
 									"distance": 64.77653896280658,
@@ -11507,7 +11527,7 @@
 										"$ref": "AAAAAAFnKmLGkNJSrrw="
 									},
 									"edgePosition": 1,
-									"text": "+使用"
+									"text": "+use_taged_GWT"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -11766,7 +11786,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
-							"name": "控制",
+							"name": "use_b_importer",
 							"source": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
@@ -11780,7 +11800,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
-							"name": "控制",
+							"name": "use_generator",
 							"source": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
@@ -11794,7 +11814,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
-							"name": "控制",
+							"name": "use_GWT_importer",
 							"source": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
@@ -11855,7 +11875,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
-							"name": "导入GWT文件"
+							"name": "home",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLOperation",
@@ -11863,7 +11884,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
-							"name": "导入领域背景文件"
+							"name": "import_background",
+							"visibility": "private"
 						},
 						{
 							"_type": "UMLOperation",
@@ -11871,7 +11893,17 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiRY2i1HI58="
 							},
-							"name": "输出结果文档"
+							"name": "import_gwt",
+							"visibility": "private"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFniXpACactlTM=",
+							"_parent": {
+								"$ref": "AAAAAAFnFiRY2i1HI58="
+							},
+							"name": "translation",
+							"visibility": "private"
 						}
 					]
 				},
@@ -11889,7 +11921,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiSzyC15BOk="
 							},
-							"name": "创建修改",
+							"name": "generate_b",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnFissDC++Mwg=",
@@ -11919,7 +11951,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiSzyC15BOk="
 							},
-							"name": "使用",
+							"name": "use_file",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnG7GhiTGz4bs=",
@@ -12063,7 +12095,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
-							"name": "生成",
+							"name": "generate_RUCM",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnFis/KTA4OYc=",
@@ -12120,7 +12152,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
-							"name": "生成",
+							"name": "generate_file",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnG6EA4SHbEYI=",
@@ -12191,7 +12223,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
-							"name": "调用",
+							"name": "use_NLP",
 							"source": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
@@ -12205,7 +12237,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
-							"name": "调用",
+							"name": "use_label_generator",
 							"source": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
@@ -12219,7 +12251,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFiV9MS3e7o0="
 							},
-							"name": "使用",
+							"name": "use_taged_GWT",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnKmLGj9JPv8w=",
@@ -12382,7 +12414,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFihS+y40gmY="
 							},
-							"name": "生成",
+							"name": "generate_GWT",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnFi7G3yeCi1w=",
@@ -12659,7 +12691,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFnh7Rgt0XnPB4="
 									},
-									"name": "action"
+									"name": "action",
+									"type": ""
 								}
 							]
 						}
@@ -12735,7 +12768,8 @@
 									"_parent": {
 										"$ref": "AAAAAAFnh7fZX1lsALs="
 									},
-									"name": "num"
+									"name": "num",
+									"type": ""
 								}
 							]
 						},
@@ -13046,7 +13080,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnFi8IxCnohms="
 							},
-							"name": "使用",
+							"name": "use_file",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnFi9h9ytkHOc=",
@@ -16049,7 +16083,7 @@
 									"font": "Arial;13;0",
 									"left": 627.5,
 									"top": 332.5,
-									"width": 94,
+									"width": 93,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnFjj7VkQlOhU="
@@ -16447,7 +16481,7 @@
 									"font": "Arial;13;0",
 									"left": 622,
 									"top": 564.5,
-									"width": 104.99365234375,
+									"width": 104,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnFjlFyUSBANY="
@@ -17453,7 +17487,7 @@
 									"font": "Arial;13;0",
 									"left": 627.5,
 									"top": 476.5,
-									"width": 94,
+									"width": 93,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnGzzqoyyQZzY="
@@ -17652,7 +17686,7 @@
 									"font": "Arial;13;0",
 									"left": 443.5,
 									"top": 524.5,
-									"width": 94,
+									"width": 93,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnG0rs1zdul00="
@@ -18843,7 +18877,7 @@
 									"font": "Arial;13;0",
 									"left": 355.5,
 									"top": 388.5,
-									"width": 94,
+									"width": 93,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnIKsoMDMIQK4="
@@ -19042,7 +19076,7 @@
 									"font": "Arial;13;0",
 									"left": 547.5,
 									"top": 724.5,
-									"width": 94,
+									"width": 93,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAFnIKuIRjXLJII="
@@ -20690,7 +20724,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnG2lyP7qSN70="
 							},
-							"name": "使用",
+							"name": "use_GWT",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnG3HSdtlZ3Lk=",
@@ -21035,7 +21069,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnG4dDWyw2M4Y="
 							},
-							"name": "id信息",
+							"name": "use_id_info",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnG4+Vuj/Gkf4=",
@@ -21144,7 +21178,7 @@
 							"_parent": {
 								"$ref": "AAAAAAFnG5KM8mG//Mw="
 							},
-							"name": "使用",
+							"name": "use_b",
 							"end1": {
 								"_type": "UMLAssociationEnd",
 								"_id": "AAAAAAFnG5jkmLI4iGY=",
