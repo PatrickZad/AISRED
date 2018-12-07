@@ -116,8 +116,10 @@ class GWTdao(object):
 
     def insert_gwt(self, gwt):
         # self.__connection = sqlite3.connect('db')
-        self.__connection.execute("select * from main.")
-        self.__connection.execute("insert into GWT_tb(scenario) values ('%s')" % (str(gwt.Scenario)))
+        # self.__connection.execute("select * from main.")
+        cu = self.__connection.cursor()
+        # cu.execute("tables")
+        cu.execute("insert into GWT_tb(scenario) values ('%s')" % (str(gwt.Scenario)))
         self.__connection.commit()
         tmp0 = self.__connection.execute("select last_insert_rowid()").fetchall()
         tmp0 = tmp0[0][0]
