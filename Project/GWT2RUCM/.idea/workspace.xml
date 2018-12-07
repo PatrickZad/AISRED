@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b4d402d-a18e-4c91-b6e8-b1dc4b618a77" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/816d26c8-3fa6-4b73-b85a-546a77d9cf36.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/816d26c8-3fa6-4b73-b85a-546a77d9cf36.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/response/gwtresponse.py" beforeDir="false" afterPath="$PROJECT_DIR$/response/gwtresponse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/response/rucmresponse.py" beforeDir="false" afterPath="$PROJECT_DIR$/response/rucmresponse.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/datatype.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/datatype.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db-journal" beforeDir="false" afterPath="$PROJECT_DIR$/db-journal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/support/datasupport.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/datasupport.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support/nlpsupport.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/nlpsupport.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +15,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/GWT2RUCM$gwtresponse.coverage" NAME="gwtresponse Coverage Results" MODIFIED="1544100841060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/response" />
-    <SUITE FILE_PATH="coverage/GWT2RUCM$datasupport.coverage" NAME="datasupport Coverage Results" MODIFIED="1544102101109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/support" />
+    <SUITE FILE_PATH="coverage/GWT2RUCM$datasupport.coverage" NAME="datasupport Coverage Results" MODIFIED="1544102569992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/support" />
     <SUITE FILE_PATH="coverage/GWT2RUCM$GWT2RUCM.coverage" NAME="GWT2RUCM Coverage Results" MODIFIED="1543306959478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -55,6 +50,10 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="sqlite" type="feb32156:DbDataSourceImpl" />
+      </path>
     </expand>
     <select />
   </component>
@@ -66,75 +65,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/response/gwtresponse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="62" column="30" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
+            <state relative-caret-position="1012">
+              <caret line="50" column="76" lean-forward="true" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/support/datasupport.py">
+        <entry file="file://$PROJECT_DIR$/data/datatype.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-522">
-              <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+            <state relative-caret-position="374">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
-                <element signature="e#1530#3924#0" />
-                <element signature="e#3970#4101#0" />
-                <element signature="e#6192#7449#0" />
+                <element signature="e#485#2669#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/init.sql">
+        <entry file="file://$PROJECT_DIR$/support/lablesupport.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://816d26c8-3fa6-4b73-b85a-546a77d9cf36/schema/main/table/gwtSentence">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/support/nlpsupport.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="556">
-              <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-                <element signature="e#544#644#0" />
-                <element signature="e#690#1003#0" />
-                <element signature="e#1050#1410#0" />
-                <element signature="e#1455#1555#0" />
-                <element signature="e#1602#1641#0" />
-                <element signature="e#1683#1687#0" />
-                <element signature="e#1733#1762#0" />
-                <element signature="e#1812#1816#0" />
-                <element signature="e#1861#1865#0" />
-                <element signature="e#1911#1915#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4356">
-              <caret line="202" column="53" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#47#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="492">
+              <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -176,18 +129,18 @@
         <option value="$PROJECT_DIR$/app.py" />
         <option value="$PROJECT_DIR$/response/backgroundresponse.py" />
         <option value="$PROJECT_DIR$/data/DataAccessObject.py" />
-        <option value="$PROJECT_DIR$/data/datatype.py" />
         <option value="$PROJECT_DIR$/support/lablesupport.py" />
         <option value="$PROJECT_DIR$/response/rucmresponse.py" />
         <option value="$PROJECT_DIR$/support/nlpsupport.py" />
         <option value="$PROJECT_DIR$/response/gwtresponse.py" />
-        <option value="$PROJECT_DIR$/support/datasupport.py" />
         <option value="$PROJECT_DIR$/init.sql" />
+        <option value="$PROJECT_DIR$/support/datasupport.py" />
+        <option value="$PROJECT_DIR$/data/datatype.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="692" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="690" />
     <option name="y" value="100" />
     <option name="width" value="1120" />
     <option name="height" value="865" />
@@ -367,12 +320,14 @@
       <workItem from="1544082936396" duration="2213000" />
       <workItem from="1544088242455" duration="7744000" />
       <workItem from="1544098793879" duration="1552000" />
-      <workItem from="1544100419211" duration="1684000" />
+      <workItem from="1544100419211" duration="2205000" />
+      <workItem from="1544115588701" duration="666000" />
+      <workItem from="1544151455787" duration="2603000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80494000" />
+    <option name="totallyTimeSpent" value="84284000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -384,11 +339,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.504" side_tool="true" weight="0.3523985" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.496" visible="true" weight="0.23726542" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.496" visible="true" weight="0.24396783" />
       <window_info id="Structure" order="2" sideWeight="0.50266665" side_tool="true" weight="0.3523985" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3282123" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -398,7 +353,7 @@
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.32960895" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.32960895" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.3575419" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -414,6 +369,27 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/support/datasupport.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/support/datasupport.py</url>
+          <line>49</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/support/datasupport.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DataAccessObject/__init__.py" />
@@ -501,20 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/support/lablesupport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/datatype.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/response/backgroundresponse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
@@ -534,9 +496,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cb8fa235-5cd8-43dd-80ce-0e6bd4d517fc/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cb8fa235-5cd8-43dd-80ce-0e6bd4d517fc/console.sql" />
     <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/re.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6270">
@@ -558,19 +518,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
+    <entry file="das://816d26c8-3fa6-4b73-b85a-546a77d9cf36/schema/main/table/GWT_tb">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4356">
-          <caret line="202" column="53" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="704">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://816d26c8-3fa6-4b73-b85a-546a77d9cf36/schema/main/table/gwtSentence">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/support/nlpsupport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
+        <state relative-caret-position="506">
           <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
@@ -588,36 +559,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://816d26c8-3fa6-4b73-b85a-546a77d9cf36/schema/main/table/gwtSentence">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/response/gwtresponse.py">
+    <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="62" column="30" lean-forward="true" selection-start-line="62" selection-start-column="30" selection-end-line="62" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/init.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        <state relative-caret-position="4356">
+          <caret line="202" column="53" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/support/datasupport.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-522">
-          <caret line="52" column="22" lean-forward="true" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+        <state relative-caret-position="1186">
+          <caret line="118" column="54" selection-start-line="118" selection-start-column="54" selection-end-line="118" selection-end-column="54" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
-            <element signature="e#1530#3924#0" />
-            <element signature="e#3970#4101#0" />
-            <element signature="e#6192#7449#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/support/lablesupport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/response/gwtresponse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1012">
+          <caret line="50" column="76" lean-forward="true" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/datatype.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#485#2669#0" />
           </folding>
         </state>
       </provider>

@@ -1,9 +1,9 @@
-Use Case Name: 集成测试
-Brief Description: 测试系统模块是否协同工作
+Use Case Name: 处理文档
+Brief Description: 系统处理用户输入的文档。
 Precondition: 系统处于空闲状态。系统显示可以输入。
 Peimary Actor: 用户
 Secondary Actors:系统支持
-Dependency: INCLUDE USE CASE 单元测试 EXTENDED BY USE CASE 系统测试
+Dependency: None
 Generalization: None
 Basic Flow:
 1.用户登录系统
@@ -25,10 +25,9 @@ Bounded Alternative Flow: RFS 4-6
 1.用户告知系统支持出错信息
 2.系统支持重置系统
 postcondition:系统处于空闲状态。系统显示可以输入。
-Global Alternative Flow: IF
-用户请求取消操作
+Global Alternative Flow: IF 用户请求取消操作
 1.系统支持中断系统运行
 2.系统恢复初始状态
-3.ABORT
 END IF
 postcondition:系统处于空闲状态。系统显示可以输入。
+

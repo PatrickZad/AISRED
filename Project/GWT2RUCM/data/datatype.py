@@ -56,11 +56,11 @@ class RUCM():
 
 
 class Sentence(object):
-    __slots__ = ('sentence_id', 'type', 'content', 'sequence')
+    __slots__ = ('sentence_id', 'stype', 'content', 'sequence')
 
     def __init__(self, stype=None, content=None, sequence=None):
         if stype is not None:
-            self.type = stype
+            self.stype = stype
         if content is not None:
             self.content = content
         if sequence is not None:
