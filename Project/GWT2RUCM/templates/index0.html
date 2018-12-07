@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GWT2RUCM</title>
+</head>
+<body>
+    <h1 style="font-style:italic">GWT2RUCM</h1>
+    {% if message %}
+        <p style="color:red">{{ message }}</p>
+    {% endif %}
+    <form action="/import_background" method="post">
+        <p><input type=file name=file>
+            <input type=submit value=导入领域背景>
+    </form>
+    <form action="/import_GWT" method="post">
+        <p><input type=file name=file>
+            <input type=submit value=导入领域背景>
+    </form>
+    <form action="/Translation" method="post">
+        <p><button type="submit">开始转换</button></p>
+    </form>
+</body>
+</html>

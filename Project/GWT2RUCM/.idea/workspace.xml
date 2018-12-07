@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b4d402d-a18e-4c91-b6e8-b1dc4b618a77" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/datatype.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/datatype.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db-journal" beforeDir="false" afterPath="$PROJECT_DIR$/db-journal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/support/datasupport.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/datasupport.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +20,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+<<<<<<< HEAD
     <SUITE FILE_PATH="coverage/GWT2RUCM$gwtresponse.coverage" NAME="gwtresponse Coverage Results" MODIFIED="1544100841060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/response" />
     <SUITE FILE_PATH="coverage/GWT2RUCM$datasupport.coverage" NAME="datasupport Coverage Results" MODIFIED="1544102569992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/support" />
+=======
+    <SUITE FILE_PATH="coverage/GWT2RUCM$datasupport.coverage" NAME="datasupport Coverage Results" MODIFIED="1544102101109" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/support" />
+    <SUITE FILE_PATH="coverage/GWT2RUCM$gwtresponse.coverage" NAME="gwtresponse Coverage Results" MODIFIED="1544100841060" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/response" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
     <SUITE FILE_PATH="coverage/GWT2RUCM$GWT2RUCM.coverage" NAME="GWT2RUCM Coverage Results" MODIFIED="1543306959478" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -57,6 +68,38 @@
     </expand>
     <select />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1563292697">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.23" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="html" value="3" />
+          <entry key="py" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="HTML" value="3" />
+          <entry key="Python" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="py" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Python" value="2" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="GWT2RUCM" />
   </component>
@@ -65,12 +108,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/response/gwtresponse.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="1012">
               <caret line="50" column="76" lean-forward="true" selection-start-line="50" selection-start-column="76" selection-end-line="50" selection-end-column="76" />
+=======
+            <state relative-caret-position="-389">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data/datatype.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -78,16 +127,73 @@
               <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="e#485#2669#0" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/support/datasupport.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="606">
+              <caret line="150" column="25" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+                <marker date="1544146168133" expanded="true" signature="4024:4033" ph="..." />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/support/lablesupport.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="492">
               <caret line="35" column="40" lean-forward="true" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+=======
+        <entry file="file://$PROJECT_DIR$/controller.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="631">
+              <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="19" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#446#488#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/datatype.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/init.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="660">
+              <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="831">
+              <caret line="205" selection-start-line="205" selection-end-line="205" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
             </state>
           </provider>
         </entry>
@@ -107,6 +213,7 @@
     <findStrings>
       <find>id</find>
       <find>//TODO</find>
+      <find>GWTdao</find>
     </findStrings>
     <replaceStrings>
       <replace>pass</replace>
@@ -134,6 +241,7 @@
         <option value="$PROJECT_DIR$/support/nlpsupport.py" />
         <option value="$PROJECT_DIR$/response/gwtresponse.py" />
         <option value="$PROJECT_DIR$/init.sql" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/support/datasupport.py" />
         <option value="$PROJECT_DIR$/data/datatype.py" />
       </list>
@@ -141,6 +249,21 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="690" />
+=======
+        <option value="$PROJECT_DIR$/data/datatype.py" />
+        <option value="$PROJECT_DIR$/support/datasupport.py" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="692" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
     <option name="y" value="100" />
     <option name="width" value="1120" />
     <option name="height" value="865" />
@@ -176,7 +299,7 @@
             <path>
               <item name="GWT2RUCM" type="b2602c69:ProjectViewProjectNode" />
               <item name="GWT2RUCM" type="462c0819:PsiDirectoryNode" />
-              <item name="testfile" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GWT2RUCM" type="b2602c69:ProjectViewProjectNode" />
@@ -213,6 +336,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Steven\Desktop\Lessons\Advanced Software Engineering\AISRED\Project\GWT2RUCM\templates" />
       <recent name="C:\Users\Steven\PycharmProjects\GWT2RUCM" />
     </key>
   </component>
@@ -288,6 +412,11 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Flask server.GWT2RUCM" />
+      <item itemvalue="Python.datasupport" />
+      <item itemvalue="Python.gwtresponse" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.datasupport" />
@@ -339,11 +468,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.504" side_tool="true" weight="0.3523985" />
       <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.496" visible="true" weight="0.24396783" />
+=======
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" order="0" sideWeight="0.504" side_tool="true" weight="0.3523985" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.496" visible="true" weight="0.23987207" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
       <window_info id="Structure" order="2" sideWeight="0.50266665" side_tool="true" weight="0.3523985" />
       <window_info anchor="bottom" id="Database Changes" order="0" weight="0.3282123" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -370,6 +507,7 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -390,6 +528,10 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+=======
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/DataAccessObject/__init__.py" />
@@ -443,16 +585,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/View.py" />
     <entry file="file://$PROJECT_DIR$/app.py" />
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -460,6 +592,7 @@
     <entry file="file://$PROJECT_DIR$/stoppoint">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+<<<<<<< HEAD
     <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/site-packages/textrank4zh/TextRank4Sentence.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
@@ -474,6 +607,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="217">
           <caret line="149" column="39" lean-forward="true" selection-start-line="149" selection-start-column="39" selection-end-line="149" selection-end-column="39" />
+=======
+    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/site-packages/textrank4zh/TextRank4Sentence.py" />
+    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/site-packages/stanfordcorenlp/corenlp.py" />
+    <entry file="file://$PROJECT_DIR$/support/lablesupport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
         </state>
       </provider>
     </entry>
@@ -484,26 +625,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="62" column="13" lean-forward="true" selection-start-line="62" selection-start-column="13" selection-end-line="62" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#368#443#0" />
-            <element signature="e#446#488#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cb8fa235-5cd8-43dd-80ce-0e6bd4d517fc/console.sql" />
-    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/re.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6270">
-          <caret line="288" selection-start-line="288" selection-end-line="288" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/re.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -511,13 +634,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/codecs.py">
+<<<<<<< HEAD
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/cb8fa235-5cd8-43dd-80ce-0e6bd4d517fc/console.sql" />
+    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/re.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="319" selection-start-line="319" selection-end-line="319" />
+        <state relative-caret-position="6270">
+          <caret line="288" selection-start-line="288" selection-end-line="288" />
+=======
+    <entry file="file://C:/ApplicationsOnPatrick/PythonDev/Lib/codecs.py" />
+    <entry file="das://816d26c8-3fa6-4b73-b85a-546a77d9cf36/schema/main/table/gwtSentence">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/support/nlpsupport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="das://816d26c8-3fa6-4b73-b85a-546a77d9cf36/schema/main/table/GWT_tb">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -536,31 +686,34 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/response/gwtresponse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-389">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/support/nlpsupport.py">
+    <entry file="file://$PROJECT_DIR$/support/datasupport.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="506">
           <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+=======
+        <state relative-caret-position="606">
+          <caret line="150" column="25" selection-start-line="150" selection-start-column="8" selection-end-line="150" selection-end-column="25" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
-            <element signature="e#544#644#0" />
-            <element signature="e#690#1003#0" />
-            <element signature="e#1050#1410#0" />
-            <element signature="e#1455#1555#0" />
-            <element signature="e#1602#1641#0" />
-            <element signature="e#1683#1687#0" />
-            <element signature="e#1733#1762#0" />
-            <element signature="e#1812#1816#0" />
-            <element signature="e#1861#1865#0" />
-            <element signature="e#1911#1915#0" />
+            <element signature="e#0#14#0" expanded="true" />
+            <marker date="1544146168133" expanded="true" signature="4024:4033" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="4356">
           <caret line="202" column="53" selection-start-line="202" selection-start-column="38" selection-end-line="202" selection-end-column="53" />
           <folding>
@@ -599,7 +752,45 @@
           <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="e#485#2669#0" />
+=======
+        <state relative-caret-position="831">
+          <caret line="205" selection-start-line="205" selection-end-line="205" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/support/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/datatype.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="57" column="19" lean-forward="true" selection-start-line="57" selection-start-column="6" selection-end-line="57" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#446#488#0" />
+>>>>>>> 3cfc1fda31cdfdf7fc8f24e5773d0fa31fc6c6f3
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="57" lean-forward="true" selection-start-line="30" selection-start-column="57" selection-end-line="30" selection-end-column="57" />
         </state>
       </provider>
     </entry>
