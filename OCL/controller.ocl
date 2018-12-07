@@ -1,20 +1,31 @@
-context View::selectFile():File
+--------------self_action--------------
+context controller::home():file
     pre:
-    post: return = inputFile
+    post:return = index.html
 
-context View::importBackgroundTrigger(inputFile:File):Boolean
-    pre:
-    post: return = result
+context controller::import_background():(file, message)
+    pre: input_file <> Null
+         index.html->领域背景导入->button->submit = true
+    post:if 导入成功 
+         then return = ('index.html', message='领域背景导入成功') 
+         else return = ('index.html', message='领域背景导入失败')
 
-context View::importGWTTrigger(inputFile:File):Boolean
-    pre:
-    post: return = result
+context controller::import_gwt():(file, message)
+    pre: input_file <> Null
+         index.html->gwt导入->button->submit = true
+    post:if 导入成功 
+         then return = ('index.html', message='GWT导入成功') 
+         else return = ('index.html', message='GWT导入失败')
 
-context View::getGWTlist():String[]
-    pre:
-    post: return = GWTlist
+--这里其实有一个交互过程，我不知道如何表达
+context controller::translation():(file, message)
+    pre: index.html->开始转换->button->submit = true
+    post:if 选择GWT列表
+         then return = ('index.html', message=转化结果)
+         else return = ('index.html', message='已经取消转化')
+         RUCM.doc--或者这个不是在这里出现，而是在RUCMgenerator中出现
+    inv: notEmpty(转化结果)
 
-context View::generateRUCM():String[]
-    pre:
-    post: 生成RUCM.doc
-          return = failedGWTlist
+--------------interaction--------------
+
+
