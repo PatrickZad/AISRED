@@ -1,8 +1,11 @@
 --------------self_action--------------
+
+-- 显示初始页面
 context controller::home():file
     pre:
     post:return = index.html
 
+-- 调用领域背景导入，导入领域背景，显示导入结果
 context controller::import_background():(file, message)
     pre: input_file <> Null
          index.html->领域背景导入->button->submit = true
@@ -10,6 +13,7 @@ context controller::import_background():(file, message)
          then return = ('index.html', message='领域背景导入成功') 
          else return = ('index.html', message='领域背景导入失败')
 
+-- 调用GWT导入，导入GWT，显示导入结果
 context controller::import_gwt():(file, message)
     pre: input_file <> Null
          index.html->gwt导入->button->submit = true
@@ -18,6 +22,7 @@ context controller::import_gwt():(file, message)
          else return = ('index.html', message='GWT导入失败')
 
 --这里其实有一个交互过程，我不知道如何表达
+-- 调用RUCMGenerator，首先选择需要导入的GWT，然后进行GWT->RUCM的转化，得到转化成功的RUCM，并且显示生成结果
 context controller::translation():(file, message)
     pre: index.html->开始转换->button->submit = true
     post:if 选择GWT列表
