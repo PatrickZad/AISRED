@@ -1,4 +1,4 @@
-from stanfordcorenlp import StanfordCoreNLP
+from stanfordcorenlpTool import StanfordCorenlpTool
 from textrank4zh import TextRank4Sentence
 import ast
 from gensim import corpora
@@ -7,13 +7,13 @@ import jieba
 import re
 
 
-class NLPExecutor():
+class nlpToolExecutor():
     def __init__(self, path):
-        self.nlp = StanfordCoreNLP(path, lang='zh')
+        self.nlpToolTool = StanfordCorenlpTool(path, lang='zh')
         self.tr = TextRank4Sentence()
 
     def firstNamedEntities(self, sentence):
-        return self.nlp.ner(sentence)[0][0]
+        return self.nlpToolTool.ner(sentence)[0][0]
 
     '''
     param:
@@ -28,7 +28,7 @@ class NLPExecutor():
         return self.tr.get_key_sentences(num=1)
 
     def splitSentences(self, text):
-        sentenceList = ast.literal_eval(self.nlp.annotate(text, properties={'ssplit'}))['sentences']
+        sentenceList = ast.literal_eval(self.nlpTool.annotate(text, properties={'ssplit'}))['sentences']
         resultList = []
         for item in sentenceList:
             for token in item['tokens']:
@@ -48,12 +48,13 @@ class NLPExecutor():
         tokens[1]='VALIDATES THAT'
         return ''.join(tokens)
     def wordTokenize(self, sentence):
-        return self.nlp.word_tokenize(sentence)
+        return self.nlpTool.word_tokenize(sentence)
 
     def posTag(self, sentence):
-        pass
+        return self.nlpTool.pos_tag(sentence)
 
     def dictUpdate(self, wordDict):
+        self.wordDict=wordDict
         jieba.load_userdict(wordDict)
 
     def anaphoraResolution(self, text):
