@@ -1,0 +1,49 @@
+--context backgroundDao::getContentList
+--context backgroundDao::insert
+--context backgroundDao::update
+--------------self_action--------------
+-- GWT的Data Access Object，用于对于GWT类的存储
+context GWTdao:
+    init: self.__connection = sqlite3.connect('db')
+        self.__connection.execute(
+            "CREATE TABLE IF NOT EXISTS GWT_tb(id INT UNSIGNED AUTO_INCREMENT,scenario text NOT NULL,useCaseName tinytext null,flowType tinytext null,PRIMARY KEY (id));")
+        self.__connection.execute(
+            "create table if not exists Sentence(id int unsigned auto_increment,Stype tinytext null,secondType tinytext null,content text not null,sequence tinyint unsigned,primary key (id));")
+        self.__connection.execute(
+            "create table if not exists SentenceSentence(s1 int unsigned not null,s2 int unsigned not null,connectType tinytext not null);")
+        self.__connection.execute(
+            "create table if not exists gwtSentence(gwt_id int unsigned not null,sentence_id int unsigned not null,position_in_gwt tinytext not null);")
+    post:  self.__connection.close()
+
+-- 使用id列表，获取GWT列表
+context GWTdao::get_gwt_list_by_id(gwtIdList:int[]):GWT[]
+    pre: self.__connection.execute("select id from GWT_tb").fetchall()->includesAll(gwtIdList) = true
+    post: return = gwtList
+
+-- 获取数据库中GWT所有的id与scenario
+context GWTdao::get_id_scenario_list():[int,string][]
+    pre:
+    post:return = self.__connection.execute('select id,scenario from GWT_tb').fetchall()
+
+-- 插入一个GWT
+context GWTdao::insert_gwt(gwt:GWT):
+    pre:notEmpty(gwt->scenario) = true
+        notEmpty(gwt->Features) = true
+        notEmpty(gwt->Givens) = true
+        notEmpty(gwt->Thens) = true
+        notEmpty(gwt->Whens) = true
+        type(gwt->scenario) = []
+        type(gwt->Features) = []
+        type(gwt->Givens) = []
+        type(gwt->Thens) = []
+        type(gwt->Whens) = []
+        if type(gwt)=TagedGWT then flowType <> None
+        type(gwt) <> TagedGWT
+    post: 该GWT按照独一的id号被导入到数据库中，且可根据id号进行查询
+
+-- 根据已存储id的GWT，插入一个TagedGWT
+context GWTdao::insert_Tagged_gwt(gwt:TagedGWT):
+    pre: notEmpty(gwt->id) = true
+    post: 将TagedGWT按照其id，将原本的GWT加上标签
+
+--------------interaction--------------
