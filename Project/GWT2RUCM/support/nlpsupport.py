@@ -1,4 +1,4 @@
-from stanfordcorenlpTool import StanfordCorenlpTool
+from stanfordcorenlp import StanfordCoreNLP
 from textrank4zh import TextRank4Sentence
 import ast
 from gensim import corpora
@@ -7,13 +7,13 @@ import jieba
 import re
 
 
-class nlpToolExecutor():
+class NLPExecutor():
     def __init__(self, path):
-        self.nlpToolTool = StanfordCorenlpTool(path, lang='zh')
+        self.nlpTool = StanfordCoreNLP(path, lang='zh')
         self.tr = TextRank4Sentence()
 
     def firstNamedEntities(self, sentence):
-        return self.nlpToolTool.ner(sentence)[0][0]
+        return self.nlpTool.ner(sentence)[0][0]
 
     '''
     param:
@@ -37,7 +37,7 @@ class nlpToolExecutor():
         return resultList
     def similarity(self,sent1,sent2):
         text1 = self.wordTokenize(sent1)
-        text2 = self.wordtokenize(sent2)
+        text2 = self.wordTokenize(sent2)
         texts = [text1, text2]
         dictionary = corpora.Dictionary(texts)
         corpus = [dictionary.doc2bow(text) for text in texts]
