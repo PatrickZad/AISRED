@@ -37,8 +37,7 @@ class RUCM():
         bounStr = ''
         if len(self.boundedAlt) > 0:
             for boun in self.boundedAlt:
-                bounStr += 'Bounded Alternative Flow: RFS ' + str(boun.rfs[0]) + '-' + str(
-                    boun.rfs[-1]) + '\n'  # TODO rfs如何获得
+                bounStr += 'Bounded Alternative Flow: RFS ' + str(boun.rfs)[1:-1] + '\n'  # TODO rfs如何获得
                 for i in range(0, len(boun.actions)):
                     bounStr += str(i + 1) + '.' + boun.actions[i] + '\n'
                 bounStr += 'postcondition:' + boun.postCondition + '\n'
@@ -54,7 +53,7 @@ class RUCM():
         result += 'Precondition: ' + self.precondition + '\n' + 'Primary Actor:' + \
                   self.primaryActor + '\n' + 'Secondary Actors:' + self.secondaryActors + '\n'
         result += 'Dependency:' + self.dependency + '\n' + 'Generalization:' + self.generalization + '\n'
-        result += basicStr + specStr + globStr
+        result += basicStr + specStr + bounStr+globStr
         return result
         '''
         return 'Use Case Name: ' + self.useCaseName + '\n ' + 'Brief Description: ' \

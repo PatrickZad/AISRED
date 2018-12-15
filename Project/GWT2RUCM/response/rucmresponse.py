@@ -64,8 +64,8 @@ class RUCMGnerator():
             if taggedGWT.flowType == 'basic':
                 startGWT = taggedGWT  # 标记初始GWT
                 rucm.precondition = startGWT.commonPrec
-                rucm.primaryActor=startGWT.PrimaryActor
-                rucm.secondaryActors=startGWT.SecondaryActors
+                rucm.primaryActor = startGWT.PrimaryActor
+                rucm.secondaryActors = startGWT.SecondaryActors
                 for sentence in taggedGWT.Givens:
                     '''
                     if sentence.stype == 'precondition':
@@ -158,8 +158,9 @@ class RUCMGnerator():
                 rucm.basic.actions[taggedGWT.BranchScenarios[0]] = \
                     self.nlp.addValidate(rucm.basic.actions[taggedGWT.BranchScenarios[0]])
                 specificAlt.rfs = taggedGWT.BranchScenarios[1]
-                specificAlt.actions = [sentence.content for sentence in taggedGWT.Whens[taggedGWT.BranchScenarios[0]-1:]
-                                            if sentence.stype == 'action']  # TODO 选择的action范围
+                specificAlt.actions = [sentence.content for sentence in
+                                       taggedGWT.Whens[taggedGWT.BranchScenarios[0] - 1:]
+                                       if sentence.stype == 'action']  # TODO 选择的action范围
                 for sentence in taggedGWT.Thens:
                     if sentence.stype == 'postcondition':
                         specificAlt.postCondition += sentence.content
@@ -167,8 +168,9 @@ class RUCMGnerator():
             elif taggedGWT.flowType == 'bounded':
                 boundedAlt = BoundedFlow()
                 boundedAlt.rfs = taggedGWT.BranchScenarios
-                boundedAlt.actions = [sentence.content for sentence in taggedGWT.Whens[taggedGWT.BranchScenarios[0]-1:] if
-                                           sentence.stype == 'action']  # TODO 选择的action范围
+                boundedAlt.actions = [sentence.content for sentence in
+                                      taggedGWT.Whens[taggedGWT.BranchScenarios[0] - 1:] if
+                                      sentence.stype == 'action']  # TODO 选择的action范围
                 for sentence in taggedGWT.Thens:
                     if sentence.stype == 'postcondition':
                         boundedAlt.postCondition += sentence.content
@@ -179,9 +181,9 @@ class RUCMGnerator():
                     if taggedGWT.Givens[i].stype == 'precondition':
                         contentGroup = re.match(r'.*GLOBAL.*', taggedGWT.Givens[i].content)
                         if contentGroup:
-                            globalAlt.condition += taggedGWT.Givens[i+1].content
+                            globalAlt.condition += taggedGWT.Givens[i + 1].content
                 globalAlt.actions = [sentence.content for sentence in taggedGWT.Whens if
-                                          sentence.stype == 'action']
+                                     sentence.stype == 'action']
                 for sentence in taggedGWT.Thens:
                     if sentence.stype == 'postcondition':
                         globalAlt.postCondition += sentence.content
@@ -199,7 +201,7 @@ class RUCMGnerator():
         self.output = ''
         for rucm in self.RUCMs:
             self.output += rucm.__str__()
-        with open(outpath, 'w',encoding='utf-8') as f:
+        with open(outpath, 'w', encoding='utf-8') as f:
             f.write(self.output)
         self.output = outpath
 
@@ -214,7 +216,7 @@ class RUCMGnerator():
 
 
 if __name__ == '__main__':
-    from data.datatype import TaggedGWT, Sentence
+    #from data.datatype import TaggedGWT, Sentence
     from support.nlpsupport import NLPExecutor
     import pickle
 
@@ -260,10 +262,11 @@ if __name__ == '__main__':
             sentence = Sentence(stype='postcondition', content=item)
             originGWT.Thens.append(sentence)
         testList.append(originGWT)
+    with open('./testlist', 'wb') as f:
+         pickle.dump(testList, f)
     '''
     with open('./testlist', 'rb') as f:
         testList = pickle.load(f)
-    #    with open('./testlist', 'wb') as f:
-    #       pickle.dump(testList, f)
+
     rucmResp = RUCMGnerator(None, nlpTool)
     rucmResp.generateRUCMs(gwtList=testList)

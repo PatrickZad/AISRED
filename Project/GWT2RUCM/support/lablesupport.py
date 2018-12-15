@@ -38,7 +38,7 @@ class LableGenerator():
             if len(actors) > 1:
                 gwt.SecondaryActors = ''
                 for actor in actors[1:]:
-                    gwt.SecondaryActors += actor+' '
+                    gwt.SecondaryActors += actor + ' '
             for sentence in gwt.Givens:
                 if sentence.stype == 'precondition':
                     content = sentence.content
@@ -95,9 +95,13 @@ class LableGenerator():
                     # 比较nega的action和precondition
                     for j in diff:
                         for k in range(i, len(basic.Whens) - 2):
-                            similarity = self.nlp.similarity(basic.Whens[k].content, gwt.Givens[j].content)
-                            if similarity > 0.55 and similarity < 0.99:
+                            sent0 = basic.Whens[k].content
+                            sent1 = gwt.Givens[j].content
+                            similarity = self.nlp.similarity(sent0, sent1)  # 找出basic里与gwt的pre相近的action
+                            if similarity > 0.4 and similarity < 0.99:
                                 gwt.BranchScenarios.append(k + 1)
+                    gwt.BranchScenarios = list(set(gwt.BranchScenarios))
+                    gwt.BranchScenarios.sort()
 
                     '''
                     while i < j:
@@ -116,4 +120,4 @@ class LableGenerator():
                     common = False
                     break
             if common:
-                basic.commonPrec += basic.Givens[i].content+'。'
+                basic.commonPrec += basic.Givens[i].content + '。'
