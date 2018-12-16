@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85951866-8483-4fa5-ba98-8feefe00cf7a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/datatype.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/datatype.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/response/rucmresponse.py" beforeDir="false" afterPath="$PROJECT_DIR$/response/rucmresponse.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support/lablesupport.py" beforeDir="false" afterPath="$PROJECT_DIR$/support/lablesupport.py" afterDir="false" />
-    </list>
+    <list default="true" id="85951866-8483-4fa5-ba98-8feefe00cf7a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
+            <state relative-caret-position="469">
+              <caret line="269" selection-start-line="269" selection-end-line="269" />
               <folding>
                 <element signature="e#0#47#0" expanded="true" />
                 <element signature="e#8788#10932#1" />
@@ -41,7 +35,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/datatype.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="858">
               <caret line="39" column="80" selection-start-line="39" selection-start-column="80" selection-end-line="39" selection-end-column="80" />
             </state>
           </provider>
@@ -69,8 +63,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="625" />
-    <option name="y" value="15" />
+    <option name="x" value="187" />
+    <option name="y" value="10" />
     <option name="width" value="1120" />
     <option name="height" value="865" />
   </component>
@@ -79,6 +73,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -110,11 +105,11 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GWT2RUCM_Pyltp" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Python" />
   </component>
   <component name="RunDashboard">
@@ -175,16 +170,17 @@
       <workItem from="1544692509005" duration="68000" />
       <workItem from="1544692601342" duration="192000" />
       <workItem from="1544697630265" duration="1259000" />
+      <workItem from="1544884089029" duration="57000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31421000" />
+    <option name="totallyTimeSpent" value="31478000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20643431" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20911528" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -333,31 +329,25 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/response/1544692758.343448.rucmout" />
-    <entry file="file://$PROJECT_DIR$/data/datatype.py">
+    <entry file="file://$PROJECT_DIR$/response/1544698296.719017.rucmout" />
+    <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="39" column="80" selection-start-line="39" selection-start-column="80" selection-end-line="39" selection-end-column="80" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/response/1544698296.719017.rucmout">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
+        <state relative-caret-position="469">
+          <caret line="269" selection-start-line="269" selection-end-line="269" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#8788#10932#1" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/testfile/inputdemo.gwtfile">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/response/rucmresponse.py">
+    <entry file="file://$PROJECT_DIR$/data/datatype.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="269" lean-forward="true" selection-start-line="269" selection-end-line="269" />
-          <folding>
-            <element signature="e#0#47#0" expanded="true" />
-            <element signature="e#8788#10932#1" />
-          </folding>
+        <state relative-caret-position="858">
+          <caret line="39" column="80" selection-start-line="39" selection-start-column="80" selection-end-line="39" selection-end-column="80" />
         </state>
       </provider>
     </entry>

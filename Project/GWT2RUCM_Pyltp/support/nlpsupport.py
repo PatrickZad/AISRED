@@ -1,0 +1,114 @@
+import os
+from pyltp import Segmentor,SentenceSplitter,Postagger,Parser
+from textrank4zh import TextRank4Sentence
+import ast
+from gensim import corpora
+from gensim.similarities import Similarity
+
+ltpBase='./ltp_data'
+cwsPath=os.path.join(ltpBase,'cws.model')
+posPath=os.path.join(ltpBase,'pos.model')
+parserPath=os.path.join(ltpBase,'parser.model')
+
+class NLPExecutor():
+    def __init__(self, path):
+        self.seg=Segmentor()
+        self.seg.load(cwsPath)
+        self.pos=Postagger()
+        self.pos.load(posPath)
+        self.parse=Parser()
+        self.parse.load(parserPath)
+        self.tr = TextRank4Sentence()
+'''
+    def firstNamedEntities(self, sentence):
+        return self.nlpTool.ner(sentence)[0][0]
+'''
+    '''
+    param:
+        text:输入文本
+    return:
+        摘要的句子list
+    '''
+
+    def generateSummary(self, text):
+        # TODO 摘要生成实现方法待改进
+        self.tr.analyze(text=text)
+        return self.tr.get_key_sentences(num=1)
+    '''
+    param:
+        text:输入文本
+    return:
+        分句的句子list
+    '''
+    def splitSentences(self, text):
+        return list(SentenceSplitter.split(text))
+    '''
+    param:
+        sent1,sent2:两个句子
+    return:
+        两个句子的相似度
+    '''    
+    def similarity(self,sent1,sent2):
+        text1 = self.wordTokenize(sent1)
+        text2 = self.wordTokenize(sent2)
+        texts = [text1, text2]
+        dictionary = corpora.Dictionary(texts)
+        corpus = [dictionary.doc2bow(text) for text in texts]
+        similarity = Similarity('-Similarity-index', corpus, num_features=len(dictionary))
+        return similarity[dictionary.doc2bow(text1)][1]
+    # TODO VALIADATES THAT添加放在RUCM生成层
+    '''
+    def addValidate(self,sentence):
+        tokens=self.wordTokenize(sentence)
+        tokens[1]='VALIDATES THAT'
+        return ''.join(tokens)
+    '''
+    '''
+    param:
+        sentence:一个句子
+    return:
+        分词词链，list，标点符号会被作为一个词
+    '''   
+    def wordTokenize(self, sentence):
+        return list(self.seg.segment(sentence))
+    '''
+    param:
+        sentence:一个句子
+        wordlist:分词词链
+    return:
+        仅有词性标注的词性链，index与分词词链对应
+    '''
+    def posTag(self, sentence=None,wordlist=None):
+        if sentence is not None:
+            wordlist=list(self.seg.segment(sentence))
+        return list(self.pos.posTag(wordlist))
+    '''
+    param:
+        sentence:分词词典的文件路径，每个词独占一行的纯文本文件
+        wordlist:标注词典的文件路径，每个词及其词性占一行，词与词性标注之间空格分隔，可以有多个词性
+    return:
+        无
+    '''
+    def dictUpdate(self, segDict=None，posDict=None):
+        if segDict is not None:
+            self.seg.load_with_lexicon(cwsPath,segDict)
+        if posDict is not None:
+            self.pos.load_with_lexicon(posPath,posDict)
+    '''
+    param:
+        sentence:分词词典的文件路径，每个词独占一行的纯文本文件
+        wordlist:标注词典的文件路径，每个词及其词性占一行，词与词性标注之间空格分隔，可以有多个词性
+    return:
+        依存句法分析结果
+    '''
+    def parse(self,sentence=None,wordlist=None,poslist=None):
+        
+        return list(self.parse(wordlist,poslist))
+    def anaphoraResolution(self, text):
+        pass
+
+    def sentComposite(self, text):
+        pass
+
+    def featureExtract(self, text):
+        pass
