@@ -6,6 +6,14 @@ class GWTImporter():
     def __init__(self, nlpExecutor=None):
         self.nlpTool = nlpExecutor
 
+    '''
+    param:
+        filepath:文件路径
+        filecontent:文件的str
+    return:
+        gwt的list，其中各句只有originContent
+    '''
+
     def importGWT(self, filepath=None, filecontent=None):
         text = None
         if filecontent is not None:
@@ -14,42 +22,38 @@ class GWTImporter():
             with open(file, 'r', encoding='utf-8') as f:
                 text = f.read()
         if text is not None:
-            gwtTextList = text.split('Story:')[1:]
+            gwtlist = []
+            gwtTextList = text.split('Feature:')[1:]
             for gwtText in gwtTextList:
-                gwtText = gwtText.replace('\n', '')
-                contentGroup = re.match('\s*(.*)\s*Scenario:\s*(.*)\s*Business\sRule:\s*(.*)'
-                                        'Given:\s*Preconditions:\s*(.*)\s*Fixed\sdata:\s*(.*)'
-                                        'When:\s*Action:\s*(.*)\s*Input\sdata:\s*(.*)'
-                                        'Then:\s*Output\sdata:\s*(.*)\s*Postcondition:\s*(.*)\s*', gwtText)
+                gwtText = gwtText.replace('\n', '')  # TODO 如果那么，做直到等复合句可以不分行但标点要正确不分句
+                contentGroup = re.match('\s*(.*)\s*Scenario:\s*(.*)\s*Given:\s*(.*)\s*'
+                                        'When:\s*(.*)\s*Input\sdata:\s*(.*)Then:\s*(.*)\s*', gwtText)
                 originGWT = GWT()
-                originGWT.Features = []
-                originGWT.Scenario = contentGroup.group(2)
+                originGWT.Feature = contentGroup.group(1)
+                originGWT.Scenario = []
                 originGWT.Givens = []
                 originGWT.Whens = []
                 originGWT.Thens = []
-                sentence = Sentence(stype='story', content=contentGroup.group(1))
-                originGWT.Features.append(sentence)
-                sentence = Sentence(stype='business_rule', content=contentGroup.group(3))
-                originGWT.Features.append(sentence)
-                sentList = self.nlpTool.splitSentences(contentGroup.group(4))
-                for item in sentList:
-                    sentence = Sentence(stype='precondition', content=item)
+                sentList = self.nlpTool.splitSentences(contentGroup.group(2))
+                for sent in sentList:
+                    cons = sent.split('或')#多条件切分，对分句的补充
+                    for con in cons:
+                        if len(con) > 0:
+                            sentence = Sentence(sent)
+                            originGWT.Scenario.append(sentence)
+                sentList = self.nlpTool.splitSentences(contentGroup.group(3))
+                for sent in sentList:
+                    sentence = Sentence(sent)
                     originGWT.Givens.append(sentence)
-                sentence = Sentence(stype='fixed_data', content=contentGroup.group(5))
-                originGWT.Givens.append(sentence)
-                sentList = self.nlpTool.splitSentences(contentGroup.group(6))
-                for i in range(0, len(sentList)):
-                    sentence = Sentence(stype='action', content=sentList[i], sequence=i + 1)
+                sentList = self.nlpTool.splitSentences(contentGroup.group(4))
+                for sent in sentList:
+                    sentence = Sentence(sent)
                     originGWT.Whens.append(sentence)
-                sentence = Sentence(stype='inputdata', content=contentGroup.group(7))
-                originGWT.Whens.append(sentence)
-                sentence = Sentence(stype='outputdata', content=contentGroup.group(8))
-                originGWT.Thens.append(sentence)
-                sentList = self.nlpTool.splitSentences(contentGroup.group(9))
-                for item in sentList:
-                    sentence = Sentence(stype='postcondition', content=item)
+                sentList = self.nlpTool.splitSentences(contentGroup.group(5))
+                for sent in sentList:
+                    sentence = Sentence(sent)
                     originGWT.Thens.append(sentence)
-
+                gwtlist.append(originGWT)
 
 
 if __name__ == '__main__':

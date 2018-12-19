@@ -1,18 +1,19 @@
 class GWT(object):
-    __slots__ = ('gwt_id', 'Scenario', 'Features', 'Givens', 'Whens', 'Thens')
+    __slots__ = ('Scenario', 'Feature', 'Givens', 'Whens', 'Thens')
 
 
 class TaggedGWT(GWT):
-    __slots__ = (
-        'useCaseName', 'PrimaryActor', 'SecondaryActors', 'BranchScenarios', 'preScenarios', 'postScenarios',
-        'flowType', 'commonPrec')
+    '''
+    refer为异常操作索引，condition为异常发生条件
+    '''
+    __slots__ = ('useCaseName','primaryActor','secondaryActors','flowType','refer','condition')
 
-    def __init__(self):
-        self.PrimaryActor = 'None'
-        self.SecondaryActors = 'None'
-        self.preScenarios = None
-        self.postScenarios = None
-        self.flowType = None
+    def __init__(self,gwt):
+        self.Feature=gwt.Feature
+        self.Scenario=gwt.Scenario
+        self.Givens=gwt.Givens
+        self.Whens=gwt.Whens
+        self.Thens=gwt.Thens
 
 
 class RUCM():
@@ -67,17 +68,20 @@ class RUCM():
 
 
 class Sentence(object):
-    __slots__ = ('sentence_id', 'stype', 'content', 'sequence')
+    '''
+    originContent为原始句子，actor为动作实施者索引，action为句子谓词索引，
+    wordlist为句子词链，normalContent为调整后的句子,
+    type指示when中句子为普通action-'normal'，条件action-'conditional'或循环action-'circular',
+        或given中句子为共同前提-'common'或异常前提-'unique'
+    在given中associated指示unique异常前提所来自的操作索引
+    '''
+    __slots__ = ('originContent', 'actor', 'action',
+     'wordlist','normalContent','type','associated')
 
-    def __init__(self, stype=None, content=None, sequence=None):
-        if stype is not None:
-            self.stype = stype
-        if content is not None:
-            self.content = content
-        if sequence is not None:
-            self.sequence = sequence
+    def __init__(self, originContent):
+        self.originContent=originContent
 
-
+'''
 class TaggedSentence(Sentence):
     __slots__ = ('secondType', 'associations')
 
@@ -88,7 +92,7 @@ class Association(object):
 
 class Scenario(object):
     __slots__ = ('gwtId', 'conditionIds')
-
+'''
 
 class BasicFlow():
     def __init__(self):

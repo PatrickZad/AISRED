@@ -1,4 +1,5 @@
 import re
+from data.datatype import TaggedGWT, Sentence
 
 
 class LableGenerator():
@@ -17,19 +18,38 @@ class LableGenerator():
     '''
 
     def generateLable(self, gwtList):
+        for i in range(len(gwtList)):
+            gwtList[i] = TaggedGWT(gwtList[i])
         self.__simpleLable(gwtList)
         self.__addGWTLable(gwtList)
         return gwtList
 
     '''
-    检索关键词语句并标记，包括Actor,UseCaseName，INCLUDE,EXTEND,
-    include和extend层次上更偏向已标记，故此处暂只识别usecasename
-    此外对含global的标记flowtype
+    标记基础标签
+    GWT级:usecase,scenario,flowType的basic和bunded
+    句子级:wordlist,actor,action
     '''
 
     def __simpleLable(self, gwtList):
+        conditionsum = [len(gwt.Givens) for gwt in gwtList]
+        conditionsum.sort()
         for gwt in gwtList:
-            story = gwt.Features[0].content
+            if len(gwt.Givens) == conditionsum[0]:
+                gwt.flowType = 'basic'
+                self.basic = gwt
+        for gwt in gwtList:
+            gwt.useCaseName = gwt.Feature
+            for sent in gwt.Whens:
+                sent.wordlist = self.nlp.wordTokenize(sent.originContent)
+                parselist = self.nlp.parse(sent.wordlist)
+                for i in range(len(parselist)):
+                    if parselist[i].relation == 'SBV':
+                        sent.actor = i
+                        sent.action = parselist[i].head - 1
+            if gwt is not self.basic:
+                if len(gwt.Givens) - len(self.basic.Givens) > 1:
+                    gwt.flowType = 'bounded'
+            '''
             content = re.match(r'.*As\sa\s*([\u4e00-\u9fa5\u3001]+)\uff0c?,?\s?([\u4e00-\u9fa5]+).*', story)
             actorContent = content.group(1)
             gwt.useCaseName = content.group(2)
@@ -45,20 +65,67 @@ class LableGenerator():
                     if re.match('.*GLOBAL.*', content):
                         gwt.flowType = 'global'
                         break
-
-    def __normalize(self):
-        pass
+            '''
 
     '''
-    判断flowType，global已知，暂认为basic为第一个，
-    specific与basic的precondition只有一个不一样，从action不同判断rfs
-    除以上剩下的即为bounded，从action两端判断rfs 
-    同时取得commonPrec作为rucm的precondition
-    使用BranchScenarios属性储存rfs
+    def __normalize(self):
+        pass
+    '''
+
+    '''
+    标记高级标签，包括
+    GWT级:refer,condition,flowtype的specific和global
+    句子级:nomalContent,type,associated
     '''
 
     def __addGWTLable(self, gwtList):
-        # TODO bounded的rfs判断需要修改
+        for gwt in gwtList:
+            for sent in gwt.Whens:
+                parse = self.nlp.parse(sent.wordlist)
+                if self.nlp.isSimple(parse):
+                    sent.type = 'normal'
+                elif sent.wordlist.count('如果') > 0:
+                    sent.type = 'conditional'
+                else:
+                    sent.type = 'circular'
+                self.nlp.normalize(sent, parse)
+            for sent in gwt.Thens:
+                sent.wordlist = self.nlp.wordTokenize(sent.originContent)
+                parse = self.nlp.parse(sent.wordlist)
+                self.nlp.normalize(sent, parse)
+            if gwt is self.basic:
+                for sent in gwt.Givens:
+                    sent.type = 'common'
+            elif gwt.flowType == 'bounded':
+                gwt.condition = []
+                gwt.refer=[]
+                for sent in gwt.Givens:
+                    if self.nlp.maxSimilarity(self.basic.Givens, sent)[1] > 0.99:
+                        sent.type = 'common'
+                    else:
+                        sent.type = 'unique'
+                        gwt.condition.append(sent)
+                for sent in gwt.condition:
+                    index, similarity = self.nlp.maxSimilarity(self.basic.Whens, sent)
+                    if similarity > 0.5:
+                        sent.associated = index
+                        gwt.refer.append(index)
+            else:
+                gwt.condition = []
+                for sent in gwt.Givens:
+                    if self.nlp.maxSimilarity(self.basic.Givens, sent)[1] > 0.99:
+                        sent.type = 'common'
+                    else:
+                        sent.type = 'unique'
+                        gwt.condition.append(sent)
+                index, similarity = self.nlp.maxSimilarity(self.basic.Whens, sent)
+                if similarity > 0.5:
+                    sent.associated = index
+                    gwt.flowType = 'specific'
+                    gwt.refer=index
+                else:
+                    gwt.flowType = 'global'
+        '''
         basic = gwtList[0]
         basic.flowType = 'basic'
         for gwt in gwtList[1:]:
@@ -102,15 +169,7 @@ class LableGenerator():
                                 gwt.BranchScenarios.append(k + 1)
                     gwt.BranchScenarios = list(set(gwt.BranchScenarios))
                     gwt.BranchScenarios.sort()
-
-                    '''
-                    while i < j:
-                        if self.nlp.similarity(basic.Whens[j], gwt.Whens[j]) == 1:
-                            j -= 1
-                        else:
-                            break
-                    gwt.BranchScenarios = [i, j]
-                    '''
+                 
         preList = [gwt for gwt in gwtList[1:] if gwt.flowType != 'global']
         basic.commonPrec = ''
         for i in range(0, len(basic.Givens) - 1):
@@ -121,3 +180,4 @@ class LableGenerator():
                     break
             if common:
                 basic.commonPrec += basic.Givens[i].content + '。'
+        '''
