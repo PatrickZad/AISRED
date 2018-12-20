@@ -14,7 +14,13 @@ class TaggedGWT(GWT):
         self.Givens=gwt.Givens
         self.Whens=gwt.Whens
         self.Thens=gwt.Thens
-
+        self.flowType=''
+    def scenarioStr(self):
+        scenariolist=[sent.originContent for sent in self.Scenario]
+        scenario=''
+        for scen in scenariolist:
+            scenario+=scen
+        return scenario
 
 class RUCM():
     __slots__ = ('useCaseName', 'briefDescription', 'precondition', 'primaryActor', 'secondaryActors', 'dependency',
@@ -52,7 +58,7 @@ class RUCM():
         result = 'Use Case Name: ' + self.useCaseName + '\n' + 'Brief Description: ' \
                  + self.briefDescription + '\n'
         result += 'Precondition: ' + self.precondition + '\n' + 'Primary Actor:' + \
-                  self.primaryActor + '\n' + 'Secondary Actors:' + self.secondaryActors + '\n'
+                  self.primaryActor + '\n' + 'Secondary Actors:' + self.secondaryActors[0] + '\n'
         result += 'Dependency:' + self.dependency + '\n' + 'Generalization:' + self.generalization + '\n'
         result += basicStr + specStr + bounStr+globStr
         return result
@@ -80,6 +86,7 @@ class Sentence(object):
 
     def __init__(self, originContent):
         self.originContent=originContent
+        self.actor=None
 
 '''
 class TaggedSentence(Sentence):

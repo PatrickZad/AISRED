@@ -30,7 +30,7 @@ class RUCMGnerator():
         for feature in featureSet:
             featureDict.setdefault(feature, [])
         for gwt in gwtList:
-            featureDict[gwt.feature].append(gwt)
+            featureDict[gwt.Feature].append(gwt)
         self.RUCMs = []
         for gwtList in featureDict.values():
             rucm = self.__generateRUCM(gwtList)
@@ -74,6 +74,9 @@ class RUCMGnerator():
         # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
         rucm.generalization = 'None'
         self.__basicFlow(taggedList, rucm)
+        rucm.precondition=''
+        for sent in self.start.Givens:
+            rucm.precondition+=sent.originContent
         self.__alternativeFlow(taggedList, rucm)
         return rucm
 
@@ -89,7 +92,7 @@ class RUCMGnerator():
         scenario = ''
         rucm.briefDescription = ''
         for taggedGWT in taggedList:
-            scenario = scenario + taggedGWT.Scenario
+            scenario = scenario + taggedGWT.scenarioStr()
         brSentences = self.nlp.generateSummary(scenario)
         for br in brSentences:
             rucm.briefDescription = rucm.briefDescription + br['sentence']
@@ -105,7 +108,7 @@ class RUCMGnerator():
     def __actors(self, taggedList, rucm):
         actorlist = []
         for gwt in taggedList:
-            actorlist = actorlist + [sent.actor for sent in gwt.Whens]
+            actorlist = actorlist + [sent.wordlist[sent.actor] for sent in gwt.Whens if sent.actor is not None]
         actorSet = list(set(actorlist))
         actorDict = {}
         for actor in actorSet:
@@ -118,7 +121,7 @@ class RUCMGnerator():
         for actor in actorDict.keys():
             if actorDict[actor] > actorDict[primary]:
                 primary = actor
-        actorSet.remove(primary)
+        actorSet.remove(primary)#TODO secondary actor的生成待改进
         return primary, actorSet
 
     '''
@@ -133,9 +136,10 @@ class RUCMGnerator():
         rucm.basic = BasicFlow()
         for gwt in taggelist:
             if gwt.flowType == 'basic':
-                start = gwt
-        rucm.basic.actions = [sentence.normalContent for sentence in start.Whens]
-        for sentence in start.Thens:
+               self.start = gwt
+               break
+        rucm.basic.actions = [sentence.normalContent for sentence in self.start.Whens]
+        for sentence in self.start.Thens:
             rucm.basic.postCondition += sentence.normalContent
 
     '''
@@ -153,27 +157,33 @@ class RUCMGnerator():
         for taggedGWT in taggedList:
             if taggedGWT.flowType == 'specific':
                 specificAlt = SpecificFlow()
-                action=rucm.basic.Whens[taggedGWT.refer].action
-                action=rucm.basic.Whens[taggedGWT.refer].wordlist[action]
-                rucm.basic.Whens[taggedGWT.refer].normalContemt.replace(action,'VALIDATES THAT')
-                specificAlt.rfs = taggedGWT.refer+1#TODO 考虑记录一个偏移量来包括条件action和循环action拆分占据的序号
+                action = self.start.Whens[taggedGWT.refer].action
+                action = self.start.Whens[taggedGWT.refer].wordlist[action] 
+                sent=rucm.basic.actions[taggedGWT.refer]
+                sent=sent.replace(action, 'VALIDATES THAT')
+                rucm.basic.actions[taggedGWT.refer]=sent
+                specificAlt.rfs = taggedGWT.refer + 1  # TODO 考虑记录一个偏移量来包括条件action和循环action拆分占据的序号
                 specificAlt.actions = [sentence.normalContent for sentence in
-                                       taggedGWT.Whens[taggedGWT.refer+1:]]
+                                       taggedGWT.Whens] 
                 for sentence in taggedGWT.Thens:
                     specificAlt.postCondition += sentence.normalContent
                 rucm.specificAlt.append(specificAlt)
             elif taggedGWT.flowType == 'bounded':
                 boundedAlt = BoundedFlow()
-                boundedAlt.rfs = [num+1 for num in taggedGWT.refer]
+                boundedAlt.rfs = [num + 1 for num in taggedGWT.refer]
                 boundedAlt.actions = [sentence.normalContent for sentence in
-                                      taggedGWT.Whens[taggedGWT.refer[0]+1:]]  # TODO 选择的action范围
+                                      taggedGWT.Whens]  # TODO 选择的action范围
+                for refer in taggedGWT.refer:
+                    sent=rucm.basic.actions[refer]
+                    sent=sent.replace(action, 'VALIDATES THAT')
+                    rucm.basic.actions[refer]=sent
                 for sentence in taggedGWT.Thens:
                     boundedAlt.postCondition += sentence.content
                 rucm.boundedAlt.append(boundedAlt)
             elif taggedGWT.flowType == 'global':
                 globalAlt = GlobalFlow()
                 globalAlt.condition = taggedGWT.condition.originContent
-                globalAlt.actions = [sentence.normalContent for sentence in taggedGWT.Whens ]
+                globalAlt.actions = [sentence.normalContent for sentence in taggedGWT.Whens]
                 for sentence in taggedGWT.Thens:
                     globalAlt.postCondition += sentence.normalContent
                 rucm.globalAlt.append(globalAlt)
@@ -207,55 +217,11 @@ class RUCMGnerator():
 if __name__ == '__main__':
     # from data.datatype import TaggedGWT, Sentence
     from support.nlpsupport import NLPExecutor
-    import pickle
+    from response.gwtresponse import GWTImporter
+    #from rucmresponse import RUCMGnerator
 
-    file = r'../testfile/inputdemo.gwtfile'
-    nlpTool = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
-    '''
-    with open(file, 'r', encoding='utf-8') as f:
-        text = f.read()
-    gwtTextList = text.split('Story:')[1:]
-    testList = []
-    for gwtText in gwtTextList:
-        gwtText = gwtText.replace('\n', '')
-        contentGroup = re.match('\s*(.*)\s*Scenario:\s*(.*)\s*Business\sRule:\s*(.*)'
-                                'Given:\s*Preconditions:\s*(.*)\s*Fixed\sdata:\s*(.*)'
-                                'When:\s*Action:\s*(.*)\s*Input\sdata:\s*(.*)'
-                                'Then:\s*Output\sdata:\s*(.*)\s*Postcondition:\s*(.*)\s*', gwtText)
-        originGWT = TaggedGWT()
-        originGWT.Features = []
-        originGWT.Scenario = contentGroup.group(2)
-        originGWT.Givens = []
-        originGWT.Whens = []
-        originGWT.Thens = []
-        sentence = Sentence(stype='story', content=contentGroup.group(1))
-        originGWT.Features.append(sentence)
-        sentence = Sentence(stype='business_rule', content=contentGroup.group(3))
-        originGWT.Features.append(sentence)
-        sentList = nlpTool.splitSentences(contentGroup.group(4))
-        for item in sentList:
-            sentence = Sentence(stype='precondition', content=item)
-            originGWT.Givens.append(sentence)
-        sentence = Sentence(stype='fixed_data', content=contentGroup.group(5))
-        originGWT.Givens.append(sentence)
-        sentList = nlpTool.splitSentences(contentGroup.group(6))
-        for i in range(0, len(sentList)):
-            sentence = Sentence(stype='action', content=sentList[i], sequence=i + 1)
-            originGWT.Whens.append(sentence)
-        sentence = Sentence(stype='inputdata', content=contentGroup.group(7))
-        originGWT.Whens.append(sentence)
-        sentence = Sentence(stype='outputdata', content=contentGroup.group(8))
-        originGWT.Thens.append(sentence)
-        sentList = nlpTool.splitSentences(contentGroup.group(9))
-        for item in sentList:
-            sentence = Sentence(stype='postcondition', content=item)
-            originGWT.Thens.append(sentence)
-        testList.append(originGWT)
-    with open('./testlist', 'wb') as f:
-         pickle.dump(testList, f)
-    '''
-    with open('./testlist', 'rb') as f:
-        testList = pickle.load(f)
-
-    rucmResp = RUCMGnerator(None, nlpTool)
-    rucmResp.generateRUCMs(gwtList=testList)
+    nlp = NLPExecutor()
+    importer = GWTImporter(nlp)
+    gwtlist = importer.importGWT(filepath=r'D:\StarUMLWorkspace\GWT2RUCM\Project\GWT2RUCM_Pyltp\testfile\new_input_demo.gwtfile')
+    generator = RUCMGnerator(nlp)
+    generator.generateRUCMs(gwtlist)

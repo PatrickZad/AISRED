@@ -37,6 +37,7 @@ class LableGenerator():
             if len(gwt.Givens) == conditionsum[0]:
                 gwt.flowType = 'basic'
                 self.basic = gwt
+                break
         for gwt in gwtList:
             gwt.useCaseName = gwt.Feature
             for sent in gwt.Whens:
@@ -92,6 +93,7 @@ class LableGenerator():
             for sent in gwt.Thens:
                 sent.wordlist = self.nlp.wordTokenize(sent.originContent)
                 parse = self.nlp.parse(sent.wordlist)
+                sent.type='then'
                 self.nlp.normalize(sent, parse)
             if gwt is self.basic:
                 for sent in gwt.Givens:
