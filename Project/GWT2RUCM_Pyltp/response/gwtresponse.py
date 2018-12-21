@@ -36,6 +36,10 @@ class GWTImporter():
                 originGWT.Thens = []
                 sentList = self.nlpTool.splitSentences(contentGroup.group(2))
                 for sent in sentList:
+                    sentence=Sentence(sent)
+                    originGWT.Scenario.append(sentence)
+                sentList = self.nlpTool.splitSentences(contentGroup.group(3))
+                for sent in sentList:
                     cons = sent.split('或')  # 多条件切分，对分句的补充
                     allSent=True
                     for con in cons:
@@ -44,11 +48,7 @@ class GWTImporter():
                     for con in cons:
                         if len(con) > 1:
                             sentence = Sentence(sent)
-                            originGWT.Scenario.append(sentence)
-                sentList = self.nlpTool.splitSentences(contentGroup.group(3))
-                for sent in sentList:
-                    sentence = Sentence(sent)
-                    originGWT.Givens.append(sentence)
+                            originGWT.Givens.append(sentence)
                 sentList = self.nlpTool.splitSentences(contentGroup.group(4))
                 for sent in sentList:
                     sentence = Sentence(sent)

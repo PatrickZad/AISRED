@@ -195,13 +195,10 @@ class NLPExecutor:
             if similarity > max[1]:
                 max = [i, similarity]
         return max
-        '''
-        def anaphoraResolution(self, text):
-            pass
-    
-        def sentComposite(self, text):
-            pass
-    
-        def featureExtract(self, text):
-            pass
-        '''
+if __name__=='__main__':
+    sent1='该卡为有效卡'
+    sent2='该卡为无效卡'
+    nlp=NLPExecutor()
+    nlp.dictUpdate('./newword')
+    print(nlp.similarity(sent1,sent2))
+
