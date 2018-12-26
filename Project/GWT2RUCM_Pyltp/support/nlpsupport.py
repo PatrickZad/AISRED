@@ -143,14 +143,22 @@ class NLPExecutor:
         poslist=self.posTag(wordlist=wordlist)
         if parselist is None:
             parselist = self.parse(wordlist=wordlist, poslist=poslist)
-        newWords = wordlist.copy()
         # TODO 替换IF,ELSE,THEN,DO,UNTIL
         if sentence.type == 'conditional':
             # TODO
-            pass
+            for i in range(0,len(wordlist)):
+                if wordlist[i] == '如果':
+                    wordlist[i]='IF'
+                elif wordlist[i]=='那么':
+                    wordlist[i]='THEN':
+                elif wordlist[i]=='否则':
+                    wordlist[i]='ELSE':
         elif sentence.type == 'circular':
             # TODO
-            pass
+            for i in range(0,len(wordlist)):
+                if wordlist[i] == '同时':
+                    wordlist[i]='MEANWHILE'
+        newWords = wordlist.copy()
         #TODO 去量词效果
         for i in range(len(wordlist) - 1, -1, -1):
             if parselist[i].relation == 'ATT' and (poslist[i] == 'm' or poslist[i] == 'q'):
@@ -158,6 +166,8 @@ class NLPExecutor:
         sentence.normalContent=''
         for word in newWords:
             sentence.normalContent+=word
+        if sentence.type=='circular':
+            sentence.normalContent='DO'+sentence.normalContent
 
 
     '''
