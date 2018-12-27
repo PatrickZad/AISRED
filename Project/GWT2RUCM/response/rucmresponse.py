@@ -1,5 +1,4 @@
 from support.lablesupport import LableGenerator
-from support.nlpsupport import NLPExecutor
 from data.datatype import RUCM, BasicFlow, SpecificFlow, BoundedFlow, GlobalFlow
 from datetime import datetime
 import re
@@ -13,8 +12,8 @@ class RUCMGnerator():
         无
     '''
 
-    def __init__(self, dataDispatcher):
-        self.nlp = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
+    def __init__(self, dataDispatcher, nlpExecutor):
+        self.nlp = nlpExecutor
         self.lable = LableGenerator(self.nlp)
         self.dataTool = dataDispatcher
 
@@ -25,24 +24,27 @@ class RUCMGnerator():
         无    
     '''
 
-    def generateRUCMs(self, gwtIdList):
+    def generateRUCMs(self, gwtIdList=None, gwtList=None):
         '''
         根据id获取要处理的GWT,返回的是未加标签的TaggedGWT
         为这一组GWT添加标签填充成TaggedGWT
         将这一组TaggedGWT合成一组RUCM
         '''
-        self.GWTs = self.dataTool.get_gwt_list_by_id(gwtIdList)
+        if gwtList is None:
+            self.GWTs = self.dataTool.get_gwt_list_by_id(gwtIdList)
+        else:
+            self.GWTs = gwtList
         taggedList = self.lable.generateLable(self.GWTs)
         # 根据useCaseName分组
         useCaseSet = list(set([taggedGWT.useCaseName for taggedGWT in taggedList]))
-        useCaseList = []
-        for i in range(0, len(useCaseSet)):
-            useCaseList = useCaseList.append([])
+        useCaseDict = {}
+        for name in useCaseSet:
+            useCaseDict.setdefault(name, [])
         for taggedGWT in taggedList:
-            useCaseList[useCaseSet.index(taggedGWT.useCaseName)].append(taggedGWT)
+            useCaseDict[taggedGWT.useCaseName].append(taggedGWT)
         self.RUCMs = []
-        for i in range(0, len(useCaseList)):
-            rucm = self.__generateRUCM(useCaseList[i])
+        for gwtList in useCaseDict.values():
+            rucm = self.__generateRUCM(gwtList)
             self.RUCMs.append(rucm)
         self.__generateOutput()
 
@@ -55,16 +57,18 @@ class RUCMGnerator():
 
     def __generateRUCM(self, taggedList):
         rucm = RUCM(taggedList[0].useCaseName)
-        self.__briefDescription(self.startGWT, rucm)
-        rucm.precondition = self.startGWT.commonPrec
+        self.__briefDescription(taggedList, rucm)
         # TODO 根据关键字从given和when的句子中取得Dependency，Generalization暂定为None,
-        rucm.dependency = ''
+        rucm.dependency = 'None'
         for taggedGWT in taggedList:
             if taggedGWT.flowType == 'basic':
-                self.startGWT = taggedGWT  # 标记初始GWT
+                startGWT = taggedGWT  # 标记初始GWT
+                rucm.precondition = startGWT.commonPrec
+                rucm.primaryActor = startGWT.PrimaryActor
+                rucm.secondaryActors = startGWT.SecondaryActors
                 for sentence in taggedGWT.Givens:
                     '''
-                    if sentence.type == 'precondition':
+                    if sentence.stype == 'precondition':
                         rucm.precondition = rucm.precondition + sentence.content
                         '''
                     # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
@@ -72,7 +76,7 @@ class RUCMGnerator():
                 # NTODO 命名实体识别获取Actor 暂定为获取各句第一个命名实体，取最多的为PrimaryActor，sencond暂定为None
                 # entityList = []
                 for sentence in taggedGWT.Whens:
-                    if sentence.type == 'action':
+                    if sentence.stype == 'action':
                         # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
                         self.__addDependency(rucm, sentence)
                         '''
@@ -93,7 +97,7 @@ class RUCMGnerator():
                         '''
         # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
         rucm.generalization = 'None'
-        self.__basicFlow(self.startGWT, rucm)
+        self.__basicFlow(startGWT, rucm)
         self.__alternativeFlow(taggedList, rucm)
         return rucm
 
@@ -105,13 +109,14 @@ class RUCMGnerator():
         修改对象，不返回新值
     '''
 
-    def __briefDescription(self, taggedList, rucm):
+    def __briefDescription(self, taggedList, rucm):  # TODO 实现方法待改进
         scenario = ''
+        rucm.briefDescription = ''
         for taggedGWT in taggedList:
             scenario = scenario + taggedGWT.Scenario
         brSentences = self.nlp.generateSummary(scenario)
-        for sentence in brSentences:
-            rucm.briefDescription = rucm.briefDescription + sentence
+        for br in brSentences:
+            rucm.briefDescription = rucm.briefDescription + br['sentence']
 
     '''
     param:
@@ -123,15 +128,15 @@ class RUCMGnerator():
 
     def __basicFlow(self, start, rucm):
         rucm.basic = BasicFlow()
-        rucm.basic.actions = [sentence.content for sentence in start.Whens if sentence.type == 'action']
+        rucm.basic.actions = [sentence.content for sentence in start.Whens if sentence.stype == 'action']
         # TODO 假定postScenario指向唯一的后继gwt
         while start.postScenarios is not None:
             for sentence in start.postScenarios.Whens:
-                if sentence.type == 'action':
+                if sentence.stype == 'action':
                     rucm.basic.addAction(sentence.content)
             start = start.postScenarios
         for sentence in start.Thens:
-            if sentence.type == 'postcondition':
+            if sentence.stype == 'postcondition':
                 rucm.basic.postCondition += sentence.content
 
     '''
@@ -149,35 +154,40 @@ class RUCMGnerator():
         rucm.globalAlt = []
         for taggedGWT in taggedList:
             if taggedGWT.flowType == 'specific':
-                rucm.specificAlt = SpecificFlow()
+                specificAlt = SpecificFlow()
                 rucm.basic.actions[taggedGWT.BranchScenarios[0]] = \
                     self.nlp.addValidate(rucm.basic.actions[taggedGWT.BranchScenarios[0]])
-                rucm.specificAlt.rfs = taggedGWT.BranchScenarios[1]
-                rucm.specificAlt.actions = [sentence.content for sentence in taggedGWT.Whens
-                                            if sentence.type == 'action']
+                specificAlt.rfs = taggedGWT.BranchScenarios[1]
+                specificAlt.actions = [sentence.content for sentence in
+                                       taggedGWT.Whens[taggedGWT.BranchScenarios[0] - 1:]
+                                       if sentence.stype == 'action']  # TODO 选择的action范围
                 for sentence in taggedGWT.Thens:
-                    if sentence.type == 'postcondition':
-                        rucm.specificAlt.postCondition += sentence.content
+                    if sentence.stype == 'postcondition':
+                        specificAlt.postCondition += sentence.content
+                rucm.specificAlt.append(specificAlt)
             elif taggedGWT.flowType == 'bounded':
-                rucm.boundedAlt = BoundedFlow()
-                rucm.boundedAlt.rfs = taggedGWT.BranchScenarios
-                rucm.boundedAlt.actions = [sentence.content for sentence in taggedGWT.Whens if
-                                           sentence.type == 'action']
+                boundedAlt = BoundedFlow()
+                boundedAlt.rfs = taggedGWT.BranchScenarios
+                boundedAlt.actions = [sentence.content for sentence in
+                                      taggedGWT.Whens[taggedGWT.BranchScenarios[0] - 1:] if
+                                      sentence.stype == 'action']  # TODO 选择的action范围
                 for sentence in taggedGWT.Thens:
-                    if sentence.type == 'postcondition':
-                        rucm.boundedAlt.postCondition += sentence.content
+                    if sentence.stype == 'postcondition':
+                        boundedAlt.postCondition += sentence.content
+                rucm.boundedAlt.append(boundedAlt)
             elif taggedGWT.flowType == 'global':
-                rucm.globalAlt = GlobalFlow()
-                for sentence in taggedGWT.Givens:
-                    if sentence.type == 'precondition':
-                        contentGroup = re.match(r'.*GLOBAL\s*([\u4e00-\u9fa5]+)', sentence.content)
+                globalAlt = GlobalFlow()
+                for i in range(0, len(taggedGWT.Givens) - 1):
+                    if taggedGWT.Givens[i].stype == 'precondition':
+                        contentGroup = re.match(r'.*GLOBAL.*', taggedGWT.Givens[i].content)
                         if contentGroup:
-                            rucm.globalAlt.condition += contentGroup.group(1)
-                rucm.globalAlt.actions = [sentence.content for sentence in taggedGWT.Whens if
-                                          sentence.type == 'action']
+                            globalAlt.condition += taggedGWT.Givens[i + 1].content
+                globalAlt.actions = [sentence.content for sentence in taggedGWT.Whens if
+                                     sentence.stype == 'action']
                 for sentence in taggedGWT.Thens:
-                    if sentence.type == 'postcondition':
-                        rucm.globalAlt.postCondition += sentence.content
+                    if sentence.stype == 'postcondition':
+                        globalAlt.postCondition += sentence.content
+                rucm.globalAlt.append(globalAlt)
 
     '''
     param:
@@ -187,11 +197,11 @@ class RUCMGnerator():
     '''
 
     def __generateOutput(self):
-        outpath = r'../outputfile/' + str(datetime.now().timestamp()) + r'.rucmout'
+        outpath = './' + str(datetime.now().timestamp()) + '.rucmout'
         self.output = ''
         for rucm in self.RUCMs:
             self.output += rucm.__str__()
-        with open(outpath, 'w') as f:
+        with open(outpath, 'w', encoding='utf-8') as f:
             f.write(self.output)
         self.output = outpath
 
@@ -203,3 +213,60 @@ class RUCMGnerator():
         extd = re.match(r'EXTENDED\s*([\u4e00-\u9fa5]+).+', sentence.content)
         if extd:
             rucm.dependency += 'EXTENDED BY USE CASE ' + extd.group(1) + ' '
+
+
+if __name__ == '__main__':
+    #from data.datatype import TaggedGWT, Sentence
+    from support.nlpsupport import NLPExecutor
+    import pickle
+
+    file = r'../testfile/inputdemo.gwtfile'
+    nlpTool = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
+    '''
+    with open(file, 'r', encoding='utf-8') as f:
+        text = f.read()
+    gwtTextList = text.split('Story:')[1:]
+    testList = []
+    for gwtText in gwtTextList:
+        gwtText = gwtText.replace('\n', '')
+        contentGroup = re.match('\s*(.*)\s*Scenario:\s*(.*)\s*Business\sRule:\s*(.*)'
+                                'Given:\s*Preconditions:\s*(.*)\s*Fixed\sdata:\s*(.*)'
+                                'When:\s*Action:\s*(.*)\s*Input\sdata:\s*(.*)'
+                                'Then:\s*Output\sdata:\s*(.*)\s*Postcondition:\s*(.*)\s*', gwtText)
+        originGWT = TaggedGWT()
+        originGWT.Features = []
+        originGWT.Scenario = contentGroup.group(2)
+        originGWT.Givens = []
+        originGWT.Whens = []
+        originGWT.Thens = []
+        sentence = Sentence(stype='story', content=contentGroup.group(1))
+        originGWT.Features.append(sentence)
+        sentence = Sentence(stype='business_rule', content=contentGroup.group(3))
+        originGWT.Features.append(sentence)
+        sentList = nlpTool.splitSentences(contentGroup.group(4))
+        for item in sentList:
+            sentence = Sentence(stype='precondition', content=item)
+            originGWT.Givens.append(sentence)
+        sentence = Sentence(stype='fixed_data', content=contentGroup.group(5))
+        originGWT.Givens.append(sentence)
+        sentList = nlpTool.splitSentences(contentGroup.group(6))
+        for i in range(0, len(sentList)):
+            sentence = Sentence(stype='action', content=sentList[i], sequence=i + 1)
+            originGWT.Whens.append(sentence)
+        sentence = Sentence(stype='inputdata', content=contentGroup.group(7))
+        originGWT.Whens.append(sentence)
+        sentence = Sentence(stype='outputdata', content=contentGroup.group(8))
+        originGWT.Thens.append(sentence)
+        sentList = nlpTool.splitSentences(contentGroup.group(9))
+        for item in sentList:
+            sentence = Sentence(stype='postcondition', content=item)
+            originGWT.Thens.append(sentence)
+        testList.append(originGWT)
+    with open('./testlist', 'wb') as f:
+         pickle.dump(testList, f)
+    '''
+    with open('./testlist', 'rb') as f:
+        testList = pickle.load(f)
+
+    rucmResp = RUCMGnerator(None, nlpTool)
+    rucmResp.generateRUCMs(gwtList=testList)

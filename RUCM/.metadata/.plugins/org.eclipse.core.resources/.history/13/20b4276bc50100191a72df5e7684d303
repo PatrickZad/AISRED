@@ -1,0 +1,247 @@
+{
+  "lmf.version": "1.1",
+  "reference": [
+    {"path": "<root>.modelElements[0]"},
+    {"path": "<root>.modelElements[1]"},
+    {"path": "<root>.modelElements[2]"},
+    {"path": "<root>.modelElements[3]"},
+    {"path": "<root>.modelElements[4]"},
+    {"path": "<root>.modelElements[5]"}
+  ],
+  "root": {
+    "type": "UCModel",
+    "content": {
+      "name": {
+        "type": "<string>",
+        "content": "Untitled"
+      },
+      "modelElements": [
+        {
+          "type": "UseCase",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": "导入领域背景"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            }
+          }
+        },
+        {
+          "type": "Actor",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": ""
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            }
+          }
+        },
+        {
+          "type": "UseCase",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": "输入一组GWT"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            }
+          }
+        },
+        {
+          "type": "Actor",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": ""
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            }
+          }
+        },
+        {
+          "type": "UseCase",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": "生成中间标签"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            }
+          }
+        },
+        {
+          "type": "UseCase",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": "获取一组RUCM"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            }
+          }
+        }
+      ],
+      "description": {
+        "type": "<string>",
+        "content": ""
+      },
+      "diagrams": [{
+        "type": "UCDiagram",
+        "content": {
+          "nodes": [
+            {
+              "type": "UCDUseCaseNode",
+              "content": {
+                "useCase": "&0",
+                "top": {
+                  "type": "<int>",
+                  "content": 160
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 350
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 140
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 70
+                }
+              }
+            },
+            {
+              "type": "UCDActorNode",
+              "content": {
+                "actor": "&1",
+                "top": {
+                  "type": "<int>",
+                  "content": 178
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 623
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 67
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 98
+                }
+              }
+            },
+            {
+              "type": "UCDUseCaseNode",
+              "content": {
+                "useCase": "&2",
+                "top": {
+                  "type": "<int>",
+                  "content": 273
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 348
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 140
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 70
+                }
+              }
+            },
+            {
+              "type": "UCDActorNode",
+              "content": {
+                "actor": "&3",
+                "top": {
+                  "type": "<int>",
+                  "content": 331
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 699
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 67
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 98
+                }
+              }
+            },
+            {
+              "type": "UCDUseCaseNode",
+              "content": {
+                "useCase": "&4",
+                "top": {
+                  "type": "<int>",
+                  "content": 384
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 344
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 140
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 70
+                }
+              }
+            },
+            {
+              "type": "UCDUseCaseNode",
+              "content": {
+                "useCase": "&5",
+                "top": {
+                  "type": "<int>",
+                  "content": 484
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 349
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 140
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 70
+                }
+              }
+            }
+          ],
+          "name": {
+            "type": "<string>",
+            "content": ""
+          }
+        }
+      }]
+    }
+  }
+}

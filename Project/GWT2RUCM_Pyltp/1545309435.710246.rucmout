@@ -1,0 +1,54 @@
+Use Case Name: 提钱
+Brief Description: ATM用户输入密码错误
+Precondition: 系统处于空闲状态。系统显示欢迎信息。
+Primary Actor:用户
+Secondary Actors:该卡
+Dependency:None
+Generalization:None
+Basic Flow:
+1.系统检测到卡。
+2.系统 VALIDATES THAT 该卡为有效卡。
+3.系统展示登陆界面。
+4.ATM用户输入密码12345。
+5.系统 VALIDATES THAT 系统 VALIDATES THAT 系统 VALIDATES THAT 12345是正确密码。
+6.系统展示登陆成功后的界面。
+7.系统 VALIDATES THAT ATM用户选择“取款”。
+8.ATM用户输入元。
+9.ATM用户选择账户号。
+10.账户号有效。
+11.ATM用户在该账户中的资金大于元。
+12.系统 VALIDATES THAT 系统 VALIDATES THAT 系统 VALIDATES THAT 元小于每日提取金额限制。
+13.系统 VALIDATES THAT ATM机中的资金大于元。
+14.系统分发现金。
+15.系统展示“交易号为10010，交易类型为提现，交易金额为元，账户余额为元”系统退卡。
+16.系统展示欢迎信息。
+postcondition:ATM用户成功取到元。
+Specific Alternative Flow: RFS 2
+1.系统退卡。
+2.系统显示欢迎信息。
+postcondition:系统处于空闲状态。
+Specific Alternative Flow: RFS 5
+1.系统提示密码错误。
+2.ATM用户输入密码54321。
+3.54321是正确密码。
+postcondition:系统展示登陆成功后的界面。
+Specific Alternative Flow: RFS 5
+1.系统提示密码错误。
+2.ATM用户输入密码45321。
+3.45321是正确密码。
+postcondition:系统展示登陆成功后的界面。
+Specific Alternative Flow: RFS 5
+1.系统提示次输入密码错误，同时，系统吞卡。
+2.系统展示欢迎信息。
+postcondition:系统处于空闲状态。ATM用户失去插入的卡。
+Specific Alternative Flow: RFS 7
+1.系统取消交易，同时，系统退卡。
+2.系统展示欢迎信息。
+postcondition:系统处于空闲状态。
+Specific Alternative Flow: RFS 13
+1.系统展示“ATM机中的资金不足元”。
+2.系统退卡。
+postcondition:ATM用户的资金没有被取出。系统处于空闲状态。系统展示欢迎信息。
+Bounded Alternative Flow: RFS 12, 12, 12
+1.系统展示抱歉信息并同时退卡。
+postcondition:系统处于空闲状态。系统展示欢迎信息。

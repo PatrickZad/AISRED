@@ -18,7 +18,8 @@ class LableGenerator():
 
     def generateLable(self, gwtList):
         self.__simpleLable(gwtList)
-        pass
+        self.__addGWTLable(gwtList)
+        return gwtList
 
     '''
     检索关键词语句并标记，包括Actor,UseCaseName，INCLUDE,EXTEND,
@@ -37,9 +38,9 @@ class LableGenerator():
             if len(actors) > 1:
                 gwt.SecondaryActors = ''
                 for actor in actors[1:]:
-                    gwt.SecondaryActors += actor
+                    gwt.SecondaryActors += actor + ' '
             for sentence in gwt.Givens:
-                if sentence.type == 'precondition':
+                if sentence.stype == 'precondition':
                     content = sentence.content
                     if re.match('.*GLOBAL.*', content):
                         gwt.flowType = 'global'
@@ -57,46 +58,66 @@ class LableGenerator():
     '''
 
     def __addGWTLable(self, gwtList):
-        #TODO bounded的rfs判断需要修改
+        # TODO bounded的rfs判断需要修改
         basic = gwtList[0]
         basic.flowType = 'basic'
         for gwt in gwtList[1:]:
             if gwt.flowType != 'global':
+                nega = []
                 diff = []
-                for i in range(0, len(basic.Givens) - 1):
-                    similarity = self.nlp.similarity(basic.Givens[i].content,
-                                                     gwt.Givens[i].content)
-                    if similarity > 0.8 and similarity < 1:
+                simiList = []
+                for i in range(0, len(gwt.Givens) - 1):
+                    for sentence in basic.Givens[:-1]:
+                        simiList.append(self.nlp.similarity(gwt.Givens[i].content,
+                                                            sentence.content))
+                    simiList.sort()
+                    if simiList[-1] > 0.8 and simiList[-1] < 0.99:
+                        nega.append(i)
+                    elif simiList[-1] <= 0.8:
                         diff.append(i)
-                if len(diff) == 1:
+                    simiList = []
+                if len(nega) == 1 or len(diff) == 1:
                     gwt.flowType = 'specific'
                     for i in range(0, len(basic.Whens) - 1):
                         similarity = self.nlp.similarity(basic.Whens[i].content,
                                                          gwt.Whens[i].content)
-                        if similarity != 1:
-                            gwt.BranchScenarios = [diff[0],i + 1]#diff[0]指示分支condition，i+1指示分支action
+                        if similarity < 0.99 and similarity > 0.8:
+                            gwt.BranchScenarios = [nega[0], i + 1]  # nega[0]指示分支condition来自分支gwt，i+1指示分支action来自basic
+                            break
                 else:
                     gwt.flowType = 'bounded'
-                    i = 0
-                    j = len(basic.Whens) - 2
-                    while i < j:
-                        if self.nlp.similarity(basic.Whens[i], gwt.Whens[i]) == 1:
+                    gwt.BranchScenarios = []
+                    for i in range(0, len(basic.Whens) - 2):  # 找到action开始不同的地方
+                        if self.nlp.similarity(basic.Whens[i].content, gwt.Whens[i].content) > 0.99:
                             i += 1
                         else:
                             break
+                    # 比较nega的action和precondition
+                    for j in diff:
+                        for k in range(i, len(basic.Whens) - 2):
+                            sent0 = basic.Whens[k].content
+                            sent1 = gwt.Givens[j].content
+                            similarity = self.nlp.similarity(sent0, sent1)  # 找出basic里与gwt的pre相近的action
+                            if similarity > 0.4 and similarity < 0.99:
+                                gwt.BranchScenarios.append(k + 1)
+                    gwt.BranchScenarios = list(set(gwt.BranchScenarios))
+                    gwt.BranchScenarios.sort()
+
+                    '''
                     while i < j:
                         if self.nlp.similarity(basic.Whens[j], gwt.Whens[j]) == 1:
                             j -= 1
                         else:
                             break
                     gwt.BranchScenarios = [i, j]
+                    '''
         preList = [gwt for gwt in gwtList[1:] if gwt.flowType != 'global']
         basic.commonPrec = ''
         for i in range(0, len(basic.Givens) - 1):
             common = True
             for gwt in preList:
-                if basic.Givens[i] != gwt.Givens[i]:
+                if basic.Givens[i].content != gwt.Givens[i].content:
                     common = False
                     break
             if common:
-                basic.commonPrec += basic.Givens[i]
+                basic.commonPrec += basic.Givens[i].content + '。'

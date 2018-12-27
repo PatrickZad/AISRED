@@ -1,8 +1,12 @@
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from response import backgroundresponse,gwtresponse,rucmresponse
+from support.nlpsupport import NLPExecutor
 UPLOAD_FOLDER = '/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
+
+
+nlp = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
