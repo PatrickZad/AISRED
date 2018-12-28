@@ -17,7 +17,19 @@
     {"path": "<root>.modelElements[4]"},
     {"path": "<root>.modelElements[9]"},
     {"path": "<root>.modelElements[3]"},
+    {"path": "<root>.modelElements[5].specification.basicFlow.steps[1]"},
+    {"path": "<root>.modelElements[5].specification.basicFlow.steps[4]"},
+    {"path": "<root>.modelElements[5].specification.basicFlow.steps[1].natures[1]"},
     {"path": "<root>.modelElements[2]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[5]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[7]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[5].natures[1]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[8]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[10]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[8].natures[1]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[11]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[13]"},
+    {"path": "<root>.modelElements[9].specification.basicFlow.steps[11].natures[1]"},
     {"path": "<root>"},
     {"path": "<root>.modelElements[6]"},
     {"path": "<root>.diagrams[0].nodes[1]"},
@@ -27,14 +39,14 @@
     {"path": "<root>.modelElements[8]"},
     {"path": "<root>.diagrams[0].nodes[3]"},
     {"path": "<root>.diagrams[0].nodes[5]"},
-    {"path": "<root>.modelElements[5].include[0]"},
-    {"path": "<root>.diagrams[0].nodes[4]"},
-    {"path": "<root>.modelElements[5].include[1]"},
-    {"path": "<root>.diagrams[0].nodes[6]"},
     {"path": "<root>.modelElements[0].include[0]"},
     {"path": "<root>.diagrams[0].nodes[8]"},
     {"path": "<root>.modelElements[0].include[1]"},
-    {"path": "<root>.diagrams[0].nodes[7]"}
+    {"path": "<root>.diagrams[0].nodes[7]"},
+    {"path": "<root>.modelElements[5].include[0]"},
+    {"path": "<root>.diagrams[0].nodes[4]"},
+    {"path": "<root>.modelElements[5].include[1]"},
+    {"path": "<root>.diagrams[0].nodes[6]"}
   ],
   "root": {
     "type": "UCModel",
@@ -904,6 +916,36 @@
                   "type": "<string>",
                   "content": ""
                 },
+                "preCondition": {
+                  "type": "PreCondition",
+                  "content": {
+                    "sentences": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": "GWT文档导入完成。"
+                        }
+                      }
+                    }],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
                 "briefDescription": {
                   "type": "BriefDescription",
                   "content": {
@@ -937,6 +979,36 @@
                 "basicFlow": {
                   "type": "BasicFlow",
                   "content": {
+                    "postCondition": {
+                      "type": "PostCondition",
+                      "content": {
+                        "sentences": [{
+                          "type": "Sentence",
+                          "content": {
+                            "name": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "description": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "content": {
+                              "type": "<string>",
+                              "content": "系统生成一组标签化的GWT。"
+                            }
+                          }
+                        }],
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        }
+                      }
+                    },
                     "name": {
                       "type": "<string>",
                       "content": ""
@@ -945,23 +1017,76 @@
                       "type": "<string>",
                       "content": ""
                     },
-                    "steps": [{
-                      "type": "Sentence",
-                      "content": {
-                        "name": {
-                          "type": "<string>",
-                          "content": ""
-                        },
-                        "description": {
-                          "type": "<string>",
-                          "content": ""
-                        },
+                    "steps": [
+                      {
+                        "type": "Sentence",
                         "content": {
-                          "type": "<string>",
-                          "content": ""
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统读入原始GWT数据。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统为原始GWT添加简单标签。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统根据初步标签化的GWT添加进一步的标签。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统输出标签化的GWT。"
+                          }
                         }
                       }
-                    }]
+                    ]
                   }
                 }
               }
@@ -1153,13 +1278,57 @@
                       {
                         "type": "Sentence",
                         "content": {
-                          "natures": [{
-                            "type": "IncludeUCNature",
-                            "content": {"useCaseName": {
-                              "type": "<string>",
-                              "content": "生成中间标签"
-                            }}
-                          }],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统根据用例名对GWT分组。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "DoNature",
+                              "content": {}
+                            },
+                            {
+                              "type": "DoComposite",
+                              "content": {
+                                "doSentence": "&16",
+                                "untilSentence": "&17",
+                                "compositeSentences": [
+                                  "&16",
+                                  "&17"
+                                ]
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "DO"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
                           "name": {
                             "type": "<string>",
                             "content": ""
@@ -1181,7 +1350,7 @@
                             "type": "IncludeUCNature",
                             "content": {"useCaseName": {
                               "type": "<string>",
-                              "content": "转化"
+                              "content": "生成RUCM"
                             }}
                           }],
                           "name": {
@@ -1194,7 +1363,57 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "INCLUDE USE CASE 转化"
+                            "content": "INCLUDE USE CASE 生成RUCM"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "UntilNature",
+                              "content": {"untilCondition": {
+                                "type": "<string>",
+                                "content": "所有成组的GWT转换完成"
+                              }}
+                            },
+                            {
+                              "type": "ReferenceNature",
+                              "content": {
+                                "referenceSentence": "&16",
+                                "referenceNature": "&18"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "UNTIL 所有成组的GWT转换完成"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统输出结果文档。"
                           }
                         }
                       }
@@ -1224,7 +1443,7 @@
           "type": "Relationship",
           "content": {
             "actor": "&3",
-            "useCase": "&16",
+            "useCase": "&19",
             "name": {
               "type": "<string>",
               "content": ""
@@ -1272,18 +1491,10 @@
                   "type": "<string>",
                   "content": ""
                 },
-                "basicFlow": {
-                  "type": "BasicFlow",
+                "preCondition": {
+                  "type": "PreCondition",
                   "content": {
-                    "name": {
-                      "type": "<string>",
-                      "content": ""
-                    },
-                    "description": {
-                      "type": "<string>",
-                      "content": ""
-                    },
-                    "steps": [{
+                    "sentences": [{
                       "type": "Sentence",
                       "content": {
                         "name": {
@@ -1296,10 +1507,447 @@
                         },
                         "content": {
                           "type": "<string>",
+                          "content": "GWT生成中间标签完成。"
+                        }
+                      }
+                    }],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
+                "briefDescription": {
+                  "type": "BriefDescription",
+                  "content": {
+                    "sentences": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": "将一组描述相同用例的标签化GWT转化成一个RUCM。"
+                        }
+                      }
+                    }],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
+                "basicFlow": {
+                  "type": "BasicFlow",
+                  "content": {
+                    "postCondition": {
+                      "type": "PostCondition",
+                      "content": {
+                        "sentences": [{
+                          "type": "Sentence",
+                          "content": {
+                            "name": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "description": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "content": {
+                              "type": "<string>",
+                              "content": "系统将一组标签化的GWT转化成一个对应的RUCM。"
+                            }
+                          }
+                        }],
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
                           "content": ""
                         }
                       }
-                    }]
+                    },
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "steps": [
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统提取标签内容生成RUCM的Use Case Name"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统生成RUCM的Brief Description"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统提取标签内容生成RUCM的Primary Actor和Secondary Actors"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统生成RUCM的Dependency和Generalization"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统提取标签内容生成Basic Flow内容"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "IfThenNature",
+                              "content": {"ifCondition": {
+                                "type": "<string>",
+                                "content": "输入中有描述Specific Alternative Flow的GWT"
+                              }}
+                            },
+                            {
+                              "type": "IfComposite",
+                              "content": {
+                                "ifSentence": "&20",
+                                "compositeSentences": [
+                                  "&20",
+                                  "&21"
+                                ],
+                                "endIfSentence": "&21"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "IF 输入中有描述Specific Alternative Flow的GWT THEN"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统提取标签内容生成Specific Alterntive Flow"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "EndIfNature",
+                              "content": {}
+                            },
+                            {
+                              "type": "ReferenceNature",
+                              "content": {
+                                "referenceSentence": "&20",
+                                "referenceNature": "&22"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "ENDIF"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "IfThenNature",
+                              "content": {"ifCondition": {
+                                "type": "<string>",
+                                "content": "输入中有描述Bounded Alternative Flow的GWT"
+                              }}
+                            },
+                            {
+                              "type": "IfComposite",
+                              "content": {
+                                "ifSentence": "&23",
+                                "compositeSentences": [
+                                  "&23",
+                                  "&24"
+                                ],
+                                "endIfSentence": "&24"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "IF 输入中有描述Bounded Alternative Flow的GWT THEN"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统提取标签内容生成Bounded Alterntive Flow"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "EndIfNature",
+                              "content": {}
+                            },
+                            {
+                              "type": "ReferenceNature",
+                              "content": {
+                                "referenceSentence": "&23",
+                                "referenceNature": "&25"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "ENDIF"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "IfThenNature",
+                              "content": {"ifCondition": {
+                                "type": "<string>",
+                                "content": "输入中有描述Bounded Alternative Flow的GWT"
+                              }}
+                            },
+                            {
+                              "type": "IfComposite",
+                              "content": {
+                                "ifSentence": "&26",
+                                "compositeSentences": [
+                                  "&26",
+                                  "&27"
+                                ],
+                                "endIfSentence": "&27"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "IF 输入中有描述Bounded Alternative Flow的GWT THEN"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统提取标签内容生成Global Alterntive Flow"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "EndIfNature",
+                              "content": {}
+                            },
+                            {
+                              "type": "ReferenceNature",
+                              "content": {
+                                "referenceSentence": "&26",
+                                "referenceNature": "&28"
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "ENDIF"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统输出一个完整的RUCM"
+                          }
+                        }
+                      }
+                    ]
                   }
                 }
               }
@@ -1580,7 +2228,7 @@
       "diagrams": [{
         "type": "UCDiagram",
         "content": {
-          "ucModel": "&17",
+          "ucModel": "&29",
           "nodes": [
             {
               "type": "UCDUseCaseNode",
@@ -1629,7 +2277,7 @@
             {
               "type": "UCDUseCaseNode",
               "content": {
-                "useCase": "&16",
+                "useCase": "&19",
                 "top": {
                   "type": "<int>",
                   "content": 273
@@ -1801,57 +2449,57 @@
             {
               "type": "UCDRelationshipLink",
               "content": {
-                "node2": "&20",
-                "relationship": "&18",
-                "node1": "&19"
+                "node2": "&32",
+                "relationship": "&30",
+                "node1": "&31"
               }
             },
             {
               "type": "UCDRelationshipLink",
               "content": {
-                "node2": "&22",
-                "relationship": "&21",
-                "node1": "&19"
+                "node2": "&34",
+                "relationship": "&33",
+                "node1": "&31"
               }
             },
             {
               "type": "UCDRelationshipLink",
               "content": {
-                "node2": "&25",
-                "relationship": "&23",
-                "node1": "&24"
+                "node2": "&37",
+                "relationship": "&35",
+                "node1": "&36"
               }
             },
             {
               "type": "UCDIncludeLink",
               "content": {
-                "include": "&26",
-                "node2": "&27",
-                "node1": "&25"
+                "include": "&38",
+                "node2": "&39",
+                "node1": "&32"
               }
             },
             {
               "type": "UCDIncludeLink",
               "content": {
-                "include": "&28",
-                "node2": "&29",
-                "node1": "&25"
+                "include": "&40",
+                "node2": "&41",
+                "node1": "&32"
               }
             },
             {
               "type": "UCDIncludeLink",
               "content": {
-                "include": "&30",
-                "node2": "&31",
-                "node1": "&20"
+                "include": "&42",
+                "node2": "&43",
+                "node1": "&37"
               }
             },
             {
               "type": "UCDIncludeLink",
               "content": {
-                "include": "&32",
-                "node2": "&33",
-                "node1": "&20"
+                "include": "&44",
+                "node2": "&45",
+                "node1": "&37"
               }
             }
           ],
