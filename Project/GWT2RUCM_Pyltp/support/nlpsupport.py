@@ -150,9 +150,9 @@ class NLPExecutor:
                 if wordlist[i] == '如果':
                     wordlist[i]='IF'
                 elif wordlist[i]=='那么':
-                    wordlist[i]='THEN':
+                    wordlist[i]='THEN'
                 elif wordlist[i]=='否则':
-                    wordlist[i]='ELSE':
+                    wordlist[i]='ELSE'
         elif sentence.type == 'circular':
             # TODO
             for i in range(0,len(wordlist)):

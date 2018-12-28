@@ -1,33 +1,40 @@
 {
   "lmf.version": "1.1",
   "reference": [
+    {"path": "<root>.modelElements[0]"},
+    {"path": "<root>.modelElements[11]"},
+    {"path": "<root>.modelElements[10]"},
     {"path": "<root>.modelElements[1]"},
     {"path": "<root>.modelElements[0].specification.basicFlow.steps[3]"},
     {"path": "<root>.modelElements[0].specification.basicFlow.steps[5]"},
-    {"path": "<root>.modelElements[0].specification.basicFlow.steps[7]"},
     {"path": "<root>.modelElements[0].specification.basicFlow.steps[3].natures[1]"},
-    {"path": "<root>.modelElements[2].specification.basicFlow.steps[3]"},
+    {"path": "<root>.modelElements[0].specification.basicFlow.steps[6]"},
     {"path": "<root>.modelElements[2].specification.basicFlow.steps[5]"},
+    {"path": "<root>.modelElements[2].specification.basicFlow.steps[3]"},
     {"path": "<root>.modelElements[2].specification.basicFlow.steps[7]"},
     {"path": "<root>.modelElements[2].specification.basicFlow.steps[3].natures[1]"},
-    {"path": "<root>.modelElements[4]"},
     {"path": "<root>.modelElements[5]"},
+    {"path": "<root>.modelElements[4]"},
     {"path": "<root>.modelElements[9]"},
     {"path": "<root>.modelElements[3]"},
-    {"path": "<root>.modelElements[0]"},
     {"path": "<root>.modelElements[2]"},
-    {"path": "<root>.diagrams[0].nodes[0]"},
+    {"path": "<root>"},
     {"path": "<root>.modelElements[6]"},
     {"path": "<root>.diagrams[0].nodes[1]"},
-    {"path": "<root>.diagrams[0].nodes[2]"},
+    {"path": "<root>.diagrams[0].nodes[0]"},
     {"path": "<root>.modelElements[7]"},
-    {"path": "<root>.diagrams[0].nodes[5]"},
+    {"path": "<root>.diagrams[0].nodes[2]"},
     {"path": "<root>.modelElements[8]"},
     {"path": "<root>.diagrams[0].nodes[3]"},
+    {"path": "<root>.diagrams[0].nodes[5]"},
     {"path": "<root>.modelElements[5].include[0]"},
     {"path": "<root>.diagrams[0].nodes[4]"},
     {"path": "<root>.modelElements[5].include[1]"},
-    {"path": "<root>.diagrams[0].nodes[6]"}
+    {"path": "<root>.diagrams[0].nodes[6]"},
+    {"path": "<root>.modelElements[0].include[0]"},
+    {"path": "<root>.diagrams[0].nodes[8]"},
+    {"path": "<root>.modelElements[0].include[1]"},
+    {"path": "<root>.diagrams[0].nodes[7]"}
   ],
   "root": {
     "type": "UCModel",
@@ -36,13 +43,53 @@
         "type": "<string>",
         "content": "Untitled"
       },
+      "description": {
+        "type": "<string>",
+        "content": ""
+      },
       "modelElements": [
         {
           "type": "UseCase",
           "content": {
+            "include": [
+              {
+                "type": "Include",
+                "content": {
+                  "name": {
+                    "type": "<string>",
+                    "content": ""
+                  },
+                  "description": {
+                    "type": "<string>",
+                    "content": ""
+                  },
+                  "includingCase": "&0",
+                  "addition": "&1"
+                }
+              },
+              {
+                "type": "Include",
+                "content": {
+                  "name": {
+                    "type": "<string>",
+                    "content": ""
+                  },
+                  "description": {
+                    "type": "<string>",
+                    "content": ""
+                  },
+                  "includingCase": "&0",
+                  "addition": "&2"
+                }
+              }
+            ],
             "name": {
               "type": "<string>",
               "content": "导入领域背景"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
             },
             "specification": {
               "type": "UseCaseSpecification",
@@ -55,7 +102,7 @@
                   "type": "<string>",
                   "content": ""
                 },
-                "primaryActor": "&0",
+                "primaryActor": "&3",
                 "preCondition": {
                   "type": "PreCondition",
                   "content": {
@@ -95,6 +142,36 @@
                         }
                       }
                     ],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
+                "briefDescription": {
+                  "type": "BriefDescription",
+                  "content": {
+                    "sentences": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": "导入由领域词汇组成的文件"
+                        }
+                      }
+                    }],
                     "name": {
                       "type": "<string>",
                       "content": ""
@@ -242,20 +319,18 @@
                               "type": "IfThenNature",
                               "content": {"ifCondition": {
                                 "type": "<string>",
-                                "content": "领域背景文件存储成功"
+                                "content": "导入领域背景文件为分词词典"
                               }}
                             },
                             {
-                              "type": "IfElseComposite",
+                              "type": "IfComposite",
                               "content": {
-                                "ifSentence": "&1",
-                                "elseSentence": "&2",
-                                "endIfSentence": "&3",
+                                "ifSentence": "&4",
                                 "compositeSentences": [
-                                  "&1",
-                                  "&2",
-                                  "&3"
-                                ]
+                                  "&4",
+                                  "&5"
+                                ],
+                                "endIfSentence": "&5"
                               }
                             }
                           ],
@@ -269,13 +344,20 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "IF 领域背景文件存储成功 THEN"
+                            "content": "IF 导入领域背景文件为分词词典 THEN"
                           }
                         }
                       },
                       {
                         "type": "Sentence",
                         "content": {
+                          "natures": [{
+                            "type": "IncludeUCNature",
+                            "content": {"useCaseName": {
+                              "type": "<string>",
+                              "content": "分词词典导入"
+                            }}
+                          }],
                           "name": {
                             "type": "<string>",
                             "content": ""
@@ -286,54 +368,7 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "展示领域背景文件导入成功。"
-                          }
-                        }
-                      },
-                      {
-                        "type": "Sentence",
-                        "content": {
-                          "natures": [
-                            {
-                              "type": "ElseNature",
-                              "content": {}
-                            },
-                            {
-                              "type": "ReferenceNature",
-                              "content": {
-                                "referenceNature": "&4",
-                                "referenceSentence": "&1"
-                              }
-                            }
-                          ],
-                          "name": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "description": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "content": {
-                            "type": "<string>",
-                            "content": "ELSE"
-                          }
-                        }
-                      },
-                      {
-                        "type": "Sentence",
-                        "content": {
-                          "name": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "description": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "content": {
-                            "type": "<string>",
-                            "content": "展示领域背景文件导入失败。"
+                            "content": "INCLUDE USE CASE 分词词典导入"
                           }
                         }
                       },
@@ -348,8 +383,8 @@
                             {
                               "type": "ReferenceNature",
                               "content": {
-                                "referenceNature": "&4",
-                                "referenceSentence": "&1"
+                                "referenceSentence": "&4",
+                                "referenceNature": "&6"
                               }
                             }
                           ],
@@ -366,45 +401,68 @@
                             "content": "ENDIF"
                           }
                         }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [
+                            {
+                              "type": "IfThenNature",
+                              "content": {"ifCondition": {
+                                "type": "<string>",
+                                "content": "导入领域背景文件为标注词典"
+                              }}
+                            },
+                            {
+                              "type": "IfComposite",
+                              "content": {
+                                "ifSentence": "&7",
+                                "compositeSentences": ["&7"]
+                              }
+                            }
+                          ],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "IF 导入领域背景文件为标注词典 THEN"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "natures": [{
+                            "type": "IncludeUCNature",
+                            "content": {"useCaseName": {
+                              "type": "<string>",
+                              "content": "标注词典导入"
+                            }}
+                          }],
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "INCLUDE USE CASE 标注词典导入"
+                          }
+                        }
                       }
                     ]
                   }
-                },
-                "briefDescription": {
-                  "type": "BriefDescription",
-                  "content": {
-                    "sentences": [{
-                      "type": "Sentence",
-                      "content": {
-                        "name": {
-                          "type": "<string>",
-                          "content": ""
-                        },
-                        "description": {
-                          "type": "<string>",
-                          "content": ""
-                        },
-                        "content": {
-                          "type": "<string>",
-                          "content": "导入由领域词汇组成的文件"
-                        }
-                      }
-                    }],
-                    "name": {
-                      "type": "<string>",
-                      "content": ""
-                    },
-                    "description": {
-                      "type": "<string>",
-                      "content": ""
-                    }
-                  }
                 }
               }
-            },
-            "description": {
-              "type": "<string>",
-              "content": ""
             }
           }
         },
@@ -428,6 +486,10 @@
               "type": "<string>",
               "content": "输入一组GWT"
             },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            },
             "specification": {
               "type": "UseCaseSpecification",
               "content": {
@@ -439,7 +501,7 @@
                   "type": "<string>",
                   "content": ""
                 },
-                "primaryActor": "&0",
+                "primaryActor": "&3",
                 "preCondition": {
                   "type": "PreCondition",
                   "content": {
@@ -475,6 +537,55 @@
                           "content": {
                             "type": "<string>",
                             "content": "系统展示欢迎界面。"
+                          }
+                        }
+                      }
+                    ],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
+                "briefDescription": {
+                  "type": "BriefDescription",
+                  "content": {
+                    "sentences": [
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "用户选择一个utf-8纯文本文件导入到系统中。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "该文件应为一个用例的多个场景的GWT组成的。"
                           }
                         }
                       }
@@ -580,7 +691,7 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "需求提出方选择一个文件到系统中。"
+                            "content": "需求提出方选择一个本地GWT文件。"
                           }
                         }
                       },
@@ -597,7 +708,7 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "系统接收导入GWT文档请求。"
+                            "content": "需求提出方导入文件到系统。"
                           }
                         }
                       },
@@ -614,7 +725,7 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "系统存储GWT文档。"
+                            "content": "系统分析GWT文档生成GWT对象。"
                           }
                         }
                       },
@@ -626,20 +737,20 @@
                               "type": "IfThenNature",
                               "content": {"ifCondition": {
                                 "type": "<string>",
-                                "content": "GWT文档存储成功"
+                                "content": "GWT文档分析成功"
                               }}
                             },
                             {
                               "type": "IfElseComposite",
                               "content": {
-                                "ifSentence": "&5",
-                                "elseSentence": "&6",
-                                "endIfSentence": "&7",
+                                "elseSentence": "&8",
+                                "ifSentence": "&9",
                                 "compositeSentences": [
-                                  "&5",
-                                  "&6",
-                                  "&7"
-                                ]
+                                  "&9",
+                                  "&8",
+                                  "&10"
+                                ],
+                                "endIfSentence": "&10"
                               }
                             }
                           ],
@@ -653,7 +764,7 @@
                           },
                           "content": {
                             "type": "<string>",
-                            "content": "IF GWT文档存储成功 THEN"
+                            "content": "IF GWT文档分析成功 THEN"
                           }
                         }
                       },
@@ -685,8 +796,8 @@
                             {
                               "type": "ReferenceNature",
                               "content": {
-                                "referenceNature": "&8",
-                                "referenceSentence": "&5"
+                                "referenceSentence": "&9",
+                                "referenceNature": "&11"
                               }
                             }
                           ],
@@ -732,8 +843,8 @@
                             {
                               "type": "ReferenceNature",
                               "content": {
-                                "referenceNature": "&8",
-                                "referenceSentence": "&5"
+                                "referenceSentence": "&9",
+                                "referenceNature": "&11"
                               }
                             }
                           ],
@@ -753,61 +864,8 @@
                       }
                     ]
                   }
-                },
-                "briefDescription": {
-                  "type": "BriefDescription",
-                  "content": {
-                    "sentences": [
-                      {
-                        "type": "Sentence",
-                        "content": {
-                          "name": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "description": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "content": {
-                            "type": "<string>",
-                            "content": "用户选择一个utf-8纯文本文件导入到系统中。"
-                          }
-                        }
-                      },
-                      {
-                        "type": "Sentence",
-                        "content": {
-                          "name": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "description": {
-                            "type": "<string>",
-                            "content": ""
-                          },
-                          "content": {
-                            "type": "<string>",
-                            "content": "该文件应为一个用例的多个场景的GWT组成的。"
-                          }
-                        }
-                      }
-                    ],
-                    "name": {
-                      "type": "<string>",
-                      "content": ""
-                    },
-                    "description": {
-                      "type": "<string>",
-                      "content": ""
-                    }
-                  }
                 }
               }
-            },
-            "description": {
-              "type": "<string>",
-              "content": ""
             }
           }
         },
@@ -831,6 +889,10 @@
               "type": "<string>",
               "content": "生成中间标签"
             },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            },
             "specification": {
               "type": "UseCaseSpecification",
               "content": {
@@ -841,6 +903,36 @@
                 "description": {
                   "type": "<string>",
                   "content": ""
+                },
+                "briefDescription": {
+                  "type": "BriefDescription",
+                  "content": {
+                    "sentences": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": "为GWT添加中间标签。"
+                        }
+                      }
+                    }],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
                 },
                 "basicFlow": {
                   "type": "BasicFlow",
@@ -871,25 +963,8 @@
                       }
                     }]
                   }
-                },
-                "briefDescription": {
-                  "type": "BriefDescription",
-                  "content": {
-                    "name": {
-                      "type": "<string>",
-                      "content": ""
-                    },
-                    "description": {
-                      "type": "<string>",
-                      "content": ""
-                    }
-                  }
                 }
               }
-            },
-            "description": {
-              "type": "<string>",
-              "content": ""
             }
           }
         },
@@ -908,8 +983,8 @@
                     "type": "<string>",
                     "content": ""
                   },
-                  "addition": "&9",
-                  "includingCase": "&10"
+                  "includingCase": "&12",
+                  "addition": "&13"
                 }
               },
               {
@@ -923,14 +998,18 @@
                     "type": "<string>",
                     "content": ""
                   },
-                  "addition": "&11",
-                  "includingCase": "&10"
+                  "includingCase": "&12",
+                  "addition": "&14"
                 }
               }
             ],
             "name": {
               "type": "<string>",
               "content": "获取一组RUCM"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
             },
             "specification": {
               "type": "UseCaseSpecification",
@@ -943,7 +1022,7 @@
                   "type": "<string>",
                   "content": ""
                 },
-                "primaryActor": "&12",
+                "primaryActor": "&15",
                 "preCondition": {
                   "type": "PreCondition",
                   "content": {
@@ -1123,18 +1202,14 @@
                   }
                 }
               }
-            },
-            "description": {
-              "type": "<string>",
-              "content": ""
             }
           }
         },
         {
           "type": "Relationship",
           "content": {
-            "actor": "&0",
-            "useCase": "&13",
+            "actor": "&3",
+            "useCase": "&0",
             "name": {
               "type": "<string>",
               "content": ""
@@ -1148,8 +1223,8 @@
         {
           "type": "Relationship",
           "content": {
-            "actor": "&0",
-            "useCase": "&14",
+            "actor": "&3",
+            "useCase": "&16",
             "name": {
               "type": "<string>",
               "content": ""
@@ -1163,8 +1238,8 @@
         {
           "type": "Relationship",
           "content": {
-            "actor": "&12",
-            "useCase": "&10",
+            "actor": "&15",
+            "useCase": "&12",
             "name": {
               "type": "<string>",
               "content": ""
@@ -1180,27 +1255,337 @@
           "content": {
             "name": {
               "type": "<string>",
-              "content": "转化"
+              "content": "生成RUCM"
             },
             "description": {
               "type": "<string>",
               "content": ""
+            },
+            "specification": {
+              "type": "UseCaseSpecification",
+              "content": {
+                "name": {
+                  "type": "<string>",
+                  "content": ""
+                },
+                "description": {
+                  "type": "<string>",
+                  "content": ""
+                },
+                "basicFlow": {
+                  "type": "BasicFlow",
+                  "content": {
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "steps": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": ""
+                        }
+                      }
+                    }]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "UseCase",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": "分词词典导入"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            },
+            "specification": {
+              "type": "UseCaseSpecification",
+              "content": {
+                "name": {
+                  "type": "<string>",
+                  "content": ""
+                },
+                "description": {
+                  "type": "<string>",
+                  "content": ""
+                },
+                "briefDescription": {
+                  "type": "BriefDescription",
+                  "content": {
+                    "sentences": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": "为系统导入分词词典文件"
+                        }
+                      }
+                    }],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
+                "basicFlow": {
+                  "type": "BasicFlow",
+                  "content": {
+                    "postCondition": {
+                      "type": "PostCondition",
+                      "content": {
+                        "sentences": [{
+                          "type": "Sentence",
+                          "content": {
+                            "name": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "description": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "content": {
+                              "type": "<string>",
+                              "content": "系统获取新的分词模型。"
+                            }
+                          }
+                        }],
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "steps": [
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统读取分词词典文件。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统使用分词词典重新训练分词模型。"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "type": "UseCase",
+          "content": {
+            "name": {
+              "type": "<string>",
+              "content": "标注词典导入"
+            },
+            "description": {
+              "type": "<string>",
+              "content": ""
+            },
+            "specification": {
+              "type": "UseCaseSpecification",
+              "content": {
+                "name": {
+                  "type": "<string>",
+                  "content": ""
+                },
+                "description": {
+                  "type": "<string>",
+                  "content": ""
+                },
+                "briefDescription": {
+                  "type": "BriefDescription",
+                  "content": {
+                    "sentences": [{
+                      "type": "Sentence",
+                      "content": {
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "content": {
+                          "type": "<string>",
+                          "content": "为系统导入分词词典文件"
+                        }
+                      }
+                    }],
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    }
+                  }
+                },
+                "basicFlow": {
+                  "type": "BasicFlow",
+                  "content": {
+                    "postCondition": {
+                      "type": "PostCondition",
+                      "content": {
+                        "sentences": [{
+                          "type": "Sentence",
+                          "content": {
+                            "name": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "description": {
+                              "type": "<string>",
+                              "content": ""
+                            },
+                            "content": {
+                              "type": "<string>",
+                              "content": "系统获取新的分词模型。"
+                            }
+                          }
+                        }],
+                        "name": {
+                          "type": "<string>",
+                          "content": ""
+                        },
+                        "description": {
+                          "type": "<string>",
+                          "content": ""
+                        }
+                      }
+                    },
+                    "name": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "description": {
+                      "type": "<string>",
+                      "content": ""
+                    },
+                    "steps": [
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统读取标注词典文件。"
+                          }
+                        }
+                      },
+                      {
+                        "type": "Sentence",
+                        "content": {
+                          "name": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "description": {
+                            "type": "<string>",
+                            "content": ""
+                          },
+                          "content": {
+                            "type": "<string>",
+                            "content": "系统使用标注词典重新训练标注模型。"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
             }
           }
         }
       ],
-      "description": {
-        "type": "<string>",
-        "content": ""
-      },
       "diagrams": [{
         "type": "UCDiagram",
         "content": {
+          "ucModel": "&17",
           "nodes": [
             {
               "type": "UCDUseCaseNode",
               "content": {
-                "useCase": "&13",
+                "useCase": "&0",
                 "top": {
                   "type": "<int>",
                   "content": 160
@@ -1222,7 +1607,7 @@
             {
               "type": "UCDActorNode",
               "content": {
-                "actor": "&0",
+                "actor": "&3",
                 "top": {
                   "type": "<int>",
                   "content": 205
@@ -1244,7 +1629,7 @@
             {
               "type": "UCDUseCaseNode",
               "content": {
-                "useCase": "&14",
+                "useCase": "&16",
                 "top": {
                   "type": "<int>",
                   "content": 273
@@ -1266,7 +1651,7 @@
             {
               "type": "UCDActorNode",
               "content": {
-                "actor": "&12",
+                "actor": "&15",
                 "top": {
                   "type": "<int>",
                   "content": 403
@@ -1288,7 +1673,7 @@
             {
               "type": "UCDUseCaseNode",
               "content": {
-                "useCase": "&9",
+                "useCase": "&13",
                 "top": {
                   "type": "<int>",
                   "content": 407
@@ -1310,7 +1695,7 @@
             {
               "type": "UCDUseCaseNode",
               "content": {
-                "useCase": "&10",
+                "useCase": "&12",
                 "top": {
                   "type": "<int>",
                   "content": 484
@@ -1332,7 +1717,7 @@
             {
               "type": "UCDUseCaseNode",
               "content": {
-                "useCase": "&11",
+                "useCase": "&14",
                 "top": {
                   "type": "<int>",
                   "content": 534
@@ -1350,8 +1735,64 @@
                   "content": 70
                 }
               }
+            },
+            {
+              "type": "UCDUseCaseNode",
+              "content": {
+                "useCase": "&2",
+                "top": {
+                  "type": "<int>",
+                  "content": 92
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 157
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 140
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 70
+                }
+              }
+            },
+            {
+              "type": "UCDUseCaseNode",
+              "content": {
+                "useCase": "&1",
+                "top": {
+                  "type": "<int>",
+                  "content": 231
+                },
+                "left": {
+                  "type": "<int>",
+                  "content": 41
+                },
+                "width": {
+                  "type": "<int>",
+                  "content": 140
+                },
+                "height": {
+                  "type": "<int>",
+                  "content": 70
+                }
+              }
             }
           ],
+          "top": {
+            "type": "<int>",
+            "content": 0
+          },
+          "left": {
+            "type": "<int>",
+            "content": 0
+          },
+          "width": {
+            "type": "<int>",
+            "content": 0
+          },
           "name": {
             "type": "<string>",
             "content": ""
@@ -1360,44 +1801,64 @@
             {
               "type": "UCDRelationshipLink",
               "content": {
-                "node2": "&15",
-                "relationship": "&16",
-                "node1": "&17"
-              }
-            },
-            {
-              "type": "UCDRelationshipLink",
-              "content": {
-                "node2": "&18",
-                "relationship": "&19",
-                "node1": "&17"
-              }
-            },
-            {
-              "type": "UCDRelationshipLink",
-              "content": {
                 "node2": "&20",
+                "relationship": "&18",
+                "node1": "&19"
+              }
+            },
+            {
+              "type": "UCDRelationshipLink",
+              "content": {
+                "node2": "&22",
                 "relationship": "&21",
-                "node1": "&22"
+                "node1": "&19"
+              }
+            },
+            {
+              "type": "UCDRelationshipLink",
+              "content": {
+                "node2": "&25",
+                "relationship": "&23",
+                "node1": "&24"
               }
             },
             {
               "type": "UCDIncludeLink",
               "content": {
-                "include": "&23",
-                "node2": "&24",
+                "include": "&26",
+                "node2": "&27",
+                "node1": "&25"
+              }
+            },
+            {
+              "type": "UCDIncludeLink",
+              "content": {
+                "include": "&28",
+                "node2": "&29",
+                "node1": "&25"
+              }
+            },
+            {
+              "type": "UCDIncludeLink",
+              "content": {
+                "include": "&30",
+                "node2": "&31",
                 "node1": "&20"
               }
             },
             {
               "type": "UCDIncludeLink",
               "content": {
-                "include": "&25",
-                "node2": "&26",
+                "include": "&32",
+                "node2": "&33",
                 "node1": "&20"
               }
             }
-          ]
+          ],
+          "height": {
+            "type": "<int>",
+            "content": 0
+          }
         }
       }]
     }

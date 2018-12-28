@@ -184,7 +184,7 @@ class RUCMGnerator():
                 rucm.boundedAlt.append(boundedAlt)
             elif taggedGWT.flowType == 'global':
                 globalAlt = GlobalFlow()
-                globalAlt.condition = taggedGWT.condition.originContent
+                globalAlt.condition = taggedGWT.condition[0].originContent
                 globalAlt.actions = [sentence.normalContent for sentence in taggedGWT.Whens]
                 for sentence in taggedGWT.Thens:
                     globalAlt.postCondition += sentence.normalContent
@@ -224,6 +224,6 @@ if __name__ == '__main__':
 
     nlp = NLPExecutor()
     importer = GWTImporter(nlp)
-    gwtlist = importer.importGWT(filepath=r'D:\StarUMLWorkspace\GWT2RUCM\Project\GWT2RUCM_Pyltp\testfile\new_input_demo.gwtfile')
+    gwtlist = importer.importGWT(filepath=r'D:\StarUMLWorkspace\GWT2RUCM\Project\GWT2RUCM_Pyltp\testfile\new_input_demo_2.gwtfile')
     generator = RUCMGnerator(nlp)
     generator.generateRUCMs(gwtlist)

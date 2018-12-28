@@ -20,7 +20,7 @@
     <title>GWT2RUCM</title>
 </head>
 
-<body>
+<body background="./hhh.jpg" no-repeat>
     <div class="jumbotron text-center">
         <h1>GWT2RUCM</h1>
     </div>
@@ -30,7 +30,7 @@
                 <p>
                 <p>
                 <h3 align="center">导入GWT文档</h3>
-                <form action="/import_GWT" method="post">
+                <form action="http://localhost:5000/import_GWT" method="post">
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
@@ -47,7 +47,7 @@
                 <p>
                 <p>
                 <h3>生成RUCM</h3>
-                <form action="/Translation" method="post">
+                <form action="http://localhost:5000/Translation" method="post">
                     <button type="submit" class="btn btn-primary">开始转换</button>
                 </form>
             </div>
@@ -55,7 +55,7 @@
                 <p>
                 <p>
                 <h3 align="center">导入领域背景</h3>
-                <form action="/import_background" method="post">
+                <form action="http://localhost:5000/import_background" method="post">
                     <div class="input-group">
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"

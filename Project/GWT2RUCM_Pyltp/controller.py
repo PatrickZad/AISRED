@@ -1,4 +1,3 @@
-import
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from response import backgroundresponse,gwtresponse,rucmresponse
@@ -11,6 +10,7 @@ nlp = NLPExecutor()
 importer=gwtresponse.GWTImporter(nlp)
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+lastGWT=None
 
 
 def allowed_file(filename):
@@ -49,7 +49,7 @@ def import_background():
     # 调用导入领域背景
     back=backgroundresponse.BackgroundImporter(nlp)
     file = request.files['file']
-    
+    back.importBackground(segDict=file)
     return render_template('index.html')
 
 
@@ -57,12 +57,15 @@ def import_background():
 def import_gwt():
     # 调用导入gwt
     file = request.files['file']
+    lastGWT=importer.importGWT(filecontent=file)
     return render_template('index.html')
 
 
 @app.route('/Translation', methods=['POST'])
 def translation():
     # 调用控制器的生成 RUCM
+    rucmGen=rucmresponse.RUCMGnerator(nlp)
+    outpath=rucmGen.generateRUCMs(lastGWT)
     return render_template('index.html', message='转化成功')
 
 
