@@ -160,8 +160,8 @@ class RUCMGnerator():
                 action = self.start.Whens[taggedGWT.refer].action
                 action = self.start.Whens[taggedGWT.refer].wordlist[action] 
                 sent=rucm.basic.actions[taggedGWT.refer]
-                #sent=sent.replace(action, 'VALIDATES THAT')
-                sent='系统 VALIDATES THAT '+sent
+                sent=sent.replace(action, 'VALIDATES THAT')
+                #sent='系统 VALIDATES THAT '+sent
                 rucm.basic.actions[taggedGWT.refer]=sent
                 specificAlt.rfs = taggedGWT.refer + 1  # TODO 考虑记录一个偏移量来包括条件action和循环action拆分占据的序号
                 specificAlt.actions = [sentence.normalContent for sentence in

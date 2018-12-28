@@ -7,8 +7,8 @@ UPLOAD_FOLDER = '/uploads'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 
-nlp = NLPExecutor(r'../stanford-corenlp-full-2018-10-05')
-
+nlp = NLPExecutor()
+importer=gwtresponse.GWTImporter(nlp)
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -47,7 +47,9 @@ def home():
 @app.route('/import_background', methods=['POST'])
 def import_background():
     # 调用导入领域背景
+    back=backgroundresponse.BackgroundImporter(nlp)
     file = request.files['file']
+    
     return render_template('index.html')
 
 
