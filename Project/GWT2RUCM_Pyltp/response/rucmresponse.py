@@ -117,11 +117,16 @@ class RUCMGnerator():
             actorDict[actor] += 1
         actorSet.remove('系统')  # TODO 去除表示此系统的actor方法待改进
         actorDict.pop('系统')
-        primary = actorSet[0]
-        for actor in actorDict.keys():
-            if actorDict[actor] > actorDict[primary]:
-                primary = actor
-        actorSet.remove(primary)#TODO secondary actor的生成待改进
+        if len(actorSet)>0:
+            primary = actorSet[0]        
+            for actor in actorDict.keys():
+                if actorDict[actor] > actorDict[primary]:
+                    primary = actor
+            actorSet.remove(primary)#TODO secondary actor的生成待改进
+        else:
+            primary='None'
+        if len(actorSet)==0:
+            actorSet=['None']
         return primary, actorSet
 
     '''
@@ -140,7 +145,8 @@ class RUCMGnerator():
                break
         rucm.basic.actions = [sentence.normalContent for sentence in self.start.Whens]
         for sentence in self.start.Thens:
-            rucm.basic.postCondition += sentence.normalContent
+            #rucm.basic.postCondition += sentence.normalContent
+            rucm.basic.postCondition += sentence.originContent
 
     '''
     param:
@@ -167,7 +173,8 @@ class RUCMGnerator():
                 specificAlt.actions = [sentence.normalContent for sentence in
                                        taggedGWT.Whens] 
                 for sentence in taggedGWT.Thens:
-                    specificAlt.postCondition += sentence.normalContent
+                    #specificAlt.postCondition += sentence.normalContent
+                    specificAlt.postCondition += sentence.originContent
                 rucm.specificAlt.append(specificAlt)
             elif taggedGWT.flowType == 'bounded':
                 boundedAlt = BoundedFlow()
@@ -176,18 +183,20 @@ class RUCMGnerator():
                                       taggedGWT.Whens]  # TODO 选择的action范围
                 for refer in taggedGWT.refer:
                     sent=rucm.basic.actions[refer]
-                    #sent=sent.replace(action, 'VALIDATES THAT')
-                    sent='系统 VALIDATES THAT '+sent
+                    sent=sent.replace(action, 'VALIDATES THAT')
+                    #sent='系统 VALIDATES THAT '+sent
                     rucm.basic.actions[refer]=sent
                 for sentence in taggedGWT.Thens:
-                    boundedAlt.postCondition += sentence.normalContent
+                    #boundedAlt.postCondition += sentence.normalContent
+                    boundedAlt.postCondition += sentence.originContent
                 rucm.boundedAlt.append(boundedAlt)
             elif taggedGWT.flowType == 'global':
                 globalAlt = GlobalFlow()
                 globalAlt.condition = taggedGWT.condition[0].originContent
                 globalAlt.actions = [sentence.normalContent for sentence in taggedGWT.Whens]
                 for sentence in taggedGWT.Thens:
-                    globalAlt.postCondition += sentence.normalContent
+                    #globalAlt.postCondition += sentence.normalContent
+                    globalAlt.postCondition += sentence.originContent
                 rucm.globalAlt.append(globalAlt)
 
     '''
@@ -224,6 +233,6 @@ if __name__ == '__main__':
 
     nlp = NLPExecutor()
     importer = GWTImporter(nlp)
-    gwtlist = importer.importGWT(filepath=r'D:\StarUMLWorkspace\GWT2RUCM\Project\GWT2RUCM_Pyltp\testfile\new_input_demo_2.gwtfile')
+    gwtlist = importer.importGWT(filepath=r'D:\StarUMLWorkspace\GWT2RUCM\Project\GWT2RUCM_Pyltp\testfile\testinput.gwtfile')
     generator = RUCMGnerator(nlp)
     generator.generateRUCMs(gwtlist)

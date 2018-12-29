@@ -1,0 +1,85 @@
+Use Case Name: 提钱
+Brief Description: ATM用户在任何情况下都可以退出系统
+Precondition: 系统处于空闲状态。系统显示欢迎信息。
+Primary Actor:用户
+Secondary Actors:
+Dependency:None
+Generalization:None
+Basic Flow:
+1.系统检测到卡。
+2.系统VALIDATES THAT该卡为有效卡。
+3.系统展示登陆界面。
+4.ATM用户输入密码。
+5.如果密码错误，那么输入密码，直到密码正确或输错次。
+6.系统VALIDATES THAT输入密码正确。
+7.系统展示登陆成功后的界面。
+8.ATM用户点击“取款”按钮。
+9.ATM用户输入取款数目钱。
+10.ATM用户选择取款账户。
+11.系统判断用户选择的账户号有效。
+12.系统VALIDATES THATATM用户在该账户中的资金多于钱。
+13.系统判断钱小于每日提取金额限制。
+14.系统VALIDATES THATATM机中的资金不小于钱。
+15.系统分发现金。
+16.系统展示“交易号为10010，交易类型为提现，交易金额为元，账户余额为元”系统退卡。
+17.系统展示欢迎信息。
+postcondition:ATM用户成功取到钱。
+Specific Alternative Flow: RFS 2
+1.系统退卡。
+2.系统显示欢迎信息。
+postcondition:系统处于空闲状态。
+Specific Alternative Flow: RFS 6
+1.系统提示次输入密码错误MEANWHILE系统吞卡。
+2.系统展示欢迎信息。
+postcondition:系统处于空闲状态。ATM用户失去插入的卡。
+Specific Alternative Flow: RFS 14
+1.系统展示“ATM机中的资金不足元”。
+2.系统退卡。
+postcondition:ATM用户的资金没有被取出。系统处于空闲状态。系统展示欢迎信息。
+Bounded Alternative Flow: RFS 12, 9, 14
+1.系统展示抱歉信息并MEANWHILE退卡。
+postcondition:系统处于空闲状态。系统展示欢迎信息。
+Global Alternative Flow: IF ATM用户在任何情况下选择“取消”操作。
+1.系统取消交易MEANWHILE系统退卡。
+2.系统展示欢迎信息。
+END IF
+postcondition:系统处于空闲状态。系统展示欢迎信息。
+Use Case Name: 监控轧制过程参数
+Brief Description: 系统显示运行过程中的各项参数，标注异常参数系统处理未收到传感器返回值情况系统处理传感器返回值异常情况
+Precondition: 轧钢系统在正常运行
+Primary Actor:操作员
+Secondary Actors:on
+Dependency:None
+Generalization:None
+Basic Flow:
+1.DO操作员VALIDATES THAT监控轧钢过程参数界面系统每3s接收各传感器返回的值，系统验证收到传感器返回的值，系统确认传感器返回值正常，系统显示传感器返回的值，UNTIL操作员选择退出监控轧制过程参数界面
+postcondition:轧钢过程参数已显示到人机交互界面上
+Specific Alternative Flow: RFS 1
+1.系统将该参数显示为NULL
+postcondition:系统返回到初始状态
+Global Alternative Flow: IF 轧钢系统在正常运行.系统确认传感器返回值异常
+1.系统以红色显示该参数
+END IF
+postcondition:系统返回到初始状态
+Use Case Name: 进站
+Brief Description: 乘客刷卡进入地铁站系统处理进错方向情况系统处理卡片异常情况系统处理余额不足情况
+Precondition: 地铁在正常运营
+Primary Actor:余额
+Secondary Actors:
+Dependency:None
+Generalization:None
+Basic Flow:
+1.乘客在刷卡器上刷卡系统检测单向通道可通行系统读卡系统确认卡片有效，系统连接到账目中心系统查验余额充足，账户中心返回通过和余额信息系统打开扇门MEANWHILE保持打开系统关闭扇门
+postcondition:乘客已进站
+Global Alternative Flow: IF 地铁在正常运营系统检验单向通道不可通行
+1.系统警告用户此路不通
+END IF
+postcondition:系统回到初始状态MEANWHILE保持通道关闭
+Global Alternative Flow: IF 地铁在正常运营系统检测到卡片无效
+1.系统警告卡片异常
+END IF
+postcondition:系统回到初始状态
+Global Alternative Flow: IF 地铁在正常运营系统验证余额不足
+1.系统提示余额不足
+END IF
+postcondition:系统回到初始状态

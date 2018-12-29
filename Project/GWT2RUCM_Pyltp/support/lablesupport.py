@@ -47,6 +47,7 @@ class LableGenerator():
                     if parselist[i].relation == 'SBV':
                         sent.actor = i
                         sent.action = parselist[i].head - 1
+                        break
             if gwt is not self.basic:
                 if len(gwt.Givens) - len(self.basic.Givens) > 1:
                     gwt.flowType = 'bounded'
@@ -81,20 +82,43 @@ class LableGenerator():
 
     def __addGWTLable(self, gwtList):
         for gwt in gwtList:
-            for sent in gwt.Whens:
+            addition=[]
+            index=None
+            for i in range(0,len(gwt.Whens)):
+                sent=gwt.Whens[i]
+                sent.normalContent=''
                 parse = self.nlp.parse(sent.wordlist)
                 if self.nlp.isSimple(parse):
                     sent.type = 'normal'
                 elif sent.wordlist.count('如果') > 0:
                     sent.type = 'conditional'
+                elif sent.wordlist.count('直到')>0:
+                    sent.type='circular'
+                    index=i
+                    textsents=sent.originContent.split('，')
+                    addition=[Sentence(text) for text in textsents]
+                    for sent in addition:
+                        sent.wordlist=self.nlp.wordTokenize(sent.originContent)
+                        parselist = self.nlp.parse(sent.wordlist)
+                        sent.normalContent=''
+                        for i in range(len(parselist)):
+                            if parselist[i].relation == 'SBV':
+                                sent.actor = i
+                                sent.action = parselist[i].head - 1
+                                break
+                    addition[0].normalContent='DO '
                 else:
-                    sent.type = 'circular'
+                    sent.type = 'normal'
+            if index is not None:
+                temp=gwt.Whens[0:index]+addition
+                gwt.Whens=temp+gwt.Whens[index+len(addition):]
+            for sent in gwt.Whens:
                 self.nlp.normalize(sent, parse)
             for sent in gwt.Thens:
                 sent.wordlist = self.nlp.wordTokenize(sent.originContent)
                 parse = self.nlp.parse(sent.wordlist)
                 sent.type='then'
-                self.nlp.normalize(sent, parse)
+                #self.nlp.normalize(sent, parse)
             if gwt is self.basic:
                 for sent in gwt.Givens:
                     sent.type = 'common'
@@ -106,12 +130,19 @@ class LableGenerator():
                         sent.type = 'common'
                     else:
                         sent.type = 'unique'
-                        gwt.condition.append(sent)
+                        gwt.condition.append(sent)       
+                sentlist=self.basic.Whens.copy()
+                '''
+                for sent in sentlist:
+                    sent.originContent=sent.originContent.replace('系统判断','')
+                '''
                 for sent in gwt.condition:
-                    index, similarity = self.nlp.maxSimilarity(self.basic.Whens, sent)
+                    index, similarity = self.nlp.maxSimilarity(sentlist, sent)
                     if similarity > 0.5:
                         sent.associated = index
                         gwt.refer.append(index)
+                        sentlist[index].originContent=''
+
             else:
                 gwt.condition = []
                 for sent in gwt.Givens:
@@ -121,7 +152,7 @@ class LableGenerator():
                         sent.type = 'unique'
                         gwt.condition.append(sent)
                 index, similarity = self.nlp.maxSimilarity(self.basic.Whens, sent)
-                if similarity > 0.5:
+                if similarity > 0.6:
                     sent.associated = index
                     gwt.flowType = 'specific'
                     gwt.refer=index
