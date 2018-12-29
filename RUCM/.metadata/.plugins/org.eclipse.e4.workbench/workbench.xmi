@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6hmzAAqyEemlE_GhVFXGUw" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_6hnaEAqyEemlE_GhVFXGUw" bindingContexts="_6hoB1wqyEemlE_GhVFXGUw">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x751f;&#x6210;RUCM&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[9].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x83b7;&#x53d6;&#x4e00;&#x7ec4;RUCM&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[5].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x751f;&#x6210;&#x4e2d;&#x95f4;&#x6807;&#x7b7e;&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[4].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x8f93;&#x5165;&#x4e00;&#x7ec4;GWT&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[2].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x5bfc;&#x5165;&#x9886;&#x57df;&#x80cc;&#x666f;&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[0].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.diagramEditor&quot; name=&quot;Untitled&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.diagrams[0]&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.descEditor&quot; name=&quot;GWT2RUCM.rucm&quot; tooltip=&quot;RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable path=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.diagramEditor&quot; name=&quot;Untitled&quot; tooltip=&quot;/RUCMtwo/model.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.diagrams[0]&quot; resource=&quot;/RUCMtwo/model.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.descEditor&quot; name=&quot;model.rucm&quot; tooltip=&quot;RUCMtwo/model.rucm&quot;>&#xD;&#xA;&lt;persistable path=&quot;/RUCMtwo/model.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x8f93;&#x5165;&#x4e00;&#x7ec4;GWT&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[2].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x5bfc;&#x5165;&#x9886;&#x57df;&#x80cc;&#x666f;&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[0].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x751f;&#x6210;RUCM&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[9].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x83b7;&#x53d6;&#x4e00;&#x7ec4;RUCM&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[5].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x751f;&#x6210;&#x4e2d;&#x95f4;&#x6807;&#x7b7e;&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.modelElements[4].specification&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.diagramEditor&quot; name=&quot;Untitled&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.diagrams[0]&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.descEditor&quot; name=&quot;GWT2RUCM.rucm&quot; tooltip=&quot;RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;persistable path=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.diagramEditor&quot; name=&quot;Untitled&quot; tooltip=&quot;/RUCMtwo/model.rucm&quot;>&#xD;&#xA;&lt;persistable element=&quot;&amp;lt;root&amp;gt;.diagrams[0]&quot; resource=&quot;/RUCMtwo/model.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;cn.edu.buaa.sei.rucm.descEditor&quot; name=&quot;model.rucm&quot; tooltip=&quot;RUCMtwo/model.rucm&quot;>&#xD;&#xA;&lt;persistable path=&quot;/RUCMtwo/model.rucm&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6hnaEAqyEemlE_GhVFXGUw" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_6hnaEQqyEemlE_GhVFXGUw" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="1024" height="768">
@@ -240,11 +240,10 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_6hnbgAqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.editorss" selectedElement="_6hnbgQqyEemlE_GhVFXGUw">
-      <children xsi:type="basic:PartStack" xmi:id="_6hnbgQqyEemlE_GhVFXGUw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_6hnbhQqyEemlE_GhVFXGUw">
+      <children xsi:type="basic:PartStack" xmi:id="_6hnbgQqyEemlE_GhVFXGUw" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_6hnbhAqyEemlE_GhVFXGUw">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
-        <tags>noFocus</tags>
         <children xsi:type="basic:Part" xmi:id="_6hnbggqyEemlE_GhVFXGUw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="Untitled" iconURI="platform:/plugin/cn.edu.buaa.sei.rucm/icons/elements_obj.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;cn.edu.buaa.sei.rucm.diagramEditor&quot; name=&quot;Untitled&quot; partName=&quot;Untitled&quot; title=&quot;Untitled&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;input element=&quot;&amp;lt;root&amp;gt;.diagrams[0]&quot; factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
@@ -262,13 +261,14 @@
           <tags>Editor</tags>
           <tags>cn.edu.buaa.sei.rucm.specEditor</tags>
           <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_6hnbhQqyEemlE_GhVFXGUw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="&#x751f;&#x6210;&#x4e2d;&#x95f4;&#x6807;&#x7b7e;" iconURI="platform:/plugin/cn.edu.buaa.sei.rucm/icons/properties.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x751f;&#x6210;&#x4e2d;&#x95f4;&#x6807;&#x7b7e;&quot; partName=&quot;&#x751f;&#x6210;&#x4e2d;&#x95f4;&#x6807;&#x7b7e;&quot; title=&quot;&#x751f;&#x6210;&#x4e2d;&#x95f4;&#x6807;&#x7b7e;&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;input element=&quot;&amp;lt;root&amp;gt;.modelElements[4].specification&quot; factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>cn.edu.buaa.sei.rucm.specEditor</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_6hnbhgqyEemlE_GhVFXGUw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="&#x83b7;&#x53d6;&#x4e00;&#x7ec4;RUCM" iconURI="platform:/plugin/cn.edu.buaa.sei.rucm/icons/properties.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;cn.edu.buaa.sei.rucm.specEditor&quot; name=&quot;&#x83b7;&#x53d6;&#x4e00;&#x7ec4;RUCM&quot; partName=&quot;&#x83b7;&#x53d6;&#x4e00;&#x7ec4;RUCM&quot; title=&quot;&#x83b7;&#x53d6;&#x4e00;&#x7ec4;RUCM&quot; tooltip=&quot;/RUCM/GWT2RUCM.rucm&quot;>&#xD;&#xA;&lt;input element=&quot;&amp;lt;root&amp;gt;.modelElements[5].specification&quot; factoryID=&quot;cn.edu.buaa.sei.rucm.editorInputFactory&quot; resource=&quot;/RUCM/GWT2RUCM.rucm&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -445,40 +445,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hnbxAqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbxQqyEemlE_GhVFXGUw" elementId="new.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbxgqyEemlE_GhVFXGUw" elementId="newWizardDropDown">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbxwqyEemlE_GhVFXGUw" elementId="new.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbyAqyEemlE_GhVFXGUw" elementId="save.group" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbyQqyEemlE_GhVFXGUw" elementId="save">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbygqyEemlE_GhVFXGUw" elementId="saveAll">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbywqyEemlE_GhVFXGUw" elementId="save.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6hnbzAqyEemlE_GhVFXGUw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_6hpRIQqyEemlE_GhVFXGUw"/>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbzQqyEemlE_GhVFXGUw" elementId="print.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbzgqyEemlE_GhVFXGUw" elementId="build.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnbzwqyEemlE_GhVFXGUw" elementId="build.ext" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnb0AqyEemlE_GhVFXGUw" elementId="additions">
-          <tags>Opaque</tags>
-        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6exiAAshEemjocLb3mQBjw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_6hpRIQqyEemlE_GhVFXGUw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hnb0QqyEemlE_GhVFXGUw" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -486,15 +453,6 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hnb0wqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.workbench.edit" visible="false">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnb1AqyEemlE_GhVFXGUw" elementId="edit.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnb1QqyEemlE_GhVFXGUw" elementId="undo">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hnb1gqyEemlE_GhVFXGUw" elementId="redo">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hnb1wqyEemlE_GhVFXGUw" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -502,27 +460,12 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncBgqyEemlE_GhVFXGUw" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncBwqyEemlE_GhVFXGUw" elementId="debug">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncCAqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncCQqyEemlE_GhVFXGUw" elementId="org.eclipse.jdt.ui.JavaElementCreationActionSet" visible="false">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncCgqyEemlE_GhVFXGUw" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncCwqyEemlE_GhVFXGUw" elementId="Search">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncDAqyEemlE_GhVFXGUw" elementId="org.eclipse.mylyn.tasks.ui.openTask">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncDQqyEemlE_GhVFXGUw" elementId="org.eclipse.search.OpenSearchDialogPage">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncDgqyEemlE_GhVFXGUw" elementId="group.nav" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -530,31 +473,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncEAqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncEQqyEemlE_GhVFXGUw" elementId="history.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncEgqyEemlE_GhVFXGUw" elementId="group.application" visible="false">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncEwqyEemlE_GhVFXGUw" elementId="backardHistory">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncFAqyEemlE_GhVFXGUw" elementId="forwardHistory">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncFQqyEemlE_GhVFXGUw" elementId="pin.group">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_6hncFgqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_6hpQkwqyEemlE_GhVFXGUw"/>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncFwqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.edit.text.gotoNextAnnotation">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncGAqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.edit.text.gotoPreviousAnnotation">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncGQqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.edit.text.gotoLastEditPosition">
-          <tags>Opaque</tags>
-        </children>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_6ez-QgshEemjocLb3mQBjw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_6hpQkwqyEemlE_GhVFXGUw"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncGgqyEemlE_GhVFXGUw" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -566,12 +485,6 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_6hncHgqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.workbench.help" visible="false">
         <tags>Draggable</tags>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncHwqyEemlE_GhVFXGUw" elementId="group.help">
-          <tags>Opaque</tags>
-        </children>
-        <children xsi:type="menu:DirectToolItem" xmi:id="_6hncIAqyEemlE_GhVFXGUw" elementId="group.application" visible="false">
-          <tags>Opaque</tags>
-        </children>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_6hncIQqyEemlE_GhVFXGUw" elementId="PerspectiveSpacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
@@ -1524,6 +1437,26 @@
     <tags>View</tags>
     <tags>categoryTag:RUCM</tags>
   </descriptors>
+  <trimContributions xmi:id="_VJSd4NrlEeWx1NC92N4qRw" elementId="org.eclipse.recommenders.news.rcp.trimConstribution.news" contributorURI="platform:/plugin/org.eclipse.recommenders.news.rcp" parentId="org.eclipse.ui.trim.status">
+    <children xsi:type="menu:ToolControl" xmi:id="_ckfB0OFAEeWdb5xZgv0Dbw" elementId="org.eclipse.recommenders.news.rcp.toolControl.news" contributorURI="platform:/plugin/org.eclipse.recommenders.news.rcp" contributionURI="bundleclass://org.eclipse.recommenders.news.rcp/org.eclipse.recommenders.internal.news.rcp.toolbar.NewsToolControl"/>
+  </trimContributions>
+  <trimContributions xmi:id="_2r10UF9tEeO-yojH_y4TJA" elementId="org.eclipse.ui.ide.application.trimcontribution.QuickAccess" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" toBeRendered="false" parentId="org.eclipse.ui.main.toolbar" positionInParent="last">
+    <children xsi:type="menu:ToolControl" xmi:id="_76uUAF9tEeO-yojH_y4TJA" elementId="Spacer Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+      <tags>glue</tags>
+      <tags>move_after:PerspectiveSpacer</tags>
+      <tags>SHOW_RESTORE_MENU</tags>
+    </children>
+    <children xsi:type="menu:ToolControl" xmi:id="_8tJPcF9tEeO-yojH_y4TJA" elementId="SearchField" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.quickaccess.SearchField">
+      <tags>move_after:Spacer Glue</tags>
+      <tags>HIDEABLE</tags>
+      <tags>SHOW_RESTORE_MENU</tags>
+    </children>
+    <children xsi:type="menu:ToolControl" xmi:id="_9LgmcF9tEeO-yojH_y4TJA" elementId="Search-PS Glue" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+      <tags>glue</tags>
+      <tags>move_after:SearchField</tags>
+      <tags>SHOW_RESTORE_MENU</tags>
+    </children>
+  </trimContributions>
   <commands xmi:id="_6horCQqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.window.customizePerspective" contributorURI="platform:/plugin/org.eclipse.platform" commandName="Customize Perspective" description="Customize the current perspective"/>
   <commands xmi:id="_6horCgqyEemlE_GhVFXGUw" elementId="org.eclipse.jdt.ui.correction.inlineLocal.assist" commandName="Quick Assist - Inline local variable" description="Invokes quick assist and selects 'Inline local variable'" category="_6hp3BAqyEemlE_GhVFXGUw"/>
   <commands xmi:id="_6horCwqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.edit.text.select.pageUp" commandName="Select Page Up" description="Select to the top of the page" category="_6hp27wqyEemlE_GhVFXGUw"/>
@@ -2534,7 +2467,7 @@
   <addons xmi:id="_6hp24QqyEemlE_GhVFXGUw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_6hp24gqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_6hp24wqyEemlE_GhVFXGUw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_6hp25AqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_IYS0IKimEeS11vbz3f9ezw" elementId="org.eclipse.ui.ide.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_6hp25QqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_6hp25gqyEemlE_GhVFXGUw" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
   <categories xmi:id="_6hp25wqyEemlE_GhVFXGUw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
