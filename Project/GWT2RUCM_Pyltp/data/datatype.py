@@ -58,7 +58,7 @@ class RUCM():
         result = 'Use Case Name: ' + self.useCaseName + '\n' + 'Brief Description: ' \
                  + self.briefDescription + '\n'
         result += 'Precondition: ' + self.precondition + '\n' + 'Primary Actor:' + \
-                  self.primaryActor + '\n' + 'Secondary Actors:' + self.secondaryActors[0] + '\n'
+                  self.primaryActor + '\n' + 'Secondary Actors:' + str(self.secondaryActors[0])[1:-1] + '\n'
         result += 'Dependency:' + self.dependency + '\n' + 'Generalization:' + self.generalization + '\n'
         result += basicStr + specStr + bounStr+globStr
         return result

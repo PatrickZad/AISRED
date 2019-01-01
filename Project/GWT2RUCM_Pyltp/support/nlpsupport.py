@@ -53,6 +53,8 @@ class NLPExecutor:
 
 
     def similarity(self, sent1, sent2):
+        if sent1=='' or sent2=='':
+            return 0
         text1 = self.wordTokenize(sent1)
         text2 = self.wordTokenize(sent2)
         texts = [text1, text2]
@@ -144,30 +146,45 @@ class NLPExecutor:
         if parselist is None:
             parselist = self.parse(wordlist=wordlist, poslist=poslist)
         # TODO 替换IF,ELSE,THEN,DO,UNTIL
-        if sentence.type == 'conditional':
+        #if sentence.type == 'conditional':
             # TODO
-            for i in range(0,len(wordlist)):
-                if wordlist[i] == '如果':
-                    wordlist[i]='IF'
-                elif wordlist[i]=='那么':
-                    wordlist[i]='THEN'
-                elif wordlist[i]=='否则':
-                    wordlist[i]='ELSE'
-        elif sentence.type == 'circular':
+        for i in range(0,len(wordlist)):
+            if wordlist[i] == '如果':
+                wordlist[i]='IF'
+            elif wordlist[i]=='那么':
+                wordlist[i]='THEN'
+            elif wordlist[i]=='否则':
+                wordlist[i]='ELSE'
+        #elif sentence.type == 'circular':
             # TODO
-            for i in range(0,len(wordlist)):
-                if wordlist[i] == '同时':
-                    wordlist[i]='MEANWHILE'
+        for i in range(0,len(wordlist)):
+            if wordlist[i] == '直到':
+                wordlist[i]='UNTIL'
+            #wordlist=['DO']+wordlist
+        for i in range(0,len(wordlist)):
+            if wordlist[i] == '同时':
+                wordlist[i]='MEANWHILE'
         newWords = wordlist.copy()
         #TODO 去量词效果
-        for i in range(len(wordlist) - 1, -1, -1):
-            if parselist[i].relation == 'ATT' and (poslist[i] == 'm' or poslist[i] == 'q'):
-                del newWords[i]
-        sentence.normalContent=''
+        '''
+        if sentence.type=='normal':
+            for i in range(len(wordlist)-1, -1, -1):
+                if parselist[i].relation == 'ATT' and (poslist[i] == 'm' or poslist[i] == 'q'):
+                    del newWords[i]
+        if sentence.normalContent is None:
+            sentence.normalContent='''''
         for word in newWords:
             sentence.normalContent+=word
+        '''
         if sentence.type=='circular':
             sentence.normalContent='DO'+sentence.normalContent
+        
+        if sentence.type=='circular':
+            sentence.normalContent='DO'+sentence.normalContent
+            for i in range(0,len(wordlist)):
+                if wordlist[i] == '直到':
+                    wordlist[i]='UNTIL'
+        '''
 
 
     '''
