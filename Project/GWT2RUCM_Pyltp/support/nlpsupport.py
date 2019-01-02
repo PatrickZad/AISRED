@@ -144,7 +144,7 @@ class NLPExecutor:
         wordlist=sentence.wordlist
         poslist=self.posTag(wordlist=wordlist)
         if parselist is None:
-            parselist = self.parse(wordlist=wordlist, poslist=poslist)
+            parselist = self.parse(wordlist=wordlist)
         # TODO 替换IF,ELSE,THEN,DO,UNTIL
         #if sentence.type == 'conditional':
             # TODO
@@ -166,8 +166,8 @@ class NLPExecutor:
                 wordlist[i]='MEANWHILE'
         newWords = wordlist.copy()
         #TODO 去量词效果
-        if sentence.type=='normal':
-            for i in range(len(wordlist)-1, -1, -1):
+        if self.isSimple(parselist):
+            for i in range(len(parselist)-1, -1, -1):
                 if parselist[i].relation == 'ATT' and (poslist[i] == 'm' or poslist[i] == 'q'):
                     del newWords[i]
         if sentence.normalContent is None:

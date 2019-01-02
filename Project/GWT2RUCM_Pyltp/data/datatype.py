@@ -15,6 +15,8 @@ class TaggedGWT(GWT):
         self.Whens=gwt.Whens
         self.Thens=gwt.Thens
         self.flowType=''
+        self.refer=''
+        self.condition=''
     def scenarioStr(self):
         scenariolist=[sent.originContent for sent in self.Scenario]
         scenario=''
@@ -22,7 +24,21 @@ class TaggedGWT(GWT):
             scenario+=scen
         return scenario
     def __str__(self):
-
+        scenariostr='\t[Scenarion]\n'
+        for sent in self.Scenario:
+            scenariostr+=sent.__str__('\t\t')
+        givenstr='\t[Given]\n'
+        for sent in self.Givens:
+            givenstr+=sent.__str__('\t\t')   
+        whenstr='\t[When]\n'
+        for sent in self.Whens:
+            whenstr+=sent.__str__('\t\t')
+        thenstr='\t[Then]\n'
+        for sent in self.Thens:
+            thenstr+=sent.__str__('\t\t')
+        result='[UseCaseName]'+self.useCaseName+'\n\t[FlowType]'+self.flowType+'\n\t[Refer]'+str(self.refer)+'\n\t[Condition]'+str([sent.originContent for sent in self.condition if isinstance(self.condition,list)])
+        result+='\n\t[Feature]'+self.Feature+'\n'+scenariostr+givenstr+whenstr+thenstr
+        return result
 
 class RUCM():
     __slots__ = ('useCaseName', 'briefDescription', 'precondition', 'primaryActor', 'secondaryActors', 'dependency',
@@ -89,7 +105,20 @@ class Sentence(object):
     def __init__(self, originContent):
         self.originContent=originContent
         self.actor=None
-
+        self.action=''
+        self.type=''
+        self.associated=''
+        self.normalContent=''
+        self.wordlist=''
+    def __str__(self,indent):
+        sentstr=indent+'[originContent]'+self.originContent+'\n'
+        sentstr+=indent+'\t[wordlist]'+str(self.wordlist)+'\n'
+        sentstr+=indent+'\t[actor]'+str(self.actor)+'\n'
+        sentstr+=indent+'\t[action]'+str(self.action)+'\n'
+        sentstr+=indent+'\t[normalContent]'+str(self.normalContent)+'\n'
+        sentstr+=indent+'\t[type]'+str(self.type)+'\n'
+        sentstr+=indent+'\t[associated]'+str(self.associated)+'\n'
+        return sentstr
 '''
 class TaggedSentence(Sentence):
     __slots__ = ('secondType', 'associations')

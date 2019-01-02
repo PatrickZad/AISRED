@@ -47,7 +47,7 @@ class GWTImporter():
                             allSent=False
                     for con in cons:
                         if len(con) > 1:
-                            sentence = Sentence(sent)
+                            sentence = Sentence(con)
                             originGWT.Givens.append(sentence)
                 sentList = self.nlpTool.splitSentences(contentGroup.group(4))
                 for sent in sentList:

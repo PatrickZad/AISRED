@@ -40,7 +40,31 @@ class LableGenerator():
                 break
         for gwt in gwtList:
             gwt.useCaseName = gwt.Feature
+            for sent in gwt.Scenario:
+                sent.wordlist = self.nlp.wordTokenize(sent.originContent)
+                parselist = self.nlp.parse(sent.wordlist)
+                for i in range(len(parselist)):
+                    if parselist[i].relation == 'SBV':
+                        sent.actor = i
+                        sent.action = parselist[i].head - 1
+                        break
+            for sent in gwt.Givens:
+                sent.wordlist = self.nlp.wordTokenize(sent.originContent)
+                parselist = self.nlp.parse(sent.wordlist)
+                for i in range(len(parselist)):
+                    if parselist[i].relation == 'SBV':
+                        sent.actor = i
+                        sent.action = parselist[i].head - 1
+                        break                
             for sent in gwt.Whens:
+                sent.wordlist = self.nlp.wordTokenize(sent.originContent)
+                parselist = self.nlp.parse(sent.wordlist)
+                for i in range(len(parselist)):
+                    if parselist[i].relation == 'SBV':
+                        sent.actor = i
+                        sent.action = parselist[i].head - 1
+                        break
+            for sent in gwt.Thens:
                 sent.wordlist = self.nlp.wordTokenize(sent.originContent)
                 parselist = self.nlp.parse(sent.wordlist)
                 for i in range(len(parselist)):
@@ -113,7 +137,7 @@ class LableGenerator():
                 temp=gwt.Whens[0:index]+addition
                 gwt.Whens=temp+gwt.Whens[index+len(addition):]
             for sent in gwt.Whens:
-                self.nlp.normalize(sent, parse)
+                self.nlp.normalize(sent)
             for sent in gwt.Thens:
                 sent.wordlist = self.nlp.wordTokenize(sent.originContent)
                 parse = self.nlp.parse(sent.wordlist)

@@ -46,6 +46,7 @@ class RUCMGnerator():
 
     def __generateRUCM(self, gwtList):
         taggedList = self.lable.generateLable(gwtList)
+        self.__taggedOut(taggedList)
         rucm = RUCM(taggedList[0].useCaseName)
         self.__briefDescription(taggedList, rucm)
         # TODO 根据关键字从given和when的句子中取得Dependency，Generalization暂定为None,
@@ -223,6 +224,13 @@ class RUCMGnerator():
         extd = re.match(r'EXTENDED\s*([\u4e00-\u9fa5]+).+', sentence.content)
         if extd:
             rucm.dependency += 'EXTENDED BY USE CASE ' + extd.group(1) + ' '
+    def __taggedOut(self,taggedList):
+        outpath = './' + str(datetime.now().timestamp()) + '.taggedout'
+        output = ''
+        for gwt in taggedList:
+            output += gwt.__str__()
+        with open(outpath, 'w', encoding='utf-8') as f:
+            f.write(output)
 
 
 if __name__ == '__main__':
