@@ -30,36 +30,36 @@ class RUCM():
         self.useCaseName = name
 
     def __str__(self):
-        basicStr = 'Basic Flow:\n'
+        basicStr = '\tBasic Flow:\n'
         for i in range(0, len(self.basic.actions)):
-            basicStr += str(i + 1) + '.' + self.basic.actions[i] + '\n'
-        basicStr += 'postcondition:' + self.basic.postCondition + '\n'
+            basicStr +='\t\t'+ str(i + 1) + '.' + self.basic.actions[i] + '\n'
+        basicStr += '\t\tpostcondition:' + self.basic.postCondition + '\n'
         specStr = ''
         if len(self.specificAlt) > 0:
             for spec in self.specificAlt:
-                specStr += 'Specific Alternative Flow: RFS ' + str(spec.rfs) + '\n'
+                specStr += '\tSpecific Alternative Flow: RFS ' + str(spec.rfs) + '\n'
                 for i in range(0, len(spec.actions)):
-                    specStr += str(i + 1) + '.' + spec.actions[i] + '\n'
-                specStr += 'postcondition:' + spec.postCondition + '\n'
+                    specStr +='\t\t' +str(i + 1) + '.' + spec.actions[i] + '\n'
+                specStr += '\t\t'+str(len(spec.actions)+1)+'.ABORT\n'+'\t\tpostcondition:' + spec.postCondition + '\n'
         bounStr = ''
         if len(self.boundedAlt) > 0:
             for boun in self.boundedAlt:
-                bounStr += 'Bounded Alternative Flow: RFS ' + str(boun.rfs)[1:-1] + '\n'  # TODO rfs如何获得
+                bounStr += '\tBounded Alternative Flow: RFS ' + str(boun.rfs)[1:-1] + '\n'  # TODO rfs如何获得
                 for i in range(0, len(boun.actions)):
-                    bounStr += str(i + 1) + '.' + boun.actions[i] + '\n'
-                bounStr += 'postcondition:' + boun.postCondition + '\n'
+                    bounStr +='\t\t'+ str(i + 1) + '.' + boun.actions[i] + '\n'
+                bounStr += '\t\tpostcondition:' + boun.postCondition + '\n'
         globStr = ''
         if len(self.globalAlt) > 0:
             for glob in self.globalAlt:
-                globStr += 'Global Alternative Flow: IF ' + glob.condition + '\n'
+                globStr += '\tGlobal Alternative Flow: IF ' + glob.condition + '\n'
                 for i in range(0, len(glob.actions)):
-                    globStr += str(i + 1) + '.' + glob.actions[i] + '\n'
-                globStr += 'END IF\npostcondition:' + glob.postCondition + '\n'
-        result = 'Use Case Name: ' + self.useCaseName + '\n' + 'Brief Description: ' \
+                    globStr +='\t\t'+ str(i + 1) + '.' + glob.actions[i] + '\n'
+                globStr += '\t\tEND IF\n\t\tpostcondition:' + glob.postCondition + '\n'
+        result = 'Use Case Name: ' + self.useCaseName + '\n' + '\tBrief Description: ' \
                  + self.briefDescription + '\n'
-        result += 'Precondition: ' + self.precondition + '\n' + 'Primary Actor:' + \
-                  self.primaryActor + '\n' + 'Secondary Actors:' + str(self.secondaryActors[0])[1:-1] + '\n'
-        result += 'Dependency:' + self.dependency + '\n' + 'Generalization:' + self.generalization + '\n'
+        result += '\tPrecondition: ' + self.precondition + '\n' + '\tPrimary Actor:' + \
+                  self.primaryActor + '\n' + '\tSecondary Actors:' + str(self.secondaryActors[0])[1:-1] + '\n'
+        result += '\tDependency:' + self.dependency + '\n' + '\tGeneralization:' + self.generalization + '\n'
         result += basicStr + specStr + bounStr+globStr
         return result
         '''
