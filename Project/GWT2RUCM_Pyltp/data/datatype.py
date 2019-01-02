@@ -6,7 +6,7 @@ class TaggedGWT(GWT):
     '''
     refer为异常操作索引，condition为异常发生条件
     '''
-    __slots__ = ('useCaseName','primaryActor','secondaryActors','flowType','refer','condition')
+    __slots__ = ('useCaseName','flowType','refer','condition')
 
     def __init__(self,gwt):
         self.Feature=gwt.Feature
@@ -21,6 +21,8 @@ class TaggedGWT(GWT):
         for scen in scenariolist:
             scenario+=scen
         return scenario
+    def __str__(self):
+
 
 class RUCM():
     __slots__ = ('useCaseName', 'briefDescription', 'precondition', 'primaryActor', 'secondaryActors', 'dependency',

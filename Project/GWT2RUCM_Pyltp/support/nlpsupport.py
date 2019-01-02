@@ -166,13 +166,12 @@ class NLPExecutor:
                 wordlist[i]='MEANWHILE'
         newWords = wordlist.copy()
         #TODO 去量词效果
-        '''
         if sentence.type=='normal':
             for i in range(len(wordlist)-1, -1, -1):
                 if parselist[i].relation == 'ATT' and (poslist[i] == 'm' or poslist[i] == 'q'):
                     del newWords[i]
         if sentence.normalContent is None:
-            sentence.normalContent='''''
+            sentence.normalContent=''
         for word in newWords:
             sentence.normalContent+=word
         '''
