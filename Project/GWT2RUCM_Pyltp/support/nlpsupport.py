@@ -145,28 +145,27 @@ class NLPExecutor:
         poslist=self.posTag(wordlist=wordlist)
         if parselist is None:
             parselist = self.parse(wordlist=wordlist)
+        newWords = wordlist.copy()
         # TODO 替换IF,ELSE,THEN,DO,UNTIL
         #if sentence.type == 'conditional':
             # TODO
-        for i in range(0,len(wordlist)):
-            if wordlist[i] == '如果':
-                wordlist[i]='IF'
-            elif wordlist[i]=='那么':
-                wordlist[i]='THEN'
-            elif wordlist[i]=='否则':
-                wordlist[i]='ELSE'
-        #elif sentence.type == 'circular':
-            # TODO
-        for i in range(0,len(wordlist)):
-            if wordlist[i] == '直到':
-                wordlist[i]='UNTIL'
-            #wordlist=['DO']+wordlist
-        for i in range(0,len(wordlist)):
-            if wordlist[i] == '同时':
-                wordlist[i]='MEANWHILE'
-        newWords = wordlist.copy()
+        if sentence.type != 'then':
+            for i in range(0,len(wordlist)):
+                if wordlist[i] == '如果':
+                    newWords[i]='IF'
+                    sentence.type='conditional'
+                elif wordlist[i]=='那么':
+                    newWords[i]='THEN'
+                elif wordlist[i]=='否则':
+                    newWords[i]='ELSE'
+                elif wordlist[i] == '直到':
+                    newWords[i]='UNTIL'
+                    if sentence.type != 'conditional':
+                        sentence.type='circular'
+                elif wordlist[i] == '同时':
+                    newWords[i]='MEANWHILE'       
         #TODO 去量词效果
-        if self.isSimple(parselist):
+        if sentence.type == 'then' or sentence.type=='normal':
             for i in range(len(parselist)-1, -1, -1):
                 if parselist[i].relation == 'ATT' and (poslist[i] == 'm' or poslist[i] == 'q'):
                     del newWords[i]

@@ -125,6 +125,7 @@ class LableGenerator():
                         sent.wordlist=self.nlp.wordTokenize(sent.originContent)
                         parselist = self.nlp.parse(sent.wordlist)
                         sent.normalContent=''
+                        sent.type='normal'
                         for i in range(len(parselist)):
                             if parselist[i].relation == 'SBV':
                                 sent.actor = i
@@ -142,7 +143,7 @@ class LableGenerator():
                 sent.wordlist = self.nlp.wordTokenize(sent.originContent)
                 parse = self.nlp.parse(sent.wordlist)
                 sent.type='then'
-                #self.nlp.normalize(sent, parse)
+                self.nlp.normalize(sent, parse)
             if gwt is self.basic:
                 for sent in gwt.Givens:
                     sent.type = 'common'
