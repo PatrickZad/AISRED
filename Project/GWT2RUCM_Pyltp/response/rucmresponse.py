@@ -52,26 +52,6 @@ class RUCMGnerator():
         # TODO 根据关键字从given和when的句子中取得Dependency，Generalization暂定为None,
         rucm.primaryActor, rucm.secondaryActors = self.__actors(taggedList, rucm)
         rucm.dependency = 'None'
-        '''
-        for taggedGWT in taggedList:
-            if taggedGWT.flowType == 'basic':
-                startGWT = taggedGWT  # 标记初始GWT
-                rucm.precondition = startGWT.Givens
-                
-                for sentence in taggedGWT.Givens:
-                    
-                    if sentence.stype == 'precondition':
-                        rucm.precondition = rucm.precondition + sentence.content
-                        
-                    # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
-                    self.__addDependency(rucm, sentence)
-                # NTODO 命名实体识别获取Actor 暂定为获取各句第一个命名实体，取最多的为PrimaryActor，sencond暂定为None
-                # entityList = []
-                for sentence in taggedGWT.Whens:
-                    if sentence.stype == 'action':
-                        # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
-                        self.__addDependency(rucm, sentence)
-                        '''
         # TODO 根据关键字从given和when的action中取得Dependency，Generalization暂定为None,
         rucm.generalization = 'None'
         self.__basicFlow(taggedList, rucm)
@@ -146,8 +126,7 @@ class RUCMGnerator():
                break
         rucm.basic.actions = [sentence.normalContent for sentence in self.start.Whens]
         for sentence in self.start.Thens:
-            #rucm.basic.postCondition += sentence.normalContent
-            rucm.basic.postCondition += sentence.originContent
+            rucm.basic.postCondition += sentence.normalContent
 
     '''
     param:
@@ -168,13 +147,11 @@ class RUCMGnerator():
                 action = self.start.Whens[taggedGWT.refer].wordlist[action] 
                 sent=rucm.basic.actions[taggedGWT.refer]
                 sent=sent.replace(action, 'VALIDATES THAT')
-                #sent='系统 VALIDATES THAT '+sent
                 rucm.basic.actions[taggedGWT.refer]=sent
                 specificAlt.rfs = taggedGWT.refer + 1  # TODO 考虑记录一个偏移量来包括条件action和循环action拆分占据的序号
                 specificAlt.actions = [sentence.normalContent for sentence in
                                        taggedGWT.Whens] 
                 for sentence in taggedGWT.Thens:
-                    #specificAlt.postCondition += sentence.normalContent
                     specificAlt.postCondition += sentence.originContent
                 rucm.specificAlt.append(specificAlt)
             elif taggedGWT.flowType == 'bounded':
@@ -185,19 +162,16 @@ class RUCMGnerator():
                 for refer in taggedGWT.refer:
                     sent=rucm.basic.actions[refer]
                     sent=sent.replace(action, 'VALIDATES THAT')
-                    #sent='系统 VALIDATES THAT '+sent
                     rucm.basic.actions[refer]=sent
                 for sentence in taggedGWT.Thens:
-                    #boundedAlt.postCondition += sentence.normalContent
-                    boundedAlt.postCondition += sentence.originContent
+                    boundedAlt.postCondition += sentence.normalContent
                 rucm.boundedAlt.append(boundedAlt)
             elif taggedGWT.flowType == 'global':
                 globalAlt = GlobalFlow()
                 globalAlt.condition = taggedGWT.condition[0].originContent
                 globalAlt.actions = [sentence.normalContent for sentence in taggedGWT.Whens]
                 for sentence in taggedGWT.Thens:
-                    #globalAlt.postCondition += sentence.normalContent
-                    globalAlt.postCondition += sentence.originContent
+                    globalAlt.postCondition += sentence.normalContent
                 rucm.globalAlt.append(globalAlt)
 
     '''
@@ -234,10 +208,8 @@ class RUCMGnerator():
 
 
 if __name__ == '__main__':
-    # from data.datatype import TaggedGWT, Sentence
     from support.nlpsupport import NLPExecutor
     from response.gwtresponse import GWTImporter
-    #from rucmresponse import RUCMGnerator
 
     nlp = NLPExecutor()
     importer = GWTImporter(nlp)

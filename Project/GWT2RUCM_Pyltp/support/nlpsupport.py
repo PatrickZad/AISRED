@@ -173,16 +173,6 @@ class NLPExecutor:
             sentence.normalContent=''
         for word in newWords:
             sentence.normalContent+=word
-        '''
-        if sentence.type=='circular':
-            sentence.normalContent='DO'+sentence.normalContent
-        
-        if sentence.type=='circular':
-            sentence.normalContent='DO'+sentence.normalContent
-            for i in range(0,len(wordlist)):
-                if wordlist[i] == '直到':
-                    wordlist[i]='UNTIL'
-        '''
 
 
     '''

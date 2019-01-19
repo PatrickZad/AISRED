@@ -80,15 +80,6 @@ class RUCM():
         result += '\tDependency:' + self.dependency + '\n' + '\tGeneralization:' + self.generalization + '\n'
         result += basicStr + specStr + bounStr+globStr
         return result
-        '''
-        return 'Use Case Name: ' + self.useCaseName + '\n ' + 'Brief Description: ' \
-               + self.briefDescription + '\n', +'Precondition: ' + self.precondition + '\n' \
-               + 'Primary Actor:' + self.primaryActor + '\n' + 'Secondary Actors:' + \
-               +self.secondaryActors + '\n' + 'Dependency:' + self.dependency + '\n'
-
-        #       + 'Generalization:' + self.generalization \
-               #+ '\n' + basicStr+specStr+globStr
-        '''
 
 
 class Sentence(object):
@@ -119,18 +110,6 @@ class Sentence(object):
         sentstr+=indent+'\t[type]'+str(self.type)+'\n'
         sentstr+=indent+'\t[associated]'+str(self.associated)+'\n'
         return sentstr
-'''
-class TaggedSentence(Sentence):
-    __slots__ = ('secondType', 'associations')
-
-
-class Association(object):
-    __slots__ = ('gwtId', 'sentenceId', 'connect_type')
-
-
-class Scenario(object):
-    __slots__ = ('gwtId', 'conditionIds')
-'''
 
 class BasicFlow():
     def __init__(self):
