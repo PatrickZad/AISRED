@@ -1,0 +1,160 @@
+[UseCaseName]监控轧制过程参数
+	[FlowType]basic
+	[Refer]
+	[Condition][]
+	[Feature]监控轧制过程参数
+	[Scenarion]
+		[originContent]系统显示运行过程中的各项参数，标注异常参数
+			[wordlist]['系统', '显示', '运行', '过程', '中', '的', '各项', '参数', '，', '标注', '异常', '参数']
+			[actor]0
+			[action]1
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]轧钢系统在正常运行。
+			[wordlist]['轧钢', '系统', '在', '正常', '运行', '。']
+			[actor]1
+			[action]4
+			[normalContent]
+			[type]common
+			[associated]
+	[When]
+		[originContent]操作员打开监控轧钢过程参数界面。
+			[wordlist]['操作员', '打开', '监控', '轧钢', '过程', '参数', '界面', '。']
+			[actor]0
+			[action]1
+			[normalContent]操作员打开监控轧钢过程参数界面。
+			[type]normal
+			[associated]
+		[originContent]系统每3s接收各传感器返回的值
+			[wordlist]['系统', '每', '3s', '接收', '各', '传感器', '返回', '的', '值']
+			[actor]0
+			[action]3
+			[normalContent]DO 系统每3s接收各传感器返回的值
+			[type]
+			[associated]
+		[originContent]系统验证收到传感器返回的值
+			[wordlist]['系统', '验证', '收到', '传感器', '返回', '的', '值']
+			[actor]1
+			[action]2
+			[normalContent]系统验证收到传感器返回的值
+			[type]
+			[associated]
+		[originContent]系统确认传感器返回值正常
+			[wordlist]['系统', '确认', '传感器', '返回', '值', '正常']
+			[actor]0
+			[action]1
+			[normalContent]系统确认传感器返回值正常
+			[type]
+			[associated]
+		[originContent]系统显示传感器返回的值
+			[wordlist]['系统', '显示', '传感器', '返回', '的', '值']
+			[actor]0
+			[action]1
+			[normalContent]系统显示传感器返回的值
+			[type]
+			[associated]
+		[originContent]直到操作员选择退出监控轧制过程参数界面。
+			[wordlist]['直到', '操作员', '选择', '退出', '监控', '轧制', '过程', '参数', '界面', '。']
+			[actor]1
+			[action]2
+			[normalContent]直到操作员选择退出监控轧制过程参数界面。
+			[type]
+			[associated]
+	[Then]
+		[originContent]轧钢过程参数已显示到人机交互界面上
+			[wordlist]['轧钢', '过程', '参数', '已', '显示', '到', '人机', '交互', '界面', '上']
+			[actor]2
+			[action]4
+			[normalContent]轧钢过程参数已显示到人机交互界面上
+			[type]then
+			[associated]
+[UseCaseName]监控轧制过程参数
+	[FlowType]specific
+	[Refer]2
+	[Condition]['系统未收到传感器返回的值。']
+	[Feature]监控轧制过程参数
+	[Scenarion]
+		[originContent]系统处理未收到传感器返回值情况
+			[wordlist]['系统', '处理', '未', '收到', '传感器', '返回', '值', '情况']
+			[actor]0
+			[action]3
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]轧钢系统在正常运行。
+			[wordlist]['轧钢', '系统', '在', '正常', '运行', '。']
+			[actor]1
+			[action]4
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统未收到传感器返回的值。
+			[wordlist]['系统', '未', '收到', '传感器', '返回', '的', '值', '。']
+			[actor]0
+			[action]2
+			[normalContent]
+			[type]unique
+			[associated]2
+	[When]
+		[originContent]系统将该参数显示为NULL。
+			[wordlist]['系统', '将', '该', '参数', '显示', '为', 'NULL', '。']
+			[actor]0
+			[action]4
+			[normalContent]系统将该参数显示为NULL。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统返回到初始状态
+			[wordlist]['系统', '返回', '到', '初始', '状态']
+			[actor]0
+			[action]1
+			[normalContent]系统返回到初始状态
+			[type]then
+			[associated]
+[UseCaseName]监控轧制过程参数
+	[FlowType]specific
+	[Refer]3
+	[Condition]['系统确认传感器返回值异常。']
+	[Feature]监控轧制过程参数
+	[Scenarion]
+		[originContent]系统处理传感器返回值异常情况
+			[wordlist]['系统', '处理', '传感器', '返回', '值', '异常', '情况']
+			[actor]0
+			[action]1
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]轧钢系统在正常运行。
+			[wordlist]['轧钢', '系统', '在', '正常', '运行', '。']
+			[actor]1
+			[action]4
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统确认传感器返回值异常。
+			[wordlist]['系统', '确认', '传感器', '返回', '值', '异常', '。']
+			[actor]0
+			[action]1
+			[normalContent]
+			[type]unique
+			[associated]3
+	[When]
+		[originContent]系统以红色显示该参数。
+			[wordlist]['系统', '以', '红色', '显示', '该', '参数', '。']
+			[actor]0
+			[action]3
+			[normalContent]系统以红色显示该参数。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统返回到初始状态
+			[wordlist]['系统', '返回', '到', '初始', '状态']
+			[actor]0
+			[action]1
+			[normalContent]系统返回到初始状态
+			[type]then
+			[associated]

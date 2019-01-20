@@ -1,0 +1,502 @@
+[UseCaseName]提钱
+	[FlowType]basic
+	[Refer]
+	[Condition]
+	[Feature]提钱
+	[Scenarion]
+		[originContent]ATM用户从一个有效的银行账户中取钱。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]系统处于空闲状态。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+	[When]
+		[originContent]系统检测到卡。
+			[wordlist]['系统', '检测', '到', '卡', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统检测到卡。
+			[type]normal
+			[associated]
+		[originContent]系统判断该卡为有效卡。
+			[wordlist]['系统', '判断', '该卡', '为', '有效卡', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统判断该卡为有效卡。
+			[type]normal
+			[associated]
+		[originContent]系统展示登陆界面。
+			[wordlist]['系统', '展示', '登陆', '界面', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示登陆界面。
+			[type]normal
+			[associated]
+		[originContent]ATM用户输入密码。
+			[wordlist]['ATM', '用户', '输入', '密码', '。']
+			[actor]1
+			[action]2
+			[normalContent]ATM用户输入密码。
+			[type]normal
+			[associated]
+		[originContent]如果密码错误，那么输入密码，直到密码正确或输错三次。
+			[wordlist]['IF', '密码', '错误', '，', 'THEN', '输入', '密码', '，', 'UNTIL', '密码', '正确', '或', '输错', '三', '次', '。']
+			[actor]9
+			[action]10
+			[normalContent]IF密码错误，THEN输入密码，UNTIL密码正确或输错次。
+			[type]normal
+			[associated]
+		[originContent]系统判断输入密码正确。
+			[wordlist]['系统', '判断', '输入', '密码', '正确', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统判断输入密码正确。
+			[type]normal
+			[associated]
+		[originContent]系统展示登陆成功后的界面。
+			[wordlist]['系统', '展示', '登陆', '成功', '后', '的', '界面', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示登陆成功后的界面。
+			[type]normal
+			[associated]
+		[originContent]ATM用户点击“取款”按钮。
+			[wordlist]['ATM', '用户', '点击', '“', '取款', '”', '按钮', '。']
+			[actor]1
+			[action]2
+			[normalContent]ATM用户点击“取款”按钮。
+			[type]normal
+			[associated]
+		[originContent]
+			[wordlist]['ATM', '用户', '输入', '取款', '数目', '200', '元', '钱', '。']
+			[actor]1
+			[action]2
+			[normalContent]ATM用户输入取款数目钱。
+			[type]normal
+			[associated]
+		[originContent]ATM用户选择取款账户。
+			[wordlist]['ATM', '用户', '选择', '取款', '账户', '。']
+			[actor]1
+			[action]2
+			[normalContent]ATM用户选择取款账户。
+			[type]normal
+			[associated]
+		[originContent]系统判断用户选择的账户号有效。
+			[wordlist]['系统', '判断', '用户', '选择', '的', '账户号', '有效', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统判断用户选择的账户号有效。
+			[type]normal
+			[associated]
+		[originContent]
+			[wordlist]['系统', '判断', 'ATM', '用户', '在', '该', '账户', '中', '的', '资金', '多于', '200', '元', '钱', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统判断ATM用户在该账户中的资金多于钱。
+			[type]normal
+			[associated]
+		[originContent]系统判断200元钱小于每日提取金额限制。
+			[wordlist]['系统', '判断', '200', '元', '钱', '小于', '每日', '提取', '金额', '限制', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统判断钱小于每日提取金额限制。
+			[type]normal
+			[associated]
+		[originContent]
+			[wordlist]['系统', '判断', 'ATM', '机', '中', '的', '资金', '不', '小于', '200', '元', '钱', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统判断ATM机中的资金不小于钱。
+			[type]normal
+			[associated]
+		[originContent]系统分发现金。
+			[wordlist]['系统', '分发', '现金', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统分发现金。
+			[type]normal
+			[associated]
+		[originContent]系统展示交易信息。
+			[wordlist]['系统', '展示', '交易', '信息', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示交易信息。
+			[type]normal
+			[associated]
+		[originContent]系统退卡。
+			[wordlist]['系统', '退卡', '。']
+			[actor]None
+			[action]
+			[normalContent]系统退卡。
+			[type]normal
+			[associated]
+		[originContent]系统展示欢迎信息。
+			[wordlist]['系统', '展示', '欢迎', '信息', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示欢迎信息。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]ATM用户成功取到200元钱。
+			[wordlist]['ATM', '用户', '成功', '取', '到', '200', '元', '钱', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+[UseCaseName]提钱
+	[FlowType]specific
+	[Refer]1
+	[Condition][<data.datatype.Sentence object at 0x0000022AF1AD54C8>]
+	[Feature]提钱
+	[Scenarion]
+		[originContent]ATM用户输入的卡是无效卡。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]系统处于空闲状态。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统判断该卡为无效卡。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]1
+	[When]
+		[originContent]系统退卡。
+			[wordlist]['系统', '退卡', '。']
+			[actor]None
+			[action]
+			[normalContent]系统退卡。
+			[type]normal
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]['系统', '显示', '欢迎', '信息', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统显示欢迎信息。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统处于空闲状态。
+			[wordlist]['系统', '处于', '空闲', '状态', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+[UseCaseName]提钱
+	[FlowType]specific
+	[Refer]5
+	[Condition][<data.datatype.Sentence object at 0x0000022AF1AD59A8>]
+	[Feature]提钱
+	[Scenarion]
+		[originContent]ATM用户三次输入密码错误。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+		[originContent]
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]系统处于空闲状态。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统判断输入密码错误。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]5
+	[When]
+		[originContent]系统提示三次输入密码错误同时系统吞卡。
+			[wordlist]['系统', '提示', '三', '次', '输入', '密码', '错误', 'MEANWHILE', '系统', '吞卡', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统提示次输入密码错误MEANWHILE系统吞卡。
+			[type]normal
+			[associated]
+		[originContent]系统展示欢迎信息。
+			[wordlist]['系统', '展示', '欢迎', '信息', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示欢迎信息。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统处于空闲状态。
+			[wordlist]['系统', '处于', '空闲', '状态', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+		[originContent]ATM用户失去插入的卡。
+			[wordlist]['ATM', '用户', '失去', '插入', '的', '卡', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+[UseCaseName]提钱
+	[FlowType]global
+	[Refer]
+	[Condition][<data.datatype.Sentence object at 0x0000022AF1AD5E28>]
+	[Feature]提钱
+	[Scenarion]
+		[originContent]ATM用户在任何情况下都可以退出系统。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]系统处于空闲状态。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]ATM用户在任何情况下选择“取消”操作。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]
+	[When]
+		[originContent]系统取消交易同时系统退卡。
+			[wordlist]['系统', '取消', '交易', 'MEANWHILE', '系统', '退卡', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统取消交易MEANWHILE系统退卡。
+			[type]normal
+			[associated]
+		[originContent]系统展示欢迎信息。
+			[wordlist]['系统', '展示', '欢迎', '信息', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示欢迎信息。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统处于空闲状态。
+			[wordlist]['系统', '处于', '空闲', '状态', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+		[originContent]系统展示欢迎信息。
+			[wordlist]['系统', '展示', '欢迎', '信息', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+[UseCaseName]提钱
+	[FlowType]specific
+	[Refer]13
+	[Condition][<data.datatype.Sentence object at 0x0000022AF1AD63A8>]
+	[Feature]提钱
+	[Scenarion]
+		[originContent]ATM机中的资金不足。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]系统处于空闲状态。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]ATM机中的资金小于200元钱。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]13
+	[When]
+		[originContent]系统展示“ATM机中的资金不足”。
+			[wordlist]['系统', '展示', '“', 'ATM', '机', '中', '的', '资金', '不足', '”', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示“ATM机中的资金不足”。
+			[type]normal
+			[associated]
+		[originContent]系统退卡。
+			[wordlist]['系统', '退卡', '。']
+			[actor]None
+			[action]
+			[normalContent]系统退卡。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]ATM用户的资金没有被取出。
+			[wordlist]['ATM', '用户', '的', '资金', '没有', '被', '取出', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+		[originContent]系统处于空闲状态。
+			[wordlist]['系统', '处于', '空闲', '状态', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+		[originContent]系统展示欢迎信息。
+			[wordlist]['系统', '展示', '欢迎', '信息', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+[UseCaseName]提钱
+	[FlowType]bounded
+	[Refer][11, 8, 13]
+	[Condition][<data.datatype.Sentence object at 0x0000022AF1AD68E8>, <data.datatype.Sentence object at 0x0000022AF1AD6168>, <data.datatype.Sentence object at 0x0000022AF1AD6948>]
+	[Feature]提钱
+	[Scenarion]
+		[originContent]系统检测出该次交易并不合法。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]系统处于空闲状态。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统显示欢迎信息。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]用户选择的账户号无效或ATM用户在该账户中的资金不足200元钱或200元钱大于每日提取金额限制。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]11
+		[originContent]用户选择的账户号无效或ATM用户在该账户中的资金不足200元钱或200元钱大于每日提取金额限制。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]8
+		[originContent]用户选择的账户号无效或ATM用户在该账户中的资金不足200元钱或200元钱大于每日提取金额限制。
+			[wordlist]
+			[actor]None
+			[action]
+			[normalContent]
+			[type]unique
+			[associated]13
+	[When]
+		[originContent]系统展示抱歉信息并同时退卡。
+			[wordlist]['系统', '展示', '抱歉', '信息', '并', 'MEANWHILE', '退卡', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统展示抱歉信息并MEANWHILE退卡。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统处于空闲状态。
+			[wordlist]['系统', '处于', '空闲', '状态', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]
+		[originContent]系统展示欢迎信息。
+			[wordlist]['系统', '展示', '欢迎', '信息', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]then
+			[associated]

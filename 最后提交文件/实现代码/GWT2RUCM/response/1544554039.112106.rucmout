@@ -1,0 +1,30 @@
+Use Case Name: 处理文档
+ Brief Description: 系统处理用户输入文档时用户选择取消操作
+Precondition: 系统处于空闲状态。系统显示可以输入。
+Primary Actor:用户
+Secondary Actors:系统支持 
+Dependency:
+Generalization:None
+Basic Flow:
+1.用户登录系统
+2.用户输入初始文件
+3.系统VALIDATES THAT输入文件规范
+4.系统标记输入文档元素
+5.系统抽取标记的文档元素
+6.系统组合文档元素
+7.系统合成输出结果
+8.用户下载输出文件
+postcondition:系统等待下一次输入
+Specific Alternative Flow: RFS 3
+1.用户输入初始文件
+2.系统检验输入文件不规范
+3.系统提示用户重新输入
+4.用户确认输入文件
+5.系统处理输入文件
+6.用户获取输出文件
+postcondition:系统等待下一次输入
+Global Alternative Flow: IF 用户请求取消操作
+1.系统支持中断系统运行
+2.系统恢复初始状态
+END IF
+postcondition:系统处于空闲状态系统显示可以输入
