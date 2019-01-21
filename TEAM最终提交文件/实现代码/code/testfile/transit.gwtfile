@@ -1,0 +1,90 @@
+[useCaseName]处理文档
+[flowType]basic
+[Features]
+  [story]As a 用户、系统支持
+  [business_rule]用户输入文档后经系统处理产生输出文件。
+[Scenario]系统处理用户输入的文档。
+[Givens]
+  [precondition]系统处于空闲状态。
+  [precondition]系统显示可以输入。
+  [precondition]用户输入文件规范。
+  [fixed_data]
+[Whens]
+  [action]用户登录系统[1]
+  [action]用户输入初始文件[2]
+  [action]系统检验输入文件规范[3]
+  [action]系统标记输入文档元素[4]
+  [action]系统抽取标记的文档元素[5]
+  [action]系统组合文档元素[6]
+  [action]系统合成输出结果[7]
+  [action]用户下载输出文件[8]
+  [input_data]输入文件
+[Thens]
+  [output_data]输出文件
+  [postcondition]系统等待下一次输入。
+[useCaseName]处理文档
+[flowType]specific
+[branchScenario]3
+[Features]
+  [story]As a 用户、系统支持
+  [business_rule]系统在输入文档不规范时要求重新输入。
+[Scenario]系统处理用户输入文档时检验用户输入文档不规范。
+[Givens]
+  [precondition]系统处于空闲状态。
+  [precondition]系统显示可以输入。
+  [precondition]用户输入文件不规范。
+  [fixed_data]
+[Whens]
+  [action]用户登录系统[1]
+  [action]用户输入初始文件[2]
+  [action]系统检验输入文件不规范[3]
+  [action]系统提示用户重新输入[4]
+  [action]用户确认输入文件[5]
+  [action]系统处理输入文件[6]
+  [action]用户获取输出文件[7]
+  [input_data]输入文件
+[Thens]
+  [output_data]输出文件
+  [postcondition]系统等待下一次输入。
+[useCaseName]处理文档
+[flowType]bounded
+[branchScenario]4,5,6
+[Features]
+  [story]As a 用户、系统支持
+  [business_rule]系统出错时进行重置。
+[Scenario]系统处理用户输入文档时系统出错。
+[Givens]
+  [precondition]系统处于空闲状态。
+  [precondition]系统显示可以输入。
+  [precondition]用户输入文件规范。
+  [precondition]系统未能标记输入文档元素。
+  [precondition]系统未能抽取标记的文档元素。
+  [precondition]系统未能组合文档元素。
+  [fixed_data]
+[Whens]
+  [action]用户登录系统[1]
+  [action]用户输入初始文件[2]
+  [action]系统检验输入文件不规范[3]
+  [action]用户告知系统支持出错信息[4]
+  [action]系统支持重置系统[5]
+  [input_data]输入文件
+[Thens]
+  [output_data]出错信息
+  [postcondition]系统处于空闲状态。系统显示可以输入。
+[useCaseName]处理文档
+[flowType]global
+[branchScenario]用户请求取消操作
+[Features]
+  [story]As a 用户、系统支持
+  [business_rule]用户随时取消操作。
+[Scenario]系统处理用户输入文档时用户选择取消操作。
+[Givens]
+  [precondition]GLOBAL 用户请求取消操作
+  [fixed_data]
+[Whens]
+  [action]系统支持中断系统运行[1]
+  [action]系统恢复初始状态[2]
+  [input_data]
+[Thens]
+  [output_data]
+  [postcondition]系统处于空闲状态。系统显示可以输入。
