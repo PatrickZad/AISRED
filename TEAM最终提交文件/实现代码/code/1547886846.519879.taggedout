@@ -1,0 +1,225 @@
+[UseCaseName]进站
+	[FlowType]basic
+	[Refer]
+	[Condition][]
+	[Feature]进站
+	[Scenarion]
+		[originContent]乘客刷卡进入地铁站
+			[wordlist]['乘客', '刷卡', '进入', '地铁站']
+			[actor]1
+			[action]2
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]地铁在正常运营。
+			[wordlist]['地铁', '在', '正常', '运营', '。']
+			[actor]0
+			[action]3
+			[normalContent]
+			[type]common
+			[associated]
+	[When]
+		[originContent]乘客在刷卡器上刷卡。
+			[wordlist]['乘客', '在', '刷卡器', '上', '刷', '卡', '。']
+			[actor]0
+			[action]4
+			[normalContent]乘客在刷卡器上刷卡。
+			[type]normal
+			[associated]
+		[originContent]系统检测单向通道可通行。
+			[wordlist]['系统', '检测', '单向', '通道', '可', '通行', '。']
+			[actor]3
+			[action]5
+			[normalContent]系统检测单向通道可通行。
+			[type]normal
+			[associated]
+		[originContent]系统读卡 。
+			[wordlist]['系统', '读', '卡', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统读卡。
+			[type]normal
+			[associated]
+		[originContent]系统确认卡片有效。
+			[wordlist]['系统', '确认', '卡片', '有效', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统确认卡片有效。
+			[type]normal
+			[associated]
+		[originContent]系统连接到账目中心。
+			[wordlist]['系统', '连接', '到', '账目', '中心', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统连接到账目中心。
+			[type]normal
+			[associated]
+		[originContent]系统查验余额充足。
+			[wordlist]['系统', '查验', '余额', '充足', '。']
+			[actor]2
+			[action]3
+			[normalContent]系统查验余额充足。
+			[type]normal
+			[associated]
+		[originContent]账户中心返回通过和余额信息系统打开扇门同时保持打开10秒。
+			[wordlist]['账户', '中心', '返回', '通过', '和', '余额', '信息', '系统', '打开', '扇', '门', '同时', '保持', '打开', '10', '秒', '。']
+			[actor]1
+			[action]2
+			[normalContent]账户中心返回通过和余额信息系统打开扇门MEANWHILE保持打开秒。
+			[type]normal
+			[associated]
+		[originContent]系统关闭扇门。
+			[wordlist]['系统', '关闭', '扇', '门', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统关闭扇门。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]乘客已进站
+			[wordlist]['乘客', '已', '进站']
+			[actor]0
+			[action]2
+			[normalContent]乘客已进站
+			[type]then
+			[associated]
+[UseCaseName]进站
+	[FlowType]global
+	[Refer]
+	[Condition]['系统检验单向通道不可通行。']
+	[Feature]进站
+	[Scenarion]
+		[originContent]系统处理进错方向情况
+			[wordlist]['系统', '处理', '进', '错', '方向', '情况']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]地铁在正常运营。
+			[wordlist]['地铁', '在', '正常', '运营', '。']
+			[actor]0
+			[action]3
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统检验单向通道不可通行。
+			[wordlist]['系统', '检验单', '向', '通道', '不可', '通行', '。']
+			[actor]1
+			[action]5
+			[normalContent]
+			[type]unique
+			[associated]
+	[When]
+		[originContent]系统警告用户此路不通。
+			[wordlist]['系统', '警告', '用户', '此路不通', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统警告用户此路不通。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统回到初始状态。
+			[wordlist]['系统', '回到', '初始', '状态', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统回到初始状态。
+			[type]then
+			[associated]
+		[originContent]系统保持通道关闭。
+			[wordlist]['系统', '保持', '通道', '关闭', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统保持通道关闭。
+			[type]then
+			[associated]
+[UseCaseName]进站
+	[FlowType]global
+	[Refer]
+	[Condition]['系统检测到卡片无效。']
+	[Feature]进站
+	[Scenarion]
+		[originContent]系统处理卡片异常情况。
+			[wordlist]['系统', '处理', '卡片', '异常', '情况', '。']
+			[actor]0
+			[action]1
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]地铁在正常运营。
+			[wordlist]['地铁', '在', '正常', '运营', '。']
+			[actor]0
+			[action]3
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统检测到卡片无效。
+			[wordlist]['系统', '检测', '到', '卡片', '无效', '。']
+			[actor]0
+			[action]1
+			[normalContent]
+			[type]unique
+			[associated]
+	[When]
+		[originContent]系统警告卡片异常。
+			[wordlist]['系统', '警告', '卡片', '异常', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统警告卡片异常。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统回到初始状态。
+			[wordlist]['系统', '回到', '初始', '状态', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统回到初始状态。
+			[type]then
+			[associated]
+[UseCaseName]进站
+	[FlowType]global
+	[Refer]
+	[Condition]['系统验证余额不足。']
+	[Feature]进站
+	[Scenarion]
+		[originContent]系统处理余额不足情况。
+			[wordlist]['系统', '处理', '余额', '不足', '情况', '。']
+			[actor]None
+			[action]
+			[normalContent]
+			[type]
+			[associated]
+	[Given]
+		[originContent]地铁在正常运营。
+			[wordlist]['地铁', '在', '正常', '运营', '。']
+			[actor]0
+			[action]3
+			[normalContent]
+			[type]common
+			[associated]
+		[originContent]系统验证余额不足。
+			[wordlist]['系统', '验证', '余额', '不足', '。']
+			[actor]2
+			[action]3
+			[normalContent]
+			[type]unique
+			[associated]
+	[When]
+		[originContent]系统提示余额不足。
+			[wordlist]['系统', '提示', '余额', '不足', '。']
+			[actor]0
+			[action]1
+			[normalContent]系统提示余额不足。
+			[type]normal
+			[associated]
+	[Then]
+		[originContent]系统回到初始状态
+			[wordlist]['系统', '回到', '初始', '状态']
+			[actor]0
+			[action]1
+			[normalContent]系统回到初始状态
+			[type]then
+			[associated]

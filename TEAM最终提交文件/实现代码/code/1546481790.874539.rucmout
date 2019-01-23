@@ -1,0 +1,102 @@
+Use Case Name: 监控轧制过程参数
+	Brief Description: 系统显示运行过程中的各项参数，标注异常参数系统处理未收到传感器返回值情况系统处理传感器返回值异常情况
+	Precondition: 轧钢系统在正常运行。
+	Primary Actor:操作员
+	Secondary Actors:
+	Dependency:None
+	Generalization:None
+	Basic Flow:
+		1.操作员打开监控轧钢过程参数界面。
+		2.DO 系统每3s接收各传感器返回的值
+		3.系统验证VALIDATES THAT传感器返回的值
+		4.系统VALIDATES THAT传感器返回值正常
+		5.系统显示传感器返回的值
+		6.UNTIL操作员选择退出监控轧制过程参数界面。
+		postcondition:轧钢过程参数已显示到人机交互界面上
+	Specific Alternative Flow: RFS 3
+		1.系统将该参数显示为NULL。
+		2.ABORT
+		postcondition:系统返回到初始状态
+	Specific Alternative Flow: RFS 4
+		1.系统以红色显示该参数。
+		2.ABORT
+		postcondition:系统返回到初始状态
+Use Case Name: 提钱
+	Brief Description: ATM用户在任何情况下都可以退出系统
+	Precondition: 系统处于空闲状态。系统显示欢迎信息。
+	Primary Actor:用户
+	Secondary Actors:
+	Dependency:None
+	Generalization:None
+	Basic Flow:
+		1.系统检测到卡。
+		2.系统VALIDATES THAT该卡为有效卡。
+		3.系统展示登陆界面。
+		4.ATM用户输入密码。
+		5.IF密码错误，THEN输入密码，UNTIL密码正确或输错三次。
+		6.系统VALIDATES THAT输入密码正确。
+		7.系统展示登陆成功后的界面。
+		8.ATM用户点击“取款”按钮。
+		9.ATM用户输入取款数目钱。
+		10.ATM用户选择取款账户。
+		11.系统判断用户选择的账户号有效。
+		12.系统VALIDATES THATATM用户在该账户中的资金多于钱。
+		13.系统VALIDATES THAT钱小于每日提取金额限制。
+		14.系统VALIDATES THATATM机中的资金不小于钱。
+		15.系统分发现金。
+		16.系统展示交易信息。
+		17.系统退卡。
+		18.系统展示欢迎信息。
+		postcondition:ATM用户成功取到200元钱。
+	Specific Alternative Flow: RFS 2
+		1.系统退卡。
+		2.系统显示欢迎信息。
+		3.ABORT
+		postcondition:系统处于空闲状态。
+	Specific Alternative Flow: RFS 6
+		1.系统提示次输入密码错误MEANWHILE系统吞卡。
+		2.系统展示欢迎信息。
+		3.ABORT
+		postcondition:系统处于空闲状态。ATM用户失去插入的卡。
+	Specific Alternative Flow: RFS 14
+		1.系统展示“ATM机中的资金不足”。
+		2.系统退卡。
+		3.ABORT
+		postcondition:ATM用户的资金没有被取出。系统处于空闲状态。系统展示欢迎信息。
+	Bounded Alternative Flow: RFS 12, 13
+		1.系统展示抱歉信息并MEANWHILE退卡。
+		postcondition:系统处于空闲状态。系统展示欢迎信息。
+	Global Alternative Flow: IF ATM用户在任何情况下选择“取消”操作。
+		1.系统取消交易MEANWHILE系统退卡。
+		2.系统展示欢迎信息。
+		END IF
+		postcondition:系统处于空闲状态。系统展示欢迎信息。
+Use Case Name: 进站
+	Brief Description: 乘客刷卡进入地铁站系统处理进错方向情况系统处理卡片异常情况
+	Precondition: 地铁在正常运营。
+	Primary Actor:乘客
+	Secondary Actors:
+	Dependency:None
+	Generalization:None
+	Basic Flow:
+		1.乘客在刷卡器上刷卡。
+		2.系统检测单向通道可通行。
+		3.系统读卡。
+		4.系统确认卡片有效。
+		5.系统连接到账目中心。
+		6.系统查验余额充足。
+		7.账户中心返回通过和余额信息系统打开扇门MEANWHILE保持打开秒。
+		8.系统关闭扇门。
+		postcondition:乘客已进站
+	Global Alternative Flow: IF 系统检验单向通道不可通行。
+		1.系统警告用户此路不通。
+		END IF
+		postcondition:系统回到初始状态。系统保持通道关闭。
+	Global Alternative Flow: IF 系统检测到卡片无效。
+		1.系统警告卡片异常。
+		END IF
+		postcondition:系统回到初始状态。
+	Global Alternative Flow: IF 系统验证余额不足。
+		1.系统提示余额不足。
+		END IF
+		postcondition:系统回到初始状态

@@ -1,0 +1,33 @@
+Use Case Name: 处理文档
+Brief Description: 系统处理用户输入的文档。
+Precondition: 系统处于空闲状态。系统显示可以输入。
+Peimary Actor: 用户
+Secondary Actors:系统支持
+Dependency: None
+Generalization: None
+Basic Flow:
+1.用户登录系统
+2.用户输入初始文件
+3.系统VALIDATES THAT输入文件规范
+4.系统标记输入文档元素
+5.系统抽取标记的文档元素
+6.系统组合文档元素
+7.系统合成输出结果
+8.用户下载输出文件
+postcondition:系统等待下一次输入。
+Specific Alternative Flow: RFS 3
+1.系统提示用户重新输入
+2.用户确认输入文件
+3.系统处理输入文件
+4.用户获取输出文件
+postcondition:系统等待下一次输入
+Bounded Alternative Flow: RFS 4-6
+1.用户告知系统支持出错信息
+2.系统支持重置系统
+postcondition:系统处于空闲状态。系统显示可以输入。
+Global Alternative Flow: IF 用户请求取消操作
+1.系统支持中断系统运行
+2.系统恢复初始状态
+END IF
+postcondition:系统处于空闲状态。系统显示可以输入。
+
