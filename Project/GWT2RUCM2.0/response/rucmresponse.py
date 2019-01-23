@@ -188,6 +188,7 @@ class RUCMGnerator():
             self.output += rucm.__str__()
         with open(outpath, 'w', encoding='utf-8') as f:
             f.write(self.output)
+            print(outpath)
         self.output = outpath
 
     def __addDependency(self, rucm, sentence):
@@ -205,6 +206,7 @@ class RUCMGnerator():
             output += gwt.__str__()
         with open(outpath, 'w', encoding='utf-8') as f:
             f.write(output)
+            print(outpath)
 
 
 if __name__ == '__main__':
